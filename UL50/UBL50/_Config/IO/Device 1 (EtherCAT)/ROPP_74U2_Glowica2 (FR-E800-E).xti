@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CFlbTermDef" SubType="9099">
+	<ImageDatas>
+		<ImageData Id="1000">424db6030000000000003600000028000000100000000e00000001002000000000000000000000000000000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000000080ff000080ff000080ff000080ff000080ff000080ff000080ff000080ff000080ff000080ff000000000000000000000000000000000000000000000000808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff808080ff000000000000000000000000000000000000000000000000000000ff808080ff808080ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ff000000000000000000000000000000000000000000000000000000ff000000ff808080ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ffc0c0c0ff000000000000000000000000000000000000000000000000808080ff808080ff000000ff808000ff808000ff000080ff000080ff000000ff000000ff000000ff000000000000000000000000000000000000000000000000000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000000000000000000000000000000000000000000000000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000000000000000000000000000000000000000000000000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000000000000000000000</ImageData>
+	</ImageDatas>
+	<Box Id="126" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x3e80" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" VendorId="#x00000a1e" ProductCode="#x02000301" RevisionNo="#x00010001" InfoDataAddr="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="6000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="FR-E800-E" Desc="FR-E800-E">
+			<SyncMan>0020000126000100010000002600ce050001002026010000</SyncMan>
+			<SyncMan>0028000122000100020000002600ce050001002822010000</SyncMan>
+			<SyncMan>00102a006400010003000000000000000000001064010000</SyncMan>
+			<SyncMan>00183a002000010004000000000000000000001820010000</SyncMan>
+			<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000001800010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<SuName>Inverters</SuName>
+			<SuTask>#x02010030</SuTask>
+			<DcMode>4672656552756e000000000000000000467265652052756e000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<Pdo Name="Transmit PDO Mapping" Index="#x1a00" Flags="#x0010" SyncMan="3">
+				<Entry Name="Statusword" Index="#x6041">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Pr.1330 Mapping" Index="#x5fff" Sub="#x01">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1331 Mapping" Index="#x5fff" Sub="#x02">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1332 Mapping" Index="#x5fff" Sub="#x03">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1333 Mapping" Index="#x5fff" Sub="#x04">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1334 Mapping" Index="#x5fff" Sub="#x05">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1335 Mapping" Index="#x5fff" Sub="#x06">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1336 Mapping" Index="#x5fff" Sub="#x07">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1337 Mapping" Index="#x5fff" Sub="#x08">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1338 Mapping" Index="#x5fff" Sub="#x09">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1339 Mapping" Index="#x5fff" Sub="#x0a">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1340 Mapping" Index="#x5fff" Sub="#x0b">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1341 Mapping" Index="#x5fff" Sub="#x0c">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1342 Mapping" Index="#x5fff" Sub="#x0d">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1343 Mapping" Index="#x5fff" Sub="#x0e">
+					<Type>UDINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="Receive PDO Mapping" Index="#x1600" InOut="1" Flags="#x0010" SyncMan="2">
+				<Entry Name="Controlword" Index="#x6040">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Pr.1320 Mapping" Index="#x5ffe" Sub="#x01">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1321 Mapping" Index="#x5ffe" Sub="#x02">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1322 Mapping" Index="#x5ffe" Sub="#x03">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1323 Mapping" Index="#x5ffe" Sub="#x04">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1324 Mapping" Index="#x5ffe" Sub="#x05">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1325 Mapping" Index="#x5ffe" Sub="#x06">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1326 Mapping" Index="#x5ffe" Sub="#x07">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1327 Mapping" Index="#x5ffe" Sub="#x08">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1328 Mapping" Index="#x5ffe" Sub="#x09">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Pr.1329 Mapping" Index="#x5ffe" Sub="#x0a">
+					<Type>UDINT</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="65938"/>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

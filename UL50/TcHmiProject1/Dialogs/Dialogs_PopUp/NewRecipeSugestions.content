@@ -1,0 +1,200 @@
+<div id="Content1_15" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1400" data-tchmi-height="850">
+
+    <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+        {
+          "color": "rgba(237, 240, 242, 1)"
+        }
+    </script>
+        <!--
+    <div id="TcHmiDatagrid_25" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDatagrid" data-tchmi-height="775" data-tchmi-height-unit="px" data-tchmi-left="1449" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="1400" data-tchmi-width-unit="px" data-tchmi-show-row-numbers="false" data-tchmi-src-data="%s%HMI.GVL_Recipe.ArRecipeChanges%/s%">
+        <script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+            [
+              {
+                "name": "which_param_name",
+                "label": "which_param_name",
+                "control": "TextBlock",
+                "width": 20,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 100,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Left",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "which_param_var",
+                "label": "which_param_var",
+                "control": "TextBlock",
+                "width": 30,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 100,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Left",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "which_param_cntr",
+                "label": "which_param_cntr",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 100,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Left",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "old_value",
+                "label": "old_value",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 100,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "new_value",
+                "label": "new_value",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 70,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "who_changed",
+                "label": "who_changed",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 70,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "when_changed",
+                "label": "when_changed",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 70,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              },
+              {
+                "name": "which_recipe",
+                "label": "which_recipe",
+                "control": "TextBlock",
+                "width": 15,
+                "widthUnit": "%",
+                "resize": false,
+                "sortable": false,
+                "minWidth": 100,
+                "minWidthUnit": "px",
+                "editable": false,
+                "horizontalAlignment": "Left",
+                "verticalAlignment": "Center",
+                "headerHorizontalAlignment": "Center",
+                "headerVerticalAlignment": "Center",
+                "ignoreEscapeSequences": false,
+                "autoFocusOut": true,
+                "autoSelectText": false
+              }
+            ]
+        </script>
+
+        <script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+            {
+              "left": 3,
+              "leftUnit": "px",
+              "right": 3,
+              "rightUnit": "px",
+              "top": 0,
+              "topUnit": "px",
+              "bottom": 0,
+              "bottomUnit": "px"
+            }
+        </script>
+
+
+        <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+            []
+        </script>
+
+
+    </div>
+        -->
+    
+<div id="TcHmiTextbox_37" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="830" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%l%Text890%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1380" data-tchmi-width-unit="px" data-tchmi-text-font-size="25" data-tchmi-multiline="True" data-tchmi-word-wrap="True" data-tchmi-is-read-only="True">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+</div>

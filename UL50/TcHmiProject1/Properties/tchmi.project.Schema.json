@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "StdStationControl": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\StdStationControl.usercontrol.json",
+      "id": "tchmi:project#/definitions/StdStationControl",
+      "type": "object"
+    },
+    "NavigatoionPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "LeftNavigation\\NavigatoionPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/NavigatoionPanel",
+      "type": "object"
+    },
+    "lrParam": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\lrParam.usercontrol.json",
+      "id": "tchmi:project#/definitions/lrParam",
+      "type": "object"
+    },
+    "lrParam_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\bParam.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/lrParam_-_Copy"
+    },
+    "bParam": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\bParam.usercontrol.json",
+      "id": "tchmi:project#/definitions/bParam",
+      "type": "object"
+    },
+    "ManualUpDown": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\ManualUpDown.usercontrol.json",
+      "id": "tchmi:project#/definitions/ManualUpDown",
+      "type": "object"
+    },
+    "udiParam": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\udiParam.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/udiParam"
+    },
+    "ucNumPad": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "LostTechnology\\ucNumPad.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ucNumPad"
+    },
+    "Form": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Form.usercontrol.json",
+      "id": "tchmi:project#/definitions/Form",
+      "type": "object"
+    },
+    "Array(0..99) OF String": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/String"
+      },
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "title": "AsFormDescription"
+    },
+    "AsFormDescriptionArray": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/String"
+      },
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "title": "AsFormDescriptionArray",
+      "description": "AsFormDescriptionArray"
+    },
+    "RecipeDescription": {
+      "properties": {
+        "Caption": {
+          "$ref": "tchmi:general#/definitions/String"
+        },
+        "Index": {
+          "$ref": "tchmi:general#/definitions/String"
+        },
+        "Date": {
+          "$ref": "tchmi:general#/definitions/String"
+        },
+        "Id": {
+          "$ref": "tchmi:general#/definitions/INT"
+        }
+      },
+      "type": "object",
+      "title": "RecipeDescription",
+      "description": "RecipeDescription"
+    },
+    "Array(0..99) OF RecipeDescription": {
+      "items": {
+        "$ref": "tchmi:project#/definitions/RecipeDescription"
+      },
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100
+    },
+    "ManualUpDown_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\ManualUpDown wo value.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ManualUpDown_-_Copy"
+    },
+    "Copy_Symbol_Of_String": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "$ref": "tchmi:general#/definitions/String"
+        }
+      ],
+      "id": "tchmi:project#/definitions/Symbol_Of_String"
+    },
+    "ManualButton_-_Copy_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\ManualSide.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ManualButton_-_Copy_0"
+    },
+    "NewManualButtonNormal_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\NewManualButtonNormalRectangle.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/NewManualButtonNormal_-_Copy"
+    },
+    "bParam_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\bParamShort.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/bParam_-_Copy"
+    },
+    "bParamShort": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\bParamShort.usercontrol.json",
+      "id": "tchmi:project#/definitions/bParamShort",
+      "type": "object"
+    },
+    "ManualButtonmAIN": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\ManualButtonmAIN.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/ManualButtonmAIN"
+    },
+    "NewManualButtonNormal": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\NewManualButtonNormal.usercontrol.json",
+      "id": "tchmi:project#/definitions/NewManualButtonNormal",
+      "type": "object"
+    },
+    "lrParam_-_Copy_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Recipe\\CommonControls\\lrParam_short.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/lrParam_-_Copy_0"
+    },
+    "NewManualButtonNormalRectangle_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\NewManualButtonNormalRectangleBIG.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/NewManualButtonNormalRectangle_-_Copy"
+    },
+    "NewManualButtonLong": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "ManualMode\\CommonControls\\NewManualButtonLong.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/NewManualButtonLong"
+    }
+  }
+}

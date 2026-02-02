@@ -1,0 +1,645 @@
+<div id="Manual_1_UBF_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1545" data-tchmi-height="949" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080" data-tchmi-is-enabled="true">
+
+<div id="TcHmiRectangle_1718" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="373" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="845" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 6.0,
+  "topRight": 6.0,
+  "bottomLeft": 6.0,
+  "bottomRight": 6.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(54, 153, 153, 1)"
+    },
+    "offsetX": 4.0,
+    "offsetXUnit": "px",
+    "offsetY": 4.0,
+    "offsetYUnit": "px",
+    "inset": false,
+    "blur": 4.0,
+    "blurUnit": "px",
+    "spread": 0.0,
+    "spreadUnit": "px"
+  }
+]
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2888" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="70" data-tchmi-left-unit="px" data-tchmi-text="%l%Text638%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="313" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiRectangle_1719" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="343" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="840" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 6.0,
+  "topRight": 6.0,
+  "bottomLeft": 6.0,
+  "bottomRight": 6.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2889" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-text="%l%Text111%/l%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2890" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="585" data-tchmi-left-unit="px" data-tchmi-text="%l%Text160%/l%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2891" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-text="%l%Text640%/l%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="177" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2892" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="24" data-tchmi-height-unit="px" data-tchmi-left="1138" data-tchmi-left-unit="px" data-tchmi-text="%l%Text105%/l%" data-tchmi-top="366" data-tchmi-top-unit="px" data-tchmi-width="145" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="ManualButton_2504" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="185" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-scaption="Caption" data-tchmi-sunit="mm" data-tchmi-target-user-control="ManualMode/CommonControls/ManualUpDown.usercontrol" data-tchmi-top="395" data-tchmi-top-unit="px" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-lrvalue="%s%BottleSorter.GVL_VIS.lrBottleSorterBrushHeightCV%/s%" data-tchmi-bup="%s%BottleSorter.GVL_VIS.bBottleSorterManualBrushLiftUp|BindingMode=TwoWay%/s%" data-tchmi-bdown="%s%BottleSorter.GVL_VIS.bBottleSorterManualBrushLiftDown|BindingMode=TwoWay%/s%" data-tchmi-zindex="3" data-tchmi-is-enabled="true">
+
+
+</div>
+<div id="TcHmiTextblock_2893" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-text="%l%Text8%/l%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="LrParam_1879" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="35" data-tchmi-left-unit="px" data-tchmi-max="100" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="261" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text610%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterManualHopperConveyorSpeed|BindingMode=TwoWay%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="true">
+
+
+</div>
+<div id="LrParam_1880" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-max="100" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text610%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterManualTransferConveyorSpeed|BindingMode=TwoWay%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="true">
+
+
+</div>
+<div id="LrParam_1881" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="585" data-tchmi-left-unit="px" data-tchmi-max="1500" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="261" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text610%/l%" data-tchmi-unit="rpm" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.uiBottleSorterManualSupplyConveyorSpeed%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="true">
+
+
+</div>
+<div id="LrParam_1882" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-max="1000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="375" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text610%/l%" data-tchmi-unit="rpm" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.lrBottleSorterManualWheelSpeed|BindingMode=TwoWay%/s%" data-tchmi-zindex="3" data-tchmi-is-enabled="true">
+
+
+</div>
+<div id="LrParam_1883" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-max="360" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="431" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text644%/l%" data-tchmi-unit="deg" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.lrBottleSorterManualWehhelFIxedAngle%/s%" data-tchmi-zindex="3" data-tchmi-is-enabled="true">
+
+
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+<div id="TcHmiTextblock_2894" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="35" data-tchmi-left-unit="px" data-tchmi-text="%l%Text110%/l%" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiTextblock_2895" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="928" data-tchmi-left-unit="px" data-tchmi-text="%l%Text639%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="416" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="16" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiLine_108" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-height="319" data-tchmi-height-unit="px" data-tchmi-left="577" data-tchmi-left-unit="px" data-tchmi-top="47" data-tchmi-top-unit="px" data-tchmi-width="2" data-tchmi-width-unit="px" data-tchmi-y2="319" data-tchmi-zindex="4" data-tchmi-is-enabled="true">
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(51, 51, 51, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiLine_109" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-height="319" data-tchmi-height-unit="px" data-tchmi-left="302" data-tchmi-left-unit="px" data-tchmi-top="47" data-tchmi-top-unit="px" data-tchmi-width="2" data-tchmi-width-unit="px" data-tchmi-y2="319" data-tchmi-zindex="4" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(51, 51, 51, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiLine_110" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-height="490" data-tchmi-height-unit="px" data-tchmi-left="1165" data-tchmi-left-unit="px" data-tchmi-top="48" data-tchmi-top-unit="px" data-tchmi-width="2" data-tchmi-width-unit="px" data-tchmi-y2="490" data-tchmi-zindex="4" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(51, 51, 51, 1)"
+}
+</script>
+
+
+</div>
+<div id="LrParam_1884" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="35" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="204" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text642%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterHopperConveyorSpeedCV%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="False">
+</div>
+<div id="LrParam_1885" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="261" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text642%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterTransferConveyorSpeedCV%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="False">
+</div>
+<div id="LrParam_1886" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="585" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="204" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text642%/l%" data-tchmi-unit="rpm" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterSupplyConveyorSpeedCV%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="False">
+</div>
+<div id="TcHmiRectangle_1720" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="589" data-tchmi-height-unit="px" data-tchmi-left="878" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="647" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 6.0,
+  "topRight": 6.0,
+  "bottomLeft": 6.0,
+  "bottomRight": 6.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(54, 153, 153, 1)"
+    },
+    "offsetX": 4.0,
+    "offsetXUnit": "px",
+    "offsetY": 4.0,
+    "offsetYUnit": "px",
+    "inset": false,
+    "blur": 4.0,
+    "blurUnit": "px",
+    "spread": 0.0,
+    "spreadUnit": "px"
+  }
+]
+</script>
+
+
+</div>
+<div id="TcHmiRectangle_1721" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="559" data-tchmi-height-unit="px" data-tchmi-left="878" data-tchmi-left-unit="px" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="642" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 6.0,
+  "topRight": 6.0,
+  "bottomLeft": 6.0,
+  "bottomRight": 6.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(217, 171, 0, 1)"
+}
+</script>
+
+
+</div>
+<div id="TcHmiButton_536" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-text="%l%Text482%/l%" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="15" data-tchmi-icon="Images/Icons/PrzeciagnijPrawo.png" data-tchmi-icon-width="15" data-tchmi-icon-height="15" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="3" data-tchmi-state-symbol="%s%BottleSorter.GVL_VIS.bBottleSorterManualWheelRight|BindingMode=TwoWay%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 3.0,
+  "topRight": 3.0,
+  "bottomLeft": 3.0,
+  "bottomRight": 3.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 1,
+  "right": 1,
+  "top": 1,
+  "bottom": 1,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(189, 193, 199, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(52, 57, 59, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+<div id="TcHmiButton_537" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-text="%l%Text483%/l%" data-tchmi-top="204" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="15" data-tchmi-icon="Images/Icons/PrzeciagnijLewo.png" data-tchmi-icon-width="15" data-tchmi-icon-height="15" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="3" data-tchmi-state-symbol="%s%BottleSorter.GVL_VIS.bBottleSorterManualWheelLeft|BindingMode=TwoWay%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 3.0,
+  "topRight": 3.0,
+  "bottomLeft": 3.0,
+  "bottomRight": 3.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 1,
+  "right": 1,
+  "top": 1,
+  "bottom": 1,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(189, 193, 199, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(52, 57, 59, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+<div id="TcHmiButton_538" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-text="%l%Text493%/l%" data-tchmi-top="487" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="15" data-tchmi-icon="Images/Icons/Dol.png" data-tchmi-icon-width="15" data-tchmi-icon-height="15" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="3" data-tchmi-state-symbol="%s%BottleSorter.GVL_VIS.bBottleSorterManualWheelFixedAngleMovement|BindingMode=TwoWay%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 3.0,
+  "topRight": 3.0,
+  "bottomLeft": 3.0,
+  "bottomRight": 3.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 1,
+  "right": 1,
+  "top": 1,
+  "bottom": 1,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(189, 193, 199, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(52, 57, 59, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+<div id="LrParam_1887" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text642%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.lrBottleSorterWheelSpeedCV%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="False">
+</div>
+<div id="LrParam_1888" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="261" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text642%/l%" data-tchmi-unit="%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterBrushSpeedCV%/s%" data-tchmi-zindex="9" data-tchmi-is-enabled="False">
+</div>
+<div id="LrParam_1889" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-max="1000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="318" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text610%/l%" data-tchmi-unit="rpm" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-value="%s%BottleSorter.GVL_VIS.iBottleSorterManualBrushSpeedSV|BindingMode=TwoWay%/s%" data-tchmi-zindex="3" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiButton_539" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1295" data-tchmi-left-unit="px" data-tchmi-text="%l%Text493%/l%" data-tchmi-top="441" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="15" data-tchmi-icon="Images/Icons/Dol.png" data-tchmi-icon-width="15" data-tchmi-icon-height="15" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="3" data-tchmi-state-symbol="%s%BottleSorter.GVL_VIS.bBottleSorterBrushHeightSet|BindingMode=TwoWay%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 3.0,
+  "topRight": 3.0,
+  "bottomLeft": 3.0,
+  "bottomRight": 3.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 1,
+  "right": 1,
+  "top": 1,
+  "bottom": 1,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(189, 193, 199, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(52, 57, 59, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+<div id="ManualButton_2505" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="36" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text468%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterHopperTransporterHoming|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Bazowanie.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2506" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="36" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text641%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualHopperConveyorForward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijPrzod.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2507" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="261" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualWheelBarier|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Szlaban.png" data-tchmi-is-enabled="true" data-tchmi-scaption="Bariera opróżniająca">
+</div>
+<div id="ManualButton_2508" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text468%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterBrushHoming|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Bazowanie.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2509" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text468%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterTransferTransporterHoming|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Bazowanie.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2510" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="586" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text468%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterSupplyTransporterHoming|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Bazowanie.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2511" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text468%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterWheelHoming|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Bazowanie.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2512" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text486%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualTransferConveyorForward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijPrzod.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2513" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="586" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text641%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualSupplyTransporterForward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijPrzod.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2514" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text487%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="204" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualTransferConveyorBackward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijTyl.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2515" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text486%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="147" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualBrushDriveForward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijPrzod.png" data-tchmi-is-enabled="true">
+</div>
+<div id="ManualButton_2516" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text487%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="204" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-bvalue="%s%BottleSorter.GVL_VIS.bBottleSorterManualBrushDriveBackward|BindingMode=TwoWay%/s%" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/PrzeciagnijTyl.png" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiRectangle_1524" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="1180" data-tchmi-left-unit="px" data-tchmi-top="459" data-tchmi-top-unit="px" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-zindex="5" data-tchmi-is-enabled="true">
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 0)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 0)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 0)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 0)"
+}
+</script>
+</div>
+</div>

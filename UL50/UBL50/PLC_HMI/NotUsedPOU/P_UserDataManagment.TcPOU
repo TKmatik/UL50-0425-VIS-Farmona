@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_UserDataManagment" Id="{25ca1dc6-ff4f-4279-90e5-2619ea261849}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_UserDataManagment
+VAR
+    inputString : STRING(1000);
+	line : STRING(255);          // Linia aktualnie przetwarzana
+    key : STRING(80);            // Klucz
+    value : STRING(80);          // Wartość
+    pos : INT;                   // Pozycja separatora
+    index : INT;                 // Indeks w tablicy
+    lineCount : INT;             // Liczba linii przetworzonych
+    userLineCount : INT;         // Liczba użytkowników przetworzonych
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[inputString := GVL_USER.string_of_properties;  // Odczytaj string z HMI
+
+lineCount := 0;
+userLineCount := 0;
+index := 0;
+
+// Rozdziel string na linie
+WHILE LEN(inputString) > 0 DO
+    pos := FIND(inputString, '\n');
+    IF pos > 0 THEN
+        line := LEFT(inputString, pos - 1);
+        inputString := RIGHT(inputString, LEN(inputString) - pos - 1);
+    ELSE
+        line := inputString;
+        inputString := '';
+    END_IF
+
+    // Sprawdź, czy linia zawiera dane użytkownika
+    IF FIND(line, 'User:') > 0 THEN
+        // Nowy użytkownik
+        index := userLineCount;
+        userLineCount := userLineCount + 1;
+        CONTINUE;
+    END_IF
+
+    // Rozdziel linię na klucz i wartość
+    pos := FIND(line, ' : ');  // Zakładamy, że separator to " : "
+    IF pos > 0 THEN
+        key := LEFT(line, pos - 1);
+        value := RIGHT(line, LEN(line) - pos - 2);
+
+        // Przypisz wartości do odpowiednich pól w tablicy
+		IF	key = 'User' THEN
+			GVL_USER.user_array[index].password := value;
+			GVL_USER.user_array[index].userLogin := value;
+        ELSIF key = 'domain' THEN
+            GVL_USER.user_array[index].domain := value;
+        ELSIF key = 'enabled' THEN
+            GVL_USER.user_array[index].enabled := TRUE;  // Konwersja na BOOL
+        ELSIF key = 'autoLogout' THEN
+            GVL_USER.user_array[index].autoLogOff := value;  // Konwersja na INT
+        ELSIF key = 'locale' THEN
+            GVL_USER.user_array[index].locale := value;
+        ELSIF key = 'groups' THEN
+            GVL_USER.user_array[index].userGroup := value;  // Przypisanie grupy użytkownika
+        ELSE
+            // Ignorowanie nieznanych kluczy
+        END_IF
+    END_IF
+
+    lineCount := lineCount + 1;
+END_WHILE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

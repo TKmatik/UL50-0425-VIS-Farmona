@@ -1,0 +1,1578 @@
+{
+  "useIndirectInput": false,
+  "hasNumPad": false,
+  "displayName": "Ukrainian",
+  "localeName": "uk-UA",
+  "layouts": [
+    {
+      "dimensions": {
+        "width": 890.0,
+        "height": 290.0
+      },
+      "name": "default",
+      "keys": [
+        {
+          "geometry": {
+            "left": 87.64,
+            "top": 0.0,
+            "width": 12.36,
+            "height": 17.24
+          },
+          "type": "edit",
+          "code": "Backspace",
+          "key": "Backspace",
+          "longpressAction": "repeat",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 22.0,
+                  "height": 14.0
+                },
+                "path": "M 0.5 7 L 7 0.5 L 21.5 0.5 L 21.5 13.5 L 7 13.5 Z M 10 3 L 18 11 M 10 11 L 18 3"
+              }
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 92.7,
+            "top": 20.69,
+            "width": 7.3,
+            "height": 37.93
+          },
+          "code": "Enter",
+          "key": "Enter",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 22.0,
+                  "height": 14.0
+                },
+                "path": "M 21.5 8.5 L 21.5 0.5 L 21.5 8.5 L 5.5 8.5 M 5.5 3.5 L 0.5 8.5 L 5.5 13.5"
+              }
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 82.58,
+            "top": 62.07,
+            "width": 17.42,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "ShiftRight",
+          "key": "Shift",
+          "mode": "sticky",
+          "location": "right",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 14.0,
+                  "height": 14.0
+                },
+                "path": "M 3.5 13.5 L 3.5 6.5 L 0.5 6.5 L 7 0.5 L 13.5 6.5 L 10.5 6.5 L 10.5 13.5 Z"
+              }
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 0.0,
+            "top": 82.76,
+            "width": 7.3,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "ControlLeft",
+          "key": "Control",
+          "mode": "sticky",
+          "location": "left",
+          "labels": [
+            {
+              "type": "text",
+              "text": "Ctrl"
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 16.85,
+            "top": 82.76,
+            "width": 7.3,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "AltLeft",
+          "key": "Alt",
+          "mode": "sticky",
+          "location": "left",
+          "labels": [
+            {
+              "type": "text",
+              "text": "Alt"
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 0.0,
+            "top": 41.38,
+            "width": 10.67,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "CapsLock",
+          "key": "CapsLock",
+          "mode": "toggle",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 14.0,
+                  "height": 14.0
+                },
+                "path": "M 3.5 0.5 L 3.5 7.5 L 0.5 7.5 L 7 13.5 L 13.5 7.5 L 10.5 7.5 L 10.5 0.5 Z"
+              }
+            }
+          ]
+        },
+        {
+          "ignoreModifiers": true,
+          "geometry": {
+            "left": 25.28,
+            "top": 82.76,
+            "width": 41.01,
+            "height": 17.24
+          },
+          "code": "Space",
+          "key": " ",
+          "labels": [
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "shiftKey": ")",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 67.42,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit0",
+          "key": "0",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "0"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": ")"
+            }
+          ]
+        },
+        {
+          "shiftKey": "!",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 6.74,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit1",
+          "key": "1",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "1"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "!"
+            }
+          ]
+        },
+        {
+          "shiftKey": "\"",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 13.48,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit2",
+          "key": "2",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "2"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "\""
+            }
+          ]
+        },
+        {
+          "shiftKey": "№",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 20.22,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit3",
+          "key": "3",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "3"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "№"
+            }
+          ]
+        },
+        {
+          "shiftKey": ";",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 26.97,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit4",
+          "key": "4",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "4"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": ";"
+            }
+          ]
+        },
+        {
+          "shiftKey": "%",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 33.71,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit5",
+          "key": "5",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "5"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "%"
+            }
+          ]
+        },
+        {
+          "shiftKey": ":",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 40.45,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit6",
+          "key": "6",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "6"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": ":"
+            }
+          ]
+        },
+        {
+          "shiftKey": "?",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 47.19,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit7",
+          "key": "7",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "7"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "?"
+            }
+          ]
+        },
+        {
+          "shiftKey": "*",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 53.93,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit8",
+          "key": "8",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "8"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "shiftKey": "(",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 60.67,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Digit9",
+          "key": "9",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "9"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "("
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ф",
+          "geometry": {
+            "left": 11.8,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyA",
+          "key": "ф",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ф"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ф"
+            }
+          ]
+        },
+        {
+          "shiftKey": "И",
+          "geometry": {
+            "left": 42.13,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyB",
+          "key": "и",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "и"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "И"
+            }
+          ]
+        },
+        {
+          "shiftKey": "С",
+          "geometry": {
+            "left": 28.65,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyC",
+          "key": "с",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "с"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "С"
+            }
+          ]
+        },
+        {
+          "shiftKey": "В",
+          "geometry": {
+            "left": 25.28,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyD",
+          "key": "в",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "в"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "В"
+            }
+          ]
+        },
+        {
+          "shiftKey": "У",
+          "geometry": {
+            "left": 23.6,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyE",
+          "key": "у",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "у"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "У"
+            }
+          ]
+        },
+        {
+          "shiftKey": "А",
+          "geometry": {
+            "left": 32.02,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyF",
+          "key": "а",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "а"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "А"
+            }
+          ]
+        },
+        {
+          "shiftKey": "П",
+          "geometry": {
+            "left": 38.76,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyG",
+          "key": "п",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "п"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "П"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Р",
+          "geometry": {
+            "left": 45.51,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyH",
+          "key": "р",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "р"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Р"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ш",
+          "geometry": {
+            "left": 57.3,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyI",
+          "key": "ш",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ш"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ш"
+            }
+          ]
+        },
+        {
+          "shiftKey": "О",
+          "geometry": {
+            "left": 52.25,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyJ",
+          "key": "о",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "о"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "О"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Л",
+          "geometry": {
+            "left": 58.99,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyK",
+          "key": "л",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "л"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Л"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Д",
+          "geometry": {
+            "left": 65.73,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyL",
+          "key": "д",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "д"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Д"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ь",
+          "geometry": {
+            "left": 55.62,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyM",
+          "key": "ь",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ь"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ь"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Т",
+          "geometry": {
+            "left": 48.88,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyN",
+          "key": "т",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "т"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Т"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Щ",
+          "geometry": {
+            "left": 64.04,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyO",
+          "key": "щ",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "щ"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Щ"
+            }
+          ]
+        },
+        {
+          "shiftKey": "З",
+          "geometry": {
+            "left": 70.79,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyP",
+          "key": "з",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "з"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "З"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Й",
+          "geometry": {
+            "left": 10.11,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyQ",
+          "key": "й",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "й"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Й"
+            }
+          ]
+        },
+        {
+          "shiftKey": "К",
+          "geometry": {
+            "left": 30.34,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyR",
+          "key": "к",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "к"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "К"
+            }
+          ]
+        },
+        {
+          "shiftKey": "І",
+          "geometry": {
+            "left": 18.54,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyS",
+          "key": "і",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "і"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "І"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Е",
+          "geometry": {
+            "left": 37.08,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyT",
+          "key": "е",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "е"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Е"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Г",
+          "ctrlAltKey": "ґ",
+          "shiftCtrlAltKey": "Ґ",
+          "geometry": {
+            "left": 50.56,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyU",
+          "key": "г",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "г"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Г"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "altgr"
+              ],
+              "text": "ґ"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shiftaltgr"
+              ],
+              "text": "Ґ"
+            }
+          ]
+        },
+        {
+          "shiftKey": "М",
+          "geometry": {
+            "left": 35.39,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyV",
+          "key": "м",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "м"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "М"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ц",
+          "geometry": {
+            "left": 16.85,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyW",
+          "key": "ц",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ц"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ц"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ч",
+          "geometry": {
+            "left": 21.91,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyX",
+          "key": "ч",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ч"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ч"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Н",
+          "geometry": {
+            "left": 43.82,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyY",
+          "key": "н",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "н"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Н"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Я",
+          "geometry": {
+            "left": 15.17,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "KeyZ",
+          "key": "я",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "я"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Я"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ж",
+          "geometry": {
+            "left": 72.47,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Semicolon",
+          "key": "ж",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ж"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ж"
+            }
+          ]
+        },
+        {
+          "shiftKey": "+",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 80.9,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Equal",
+          "key": "=",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "="
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "+"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Б",
+          "geometry": {
+            "left": 62.36,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Comma",
+          "key": "б",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "б"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Б"
+            }
+          ]
+        },
+        {
+          "shiftKey": "_",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 74.16,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Minus",
+          "key": "-",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "-"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "_"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ю",
+          "geometry": {
+            "left": 69.1,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Period",
+          "key": "ю",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ю"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ю"
+            }
+          ]
+        },
+        {
+          "shiftKey": ",",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 75.84,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Slash",
+          "key": ".",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "."
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": ","
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ё",
+          "geometry": {
+            "left": 0.0,
+            "top": 0.0,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Backquote",
+          "key": "ё",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ё"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ё"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Х",
+          "geometry": {
+            "left": 77.53,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "BracketLeft",
+          "key": "х",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "х"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Х"
+            }
+          ]
+        },
+        {
+          "shiftKey": "/",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 85.96,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Backslash",
+          "key": "\\",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "\\"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "/"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ї",
+          "geometry": {
+            "left": 84.27,
+            "top": 20.69,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "BracketRight",
+          "key": "ї",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ї"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ї"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Є",
+          "geometry": {
+            "left": 79.21,
+            "top": 41.38,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "Quote",
+          "key": "є",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "є"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Є"
+            }
+          ]
+        },
+        {
+          "shiftKey": "Ґ",
+          "geometry": {
+            "left": 8.43,
+            "top": 62.07,
+            "width": 5.62,
+            "height": 17.24
+          },
+          "code": "IntlBackslash",
+          "key": "ґ",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "default"
+              ],
+              "text": "ґ"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "shift"
+              ],
+              "text": "Ґ"
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 0.0,
+            "top": 20.69,
+            "width": 8.99,
+            "height": 17.24
+          },
+          "code": "Tab",
+          "key": "Tab",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 22.0,
+                  "height": 16.0
+                },
+                "path": "M 0.5 0.5 L 0.5 8.5 M 21.5 4.5 L 6.5 4.5 M 6.5 0.5 L 2.5 4.5 L 6.5 8.5 M 21.5 7.5 L 21.5 15.5 M 0.5 11.5 L 15.5 11.5 M 15.5 7.5 L 19.5 11.5 L 15.5 15.5"
+              }
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 0.0,
+            "top": 62.07,
+            "width": 7.3,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "ShiftLeft",
+          "key": "Shift",
+          "mode": "sticky",
+          "location": "left",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 14.0,
+                  "height": 14.0
+                },
+                "path": "M 3.5 13.5 L 3.5 6.5 L 0.5 6.5 L 7 0.5 L 13.5 6.5 L 10.5 6.5 L 10.5 13.5 Z"
+              }
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 67.42,
+            "top": 82.76,
+            "width": 7.3,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "ControlLeft,AltRight",
+          "key": "Control,Alt",
+          "mode": "sticky",
+          "location": "left,right",
+          "labels": [
+            {
+              "type": "text",
+              "text": "Alt Gr"
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 92.7,
+            "top": 82.76,
+            "width": 7.3,
+            "height": 17.24
+          },
+          "type": "modifier",
+          "code": "ControlRight",
+          "key": "Control",
+          "mode": "sticky",
+          "location": "right",
+          "labels": [
+            {
+              "type": "text",
+              "text": "Ctrl"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

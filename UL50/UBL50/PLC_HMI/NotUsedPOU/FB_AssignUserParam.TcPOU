@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_AssignUserParam" Id="{c7ed0cfd-7964-4a5c-b33d-30c618abd502}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AssignUserParam
+VAR
+    paramKey, paramValue : STRING(80); // Klucz i wartość parametru
+    splitPos            : INT; // Pozycja rozdzielnika między kluczem a wartością
+    i                   : INT; // Licznik
+    userParams          : ARRAY[1..8] OF STRING(255); // Tablica parametrów
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Iteracja przez parametry
+FOR i := 1 TO 8 DO
+    splitPos := FIND(userParams[i], ' : '); // Szukamy separatora między kluczem a wartością
+    IF splitPos > 0 THEN
+        paramKey := LEFT(userParams[i], splitPos - 1); // Klucz
+        paramValue := RIGHT(userParams[i], LEN(userParams[i]) - splitPos - 2); // Wartość
+
+        // Sprawdzamy klucz i przypisujemy odpowiednią wartość do struktury użytkownika
+        CASE paramKey OF
+            'User':	P_UserManagment.user_array[userID].userLogin := paramValue; // Przypisujemy login
+            'domain': P_UserManagment.user_array[userID].userGroup := paramValue;
+            'autoLogout': P_UserManagment.user_array[userID].autoLogOff := STRING_TO_INT(paramValue); // Konwersja do INT
+            'locale': P_UserManagment.user_array[userID].locale := paramValue;
+            'timeFormatLocale': P_UserManagment.user_array[userID].timeFormatlocale := paramValue;
+            'timeZone': P_UserManagment.user_array[userID].timeZone := paramValue;
+            'groups': P_UserManagment.user_array[userID].userGroup := paramValue; // Przypisanie grupy użytkownika
+         ELSE
+                // Ignorowanie nieznanych kluczy
+        END_CASE
+    END_IF
+END_FOR]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

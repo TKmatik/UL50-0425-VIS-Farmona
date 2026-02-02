@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL_USER" Id="{286f2749-1eaf-4ba8-975d-c30c224cc4fb}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+		// wejścia cyfrowe
+	user_array 					: ARRAY[1..100] OF ST_UserManagment;  // Tablica użytkowników
+    currentUser 				: INT := 1;  // Indeks bieżącego użytkownika (zaczyna od 1)
+    string_of_properties 		: STRING(1000);  // String z HMI z danymi użytkowników
+	outside_accept_login		:BOOL;
+	outside_login_pool			:STRING(255);  
+	new_user_added				:BOOL;		//dodano użytkownika w PLC
+	user_eddited				:BOOL; 		//zedytowano użytkownika w PLC
+	b_new_users					:BOOL;		//wgranie uzytkowników
+	currentUserName 			:WSTRING(255);
+	currentUserGroup			:STRING(80);
+	currentUserGroupNumber		:UINT;
+	actualUserOn_UserName		:STRING(80);
+	b_rewrite_main_users		:BOOL:=FALSE;
+	
+	logout						:BOOL;
+	
+	user_try_to_log				:BOOL;
+	user_accept_to_log_in		:BOOL;
+	no_user_found				:BOOL;
+	user_succesed_log			:BOOL;
+	putted_user_password		:STRING(255);  //pole w które użytkownik wpisuje hasło
+	
+	new_user					:BOOL;			//inicjalizacja dodawania nowego użytkownika
+	new_user_accept				:BOOL;			//akceptacja dodania nowego użytkownika
+	newuserNameSurname 			:WSTRING(255);	//imię i nazwisko
+	newpassword					:STRING(255);	//hasło
+	newpasswordRFID				:STRING(255);	//hasło rfid
+	newpasswordQR				:STRING(255);	//hasło qr
+	newuserGroup				:STRING(80);		//grupa użytkowników
+	newuserGroupNumber			:UINT;
+	newautoLogOff				:STRING(80);			//czas do wylogowania
+	newlocale					:STRING(80);		//gdzie zapisujemy
+	newtimeFormatlocale			:STRING(80);		//format godziny
+	newtimeZone					:STRING(80);		//strefa czasowa
+	
+	edit_user					:BOOL;				//inicjalizacja edycji użytkownika
+	edit_user_accept			:BOOL;			//akceptacja edycji użytkownika
+	actual_editted_user			:WSTRING(255);	//wybór aktualnie edytowanego użytkownika
+	edituserNameSurname 		:WSTRING(255);	//imię i nazwisko
+	editpassword				:STRING(255);	//hasło
+	editpasswordRFID			:STRING(255);	//hasło rfid
+	editpasswordQR				:STRING(255);	//hasło qr
+	edituserGroup				:STRING(80);	//grupa użytkowników
+	editUserGroupNumber			:UINT;
+	editautoLogOff				:STRING(80);	//czas do wylogowania
+	edit_user_qr_or_rfid_password	:BOOL;		//edycja kodów rfid lub qr
+		
+	//wyjścia cyfrowe
+	new_user_add_error			:BOOL;
+	edit_user_error				:BOOL;
+	bwait						:BOOL;
+		
+	delete_user						:BOOL;
+	delete_user_accept				:BOOL;
+	delete_user_error				:BOOL;
+	choosen_to_delete				:WSTRING(255);
+	user_deleted_succes				:BOOL;
+	
+	password_to_log_in				:STRING(80); //hasło do pola (1 z 5 (adm, opr, ser, tech, mech)
+	
+	b_rewrite_users_after_issues	:BOOL:=FALSE;
+	
+	b_user_drop_the_login			:BOOL;
+	
+	
+	i_choosen_language :INT:=1;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

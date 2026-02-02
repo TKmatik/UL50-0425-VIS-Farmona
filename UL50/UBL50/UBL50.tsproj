@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" TcVersionFixed="true">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{0890DEAB-1B3E-45E1-B453-C29BB5B679F3}" PersistentType="true">NewType</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{2A87A36C-4A4B-4D53-B37B-84EE50852298}" TargetNetId="192.168.40.141.1.1" Target64Bit="true" RelativeTargetNetId="true" RelativeIpAddresses="true" BootFileEncryption="1" ShowHideConfigurations="#x106">
+		<UserDB FileIdentifier="33f81b8388454cece9c757758eef995576ba86a5" Name="TKMATIK"/>
+		<System>
+			<Settings MaxCpus="2">
+				<Cpu/>
+				<Cpu CpuId="1"/>
+				<IoIdleTask Affinity="#x00000002"/>
+			</Settings>
+			<Licenses>
+				<Target BkhfOrder="01507880">
+					<ManualSelect>{F1CFF3CF-B042-45EE-A380-4FB3270F0BA5}</ManualSelect>
+					<ManualSelect>{AC534BD2-49E1-4025-9C78-0BC8AE4A36A9}</ManualSelect>
+					<ManualSelect>{2D2E5D68-23A1-4B53-BDF7-41C3861F6DB7}</ManualSelect>
+				</Target>
+			</Licenses>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="30000" AmsPort="350" AdtTasks="true">
+					<Name>MainTask</Name>
+				</Task>
+				<Task Id="5" Priority="21" CycleTime="100000" AmsPort="351" AdtTasks="true">
+					<Name>SafetyTask</Name>
+				</Task>
+				<Task Id="7" Priority="10" CycleTime="10000" AmsPort="352" AdtTasks="true">
+					<Name>WeightTask</Name>
+				</Task>
+				<Task Id="8" Priority="30" CycleTime="100000" AmsPort="353" Affinity="#x00000001" AdtTasks="true">
+					<Name>plctaskhmi</Name>
+				</Task>
+				<Task Id="9" Priority="1" CycleTime="80000" AmsPort="301">
+					<Name>TaskToRefreshEAP</Name>
+					<Vars VarGrpType="1" InsertType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>EAP_State</Name>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" InsertType="1">
+						<Name>Outputs</Name>
+					</Vars>
+					<Image Id="5" AddrType="1" ImageType="1" SizeIn="2">
+						<Name>Image</Name>
+					</Image>
+				</Task>
+				<Task Id="10" Priority="23" CycleTime="100000" AmsPort="354" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+	</Project>
+</TcSmProject>

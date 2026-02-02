@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL_Error" Id="{a6bf8a5a-690c-4b24-8a35-da0dcb8ed8de}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+	udi_Station_In_Error			:UDINT;
+	udi_Station_In_Error_Code		:UDINT;
+	ws_Stasion_In_Error				:WSTRING;
+	ws_Station_Error_Description		:WSTRING(255);
+	ws_Station_Error_Description_2	:WSTRING(255);
+	A_Error_station	:ARRAY[0..100] OF ST_Error_Station_Handling; 
+	A_Error_description	:ARRAY[0..500] OF ST_Error_Description_Handling;
+	
+	b_empy_error					:BOOL;
+	b_new_system					:BOOL;
+END_VAR
+VAR_GLOBAL
+	logowanie_krok: INT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

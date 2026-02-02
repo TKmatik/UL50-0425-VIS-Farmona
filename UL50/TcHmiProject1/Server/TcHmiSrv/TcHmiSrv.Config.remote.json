@@ -1,0 +1,13 @@
+{
+    "CERTIFICATEEXPIRATION": "P14000D",
+    "MAXREQUESTSIZE": 1048576,
+    "REQUIREAUTH": 2,
+    "VIRTUALDIRECTORIES": {
+        "/": "www",
+        "/LastScrew": "C:\\LastScrewingCycles",
+        "/Photo": "C:\\Recipe_photos",
+        "/PhotosAndVideos": "C:\\PhotosAndVideos",
+        "/Recipe_changes": "C:\\Recipe_changes",
+        "/oee": "C:\\OEE"
+    }
+}

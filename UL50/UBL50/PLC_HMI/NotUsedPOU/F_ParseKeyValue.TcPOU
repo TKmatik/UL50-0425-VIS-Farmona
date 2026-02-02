@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="F_ParseKeyValue" Id="{d14c3a45-21ce-47d5-8709-776c9ef2f48a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_ParseKeyValue : BOOL
+VAR_INPUT
+    inputLine : STRING(255);  // Linia do rozdzielenia
+END_VAR
+VAR_OUTPUT
+    key       : STRING(80);   // Klucz
+    value     : STRING(80);   // Wartość
+END_VAR
+VAR
+    splitPos  : INT;          // Pozycja separatora ":"
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[splitPos := FIND(inputLine, ' : ');
+
+IF splitPos > 0 THEN
+    key := LEFT(inputLine, splitPos - 1);
+    value := RIGHT(inputLine, LEN(inputLine) - splitPos - 2);
+    F_ParseKeyValue := TRUE;
+ELSE
+    F_ParseKeyValue := FALSE;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

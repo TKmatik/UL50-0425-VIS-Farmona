@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="F_ParseUserString" Id="{0b093c46-0e5f-4115-8b74-f491e3cfb71b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_ParseUserString : BOOL
+VAR_INPUT
+    userString : STRING(1000) :=gvl_his.string_of_properties; // String do rozbicia
+END_VAR
+VAR
+    paramLines : ARRAY[1..100] OF STRING(255);  // Tablica przechowująca linie z parametrami
+    lineCount  : INT;                          // Liczba linii w stringu
+    paramKey, paramValue : STRING(80);        // Klucz i wartość parametru
+    i          : INT;                          // Licznik pętli
+END_VAR
+VAR_OUTPUT
+	user_array :ARRAY[1..100] of string(255);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Rozdziel string na linie według znaku nowej linii
+lineCount := F_SplitStringLines(userString, '\n');
+
+// Iterujemy po liniach stringa i rozdzielamy klucz oraz wartość
+FOR i := 1 TO lineCount DO
+    IF F_ParseKeyValue(paramLines[i]) THEN
+        // Przypisujemy do zmiennych globalnych odpowiednie parametry
+        CASE F_ParseKeyValue.key OF
+            'User': P_UserManagment.user_array[GVL_USER.currentUser].userLogin := paramValue;
+            'domain': P_UserManagment.user_array[GVL_USER.currentUser].userGroup := paramValue;
+            'autoLogout': P_UserManagment.user_array[GVL_USER.currentUser].autoLogOff := STRING_TO_INT(paramValue);  // Konwersja na INT
+            'locale': P_UserManagment.user_array[GVL_USER.currentUser].locale := paramValue;
+            'timeFormatLocale': P_UserManagment.user_array[GVL_USER.currentUser].timeFormatlocale := paramValue;
+            'timeZone': P_UserManagment.user_array[GVL_USER.currentUser].timeZone := paramValue;
+            'groups': P_UserManagment.user_array[GVL_USER.currentUser].userGroup := paramValue;  // Przypisanie grupy użytkownika
+            ELSE
+                // Ignorowanie nieznanych kluczy
+        END_CASE;
+    END_IF;
+END_FOR;
+
+F_ParseUserString := TRUE;  // Zwracamy TRUE, jeśli parsowanie się udało]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

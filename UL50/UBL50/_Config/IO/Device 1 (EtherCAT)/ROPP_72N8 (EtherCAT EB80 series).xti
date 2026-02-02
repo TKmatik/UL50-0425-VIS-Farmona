@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CFlbTermDef" SubType="9099">
+	<ImageDatas>
+		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000120b0000120b000000000000000000000000000000008000008000000080800080000000800080008080000080808000c0c0c0000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00ffffffffffffffffffff778ffffffffffff877778ffffffffff8777778fffffffff877777788fffffff8777777788ffffff8777777777ffffff8777777777ffffff8787777877fffffff877738888ffffffff67398887fffffffff8877378ffffffffffff878ffff8fffffffffffffff</ImageData>
+	</ImageDatas>
+	<Box Id="128" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0006" MboxDataLinkLayer="true" StateMBoxPolling="true" Unsupported64BitDc="true" CycleMBoxPollingTime="0" CoeType="51" FoeType="1" VendorId="#x000002ee" ProductCode="#x00000010" RevisionNo="#x0000000b" InfoDataAddr="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EtherCAT EB80 series" Desc="EtherCAT EB80 series">
+			<SyncMan>001080003600010001000000800080008000001036010000</SyncMan>
+			<SyncMan>801080003200010002000000800080008000801032010000</SyncMan>
+			<SyncMan>001186007400010003000000000000000000001174010000</SyncMan>
+			<SyncMan>001dc2003000010004000000000000000000001d30010000</SyncMan>
+			<Fmmu>0000000000000000001100020100000001000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000001d00010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<SuName>Inverters</SuName>
+			<SuTask>#x02010030</SuTask>
+			<DcMode>467265652072756e0000000000000000444320756e757365640000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<Pdo Name="1. TxPDO" Index="#x1a00" Flags="#x0011" SyncMan="3">
+				<Entry Name="Status1byteinput" Index="#x3000" Sub="#x01">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 1-8" Index="#x3000" Sub="#x02">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 9-16" Index="#x3000" Sub="#x03">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 17-24" Index="#x3000" Sub="#x04">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 25-32" Index="#x3000" Sub="#x05">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 33-40" Index="#x3000" Sub="#x06">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 41-48" Index="#x3000" Sub="#x07">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 49-56" Index="#x3000" Sub="#x08">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 57-64" Index="#x3000" Sub="#x09">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 65-72" Index="#x3000" Sub="#x0a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 73-80" Index="#x3000" Sub="#x0b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 81-88" Index="#x3000" Sub="#x0c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 89-96" Index="#x3000" Sub="#x0d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 97-104" Index="#x3000" Sub="#x0e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 105-112" Index="#x3000" Sub="#x0f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 113-120" Index="#x3000" Sub="#x10">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Input 121-128" Index="#x3000" Sub="#x11">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 1 (Byte1)" Index="#x3000" Sub="#x12">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 1 (Byte2)" Index="#x3000" Sub="#x13">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 2 (Byte1)" Index="#x3000" Sub="#x14">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 2 (Byte2)" Index="#x3000" Sub="#x15">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 3 (Byte1)" Index="#x3000" Sub="#x16">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 3 (Byte2)" Index="#x3000" Sub="#x17">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 4 (Byte1)" Index="#x3000" Sub="#x18">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 4 (Byte2)" Index="#x3000" Sub="#x19">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 5 (Byte1)" Index="#x3000" Sub="#x1a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 5 (Byte2)" Index="#x3000" Sub="#x1b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 6 (Byte1)" Index="#x3000" Sub="#x1c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 6 (Byte2)" Index="#x3000" Sub="#x1d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 7 (Byte1)" Index="#x3000" Sub="#x1e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 7 (Byte2)" Index="#x3000" Sub="#x1f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 8 (Byte1)" Index="#x3000" Sub="#x20">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 8 (Byte2)" Index="#x3000" Sub="#x21">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 9 (Byte1)" Index="#x3000" Sub="#x22">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 9 (Byte2)" Index="#x3000" Sub="#x23">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 10 (Byte1)" Index="#x3000" Sub="#x24">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 10 (Byte2)" Index="#x3000" Sub="#x25">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 11 (Byte1)" Index="#x3000" Sub="#x26">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 11 (Byte2)" Index="#x3000" Sub="#x27">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 12 (Byte1)" Index="#x3000" Sub="#x28">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 12 (Byte2)" Index="#x3000" Sub="#x29">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 13 (Byte1)" Index="#x3000" Sub="#x2a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 13 (Byte2)" Index="#x3000" Sub="#x2b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 14 (Byte1)" Index="#x3000" Sub="#x2c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 14 (Byte2)" Index="#x3000" Sub="#x2d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 15 (Byte1)" Index="#x3000" Sub="#x2e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 15 (Byte2)" Index="#x3000" Sub="#x2f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 16 (Byte1)" Index="#x3000" Sub="#x30">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Input Channel 16 (Byte2)" Index="#x3000" Sub="#x31">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 1" Index="#x3000" Sub="#x32">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 2" Index="#x3000" Sub="#x33">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 3" Index="#x3000" Sub="#x34">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 4" Index="#x3000" Sub="#x35">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 5" Index="#x3000" Sub="#x36">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 6" Index="#x3000" Sub="#x37">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 7" Index="#x3000" Sub="#x38">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 8" Index="#x3000" Sub="#x39">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 9" Index="#x3000" Sub="#x3a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 10" Index="#x3000" Sub="#x3b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 11" Index="#x3000" Sub="#x3c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 12" Index="#x3000" Sub="#x3d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 13" Index="#x3000" Sub="#x3e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 14" Index="#x3000" Sub="#x3f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 15" Index="#x3000" Sub="#x40">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 16" Index="#x3000" Sub="#x41">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 17" Index="#x3000" Sub="#x42">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 18" Index="#x3000" Sub="#x43">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 19" Index="#x3000" Sub="#x44">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 20" Index="#x3000" Sub="#x45">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 21" Index="#x3000" Sub="#x46">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 22" Index="#x3000" Sub="#x47">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 23" Index="#x3000" Sub="#x48">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 24" Index="#x3000" Sub="#x49">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 25" Index="#x3000" Sub="#x4a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 26" Index="#x3000" Sub="#x4b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 27" Index="#x3000" Sub="#x4c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 28" Index="#x3000" Sub="#x4d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 29" Index="#x3000" Sub="#x4e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 30" Index="#x3000" Sub="#x4f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 31" Index="#x3000" Sub="#x50">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 32" Index="#x3000" Sub="#x51">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 33" Index="#x3000" Sub="#x52">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 34" Index="#x3000" Sub="#x53">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 35" Index="#x3000" Sub="#x54">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 36" Index="#x3000" Sub="#x55">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 37" Index="#x3000" Sub="#x56">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 38" Index="#x3000" Sub="#x57">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 39" Index="#x3000" Sub="#x58">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 40" Index="#x3000" Sub="#x59">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 41" Index="#x3000" Sub="#x5a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 42" Index="#x3000" Sub="#x5b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 43" Index="#x3000" Sub="#x5c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 44" Index="#x3000" Sub="#x5d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 45" Index="#x3000" Sub="#x5e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 46" Index="#x3000" Sub="#x5f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 47" Index="#x3000" Sub="#x60">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="EB80 I4.0 Byte 48" Index="#x3000" Sub="#x61">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 1-8" Index="#x3000" Sub="#x62">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 9-16" Index="#x3000" Sub="#x63">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 17-24" Index="#x3000" Sub="#x64">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 25-32" Index="#x3000" Sub="#x65">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 33-40" Index="#x3000" Sub="#x66">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 41-48" Index="#x3000" Sub="#x67">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 49-56" Index="#x3000" Sub="#x68">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 57-64" Index="#x3000" Sub="#x69">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 65-72" Index="#x3000" Sub="#x6a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 73-80" Index="#x3000" Sub="#x6b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 81-88" Index="#x3000" Sub="#x6c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 89-96" Index="#x3000" Sub="#x6d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 97-104" Index="#x3000" Sub="#x6e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 105-112" Index="#x3000" Sub="#x6f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 113-120" Index="#x3000" Sub="#x70">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Input 121-128" Index="#x3000" Sub="#x71">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 1 (Byte1)" Index="#x3000" Sub="#x72">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 1 (Byte2)" Index="#x3000" Sub="#x73">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 2 (Byte1)" Index="#x3000" Sub="#x74">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 2 (Byte2)" Index="#x3000" Sub="#x75">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 3 (Byte1)" Index="#x3000" Sub="#x76">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 3 (Byte2)" Index="#x3000" Sub="#x77">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 4 (Byte1)" Index="#x3000" Sub="#x78">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 4 (Byte2)" Index="#x3000" Sub="#x79">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 5 (Byte1)" Index="#x3000" Sub="#x7a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 5 (Byte2)" Index="#x3000" Sub="#x7b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 6 (Byte1)" Index="#x3000" Sub="#x7c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 6 (Byte2)" Index="#x3000" Sub="#x7d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 7 (Byte1)" Index="#x3000" Sub="#x7e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 7 (Byte2)" Index="#x3000" Sub="#x7f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 8 (Byte1)" Index="#x3000" Sub="#x80">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 8 (Byte2)" Index="#x3000" Sub="#x81">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 9 (Byte1)" Index="#x3000" Sub="#x82">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 9 (Byte2)" Index="#x3000" Sub="#x83">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 10 (Byte1)" Index="#x3000" Sub="#x84">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 10 (Byte2)" Index="#x3000" Sub="#x85">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 11 (Byte1)" Index="#x3000" Sub="#x86">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 11 (Byte2)" Index="#x3000" Sub="#x87">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 12 (Byte1)" Index="#x3000" Sub="#x88">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 12 (Byte2)" Index="#x3000" Sub="#x89">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 13 (Byte1)" Index="#x3000" Sub="#x8a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 13 (Byte2)" Index="#x3000" Sub="#x8b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 14 (Byte1)" Index="#x3000" Sub="#x8c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 14 (Byte2)" Index="#x3000" Sub="#x8d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 15 (Byte1)" Index="#x3000" Sub="#x8e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 15 (Byte2)" Index="#x3000" Sub="#x8f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 16 (Byte1)" Index="#x3000" Sub="#x90">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Temperature Input Channel 16 (Byte2)" Index="#x3000" Sub="#x91">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Diag 2" Index="#x3000" Sub="#x92">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 1 : Current pressure (Byte1)" Index="#x3000" Sub="#x93">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 1 : Current pressure (Byte2)" Index="#x3000" Sub="#x94">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 1" Index="#x3000" Sub="#x95">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 2 : Current pressure (Byte1)" Index="#x3000" Sub="#x96">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 2 : Current pressure (Byte2)" Index="#x3000" Sub="#x97">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 2" Index="#x3000" Sub="#x98">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 3 : Current pressure (Byte1)" Index="#x3000" Sub="#x99">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 3 : Current pressure (Byte2)" Index="#x3000" Sub="#x9a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 3" Index="#x3000" Sub="#x9b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 4 : Current pressure (Byte1)" Index="#x3000" Sub="#x9c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 4 : Current pressure (Byte2)" Index="#x3000" Sub="#x9d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 4" Index="#x3000" Sub="#x9e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 5 : Current pressure (Byte1)" Index="#x3000" Sub="#x9f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 5 : Current pressure (Byte2)" Index="#x3000" Sub="#xa0">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 5" Index="#x3000" Sub="#xa1">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 6 : Current pressure (Byte1)" Index="#x3000" Sub="#xa2">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 6 : Current pressure (Byte2)" Index="#x3000" Sub="#xa3">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 6" Index="#x3000" Sub="#xa4">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 7 : Current pressure (Byte1)" Index="#x3000" Sub="#xa5">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 7 : Current pressure (Byte2)" Index="#x3000" Sub="#xa6">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 7" Index="#x3000" Sub="#xa7">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 8 : Current pressure (Byte1)" Index="#x3000" Sub="#xa8">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 8 : Current pressure (Byte2)" Index="#x3000" Sub="#xa9">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 8" Index="#x3000" Sub="#xaa">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 9 : Current pressure (Byte1)" Index="#x3000" Sub="#xab">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 9 : Current pressure (Byte2)" Index="#x3000" Sub="#xac">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 9" Index="#x3000" Sub="#xad">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 10 : Current pressure (Byte1)" Index="#x3000" Sub="#xae">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 10 : Current pressure (Byte2)" Index="#x3000" Sub="#xaf">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 10" Index="#x3000" Sub="#xb0">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 11 : Current pressure (Byte1)" Index="#x3000" Sub="#xb1">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 11 : Current pressure (Byte2)" Index="#x3000" Sub="#xb2">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 11" Index="#x3000" Sub="#xb3">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 12 : Current pressure (Byte1)" Index="#x3000" Sub="#xb4">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 12 : Current pressure (Byte2)" Index="#x3000" Sub="#xb5">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 12" Index="#x3000" Sub="#xb6">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 13 : Current pressure (Byte1)" Index="#x3000" Sub="#xb7">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 13 : Current pressure (Byte2)" Index="#x3000" Sub="#xb8">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 13" Index="#x3000" Sub="#xb9">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 14 : Current pressure (Byte1)" Index="#x3000" Sub="#xba">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 14 : Current pressure (Byte2)" Index="#x3000" Sub="#xbb">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 14" Index="#x3000" Sub="#xbc">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 15 : Current pressure (Byte1)" Index="#x3000" Sub="#xbd">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 15 : Current pressure (Byte2)" Index="#x3000" Sub="#xbe">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 15" Index="#x3000" Sub="#xbf">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 16 : Current pressure (Byte1)" Index="#x3000" Sub="#xc0">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 16 : Current pressure (Byte2)" Index="#x3000" Sub="#xc1">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="State of pressure switch VPP 16" Index="#x3000" Sub="#xc2">
+					<Type>BYTE</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="1. RxPDO" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="2">
+				<Entry Name="Valve coils 1-8" Index="#x2000" Sub="#x01">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 9-16" Index="#x2000" Sub="#x02">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 17-24" Index="#x2000" Sub="#x03">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 25-32" Index="#x2000" Sub="#x04">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 33-40" Index="#x2000" Sub="#x05">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 41-48" Index="#x2000" Sub="#x06">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 49-56" Index="#x2000" Sub="#x07">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 57-64" Index="#x2000" Sub="#x08">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 65-72" Index="#x2000" Sub="#x09">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 73-80" Index="#x2000" Sub="#x0a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 81-88" Index="#x2000" Sub="#x0b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 89-96" Index="#x2000" Sub="#x0c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 97-104" Index="#x2000" Sub="#x0d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 105-112" Index="#x2000" Sub="#x0e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 113-120" Index="#x2000" Sub="#x0f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Valve coils 121-128" Index="#x2000" Sub="#x10">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 1-8" Index="#x2000" Sub="#x11">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 9-16" Index="#x2000" Sub="#x12">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 17-24" Index="#x2000" Sub="#x13">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 25-32" Index="#x2000" Sub="#x14">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 33-40" Index="#x2000" Sub="#x15">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 41-48" Index="#x2000" Sub="#x16">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 49-56" Index="#x2000" Sub="#x17">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 57-64" Index="#x2000" Sub="#x18">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 65-72" Index="#x2000" Sub="#x19">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 73-80" Index="#x2000" Sub="#x1a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 81-88" Index="#x2000" Sub="#x1b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 89-96" Index="#x2000" Sub="#x1c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 97-104" Index="#x2000" Sub="#x1d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 105-112" Index="#x2000" Sub="#x1e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 113-120" Index="#x2000" Sub="#x1f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="8 Digital Output 121-128" Index="#x2000" Sub="#x20">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 1-6" Index="#x2000" Sub="#x21">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 7-12" Index="#x2000" Sub="#x22">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 13-18" Index="#x2000" Sub="#x23">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 19-24" Index="#x2000" Sub="#x24">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 25-30" Index="#x2000" Sub="#x25">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 31-36" Index="#x2000" Sub="#x26">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 37-42" Index="#x2000" Sub="#x27">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 43-48" Index="#x2000" Sub="#x28">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 49-54" Index="#x2000" Sub="#x29">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 55-60" Index="#x2000" Sub="#x2a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 61-66" Index="#x2000" Sub="#x2b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 67-72" Index="#x2000" Sub="#x2c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 73-78" Index="#x2000" Sub="#x2d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 79-84" Index="#x2000" Sub="#x2e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 85-90" Index="#x2000" Sub="#x2f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 91-96" Index="#x2000" Sub="#x30">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 97-102" Index="#x2000" Sub="#x31">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 103-108" Index="#x2000" Sub="#x32">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 109-114" Index="#x2000" Sub="#x33">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 115-120" Index="#x2000" Sub="#x34">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 121-126" Index="#x2000" Sub="#x35">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="6 Digital Output 127-128" Index="#x2000" Sub="#x36">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 1 (Byte1)" Index="#x2000" Sub="#x37">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 1 (Byte2)" Index="#x2000" Sub="#x38">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 2 (Byte1)" Index="#x2000" Sub="#x39">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 2 (Byte2)" Index="#x2000" Sub="#x3a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 3 (Byte1)" Index="#x2000" Sub="#x3b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 3 (Byte2)" Index="#x2000" Sub="#x3c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 4 (Byte1)" Index="#x2000" Sub="#x3d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 4 (Byte2)" Index="#x2000" Sub="#x3e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 5 (Byte1)" Index="#x2000" Sub="#x3f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 5 (Byte2)" Index="#x2000" Sub="#x40">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 6 (Byte1)" Index="#x2000" Sub="#x41">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 6 (Byte2)" Index="#x2000" Sub="#x42">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 7 (Byte1)" Index="#x2000" Sub="#x43">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 7 (Byte2)" Index="#x2000" Sub="#x44">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 8 (Byte1)" Index="#x2000" Sub="#x45">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 8 (Byte2)" Index="#x2000" Sub="#x46">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 9 (Byte1)" Index="#x2000" Sub="#x47">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 9 (Byte2)" Index="#x2000" Sub="#x48">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 10 (Byte1)" Index="#x2000" Sub="#x49">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 10 (Byte2)" Index="#x2000" Sub="#x4a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 11 (Byte1)" Index="#x2000" Sub="#x4b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 11 (Byte2)" Index="#x2000" Sub="#x4c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 12 (Byte1)" Index="#x2000" Sub="#x4d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 12 (Byte2)" Index="#x2000" Sub="#x4e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 13 (Byte1)" Index="#x2000" Sub="#x4f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 13 (Byte2)" Index="#x2000" Sub="#x50">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 14 (Byte1)" Index="#x2000" Sub="#x51">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 14 (Byte2)" Index="#x2000" Sub="#x52">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 15 (Byte1)" Index="#x2000" Sub="#x53">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 15 (Byte2)" Index="#x2000" Sub="#x54">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 16 (Byte1)" Index="#x2000" Sub="#x55">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Analogue Output Channel 16 (Byte2)" Index="#x2000" Sub="#x56">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 1-8" Index="#x2000" Sub="#x57">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 9-16" Index="#x2000" Sub="#x58">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 17-24" Index="#x2000" Sub="#x59">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 25-32" Index="#x2000" Sub="#x5a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 33-40" Index="#x2000" Sub="#x5b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 41-48" Index="#x2000" Sub="#x5c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 49-56" Index="#x2000" Sub="#x5d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 57-64" Index="#x2000" Sub="#x5e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 65-72" Index="#x2000" Sub="#x5f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 73-80" Index="#x2000" Sub="#x60">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 81-88" Index="#x2000" Sub="#x61">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 89-96" Index="#x2000" Sub="#x62">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 97-104" Index="#x2000" Sub="#x63">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 105-112" Index="#x2000" Sub="#x64">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 113-120" Index="#x2000" Sub="#x65">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="16 Digital Output 121-128" Index="#x2000" Sub="#x66">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 1: Target pressure (Byte1)" Index="#x2000" Sub="#x67">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 1: Target pressure (Byte2)" Index="#x2000" Sub="#x68">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 2: Target pressure (Byte1)" Index="#x2000" Sub="#x69">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 2: Target pressure (Byte2)" Index="#x2000" Sub="#x6a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 3: Target pressure (Byte1)" Index="#x2000" Sub="#x6b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 3: Target pressure (Byte2)" Index="#x2000" Sub="#x6c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 4: Target pressure (Byte1)" Index="#x2000" Sub="#x6d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 4: Target pressure (Byte2)" Index="#x2000" Sub="#x6e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 5: Target pressure (Byte1)" Index="#x2000" Sub="#x6f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 5: Target pressure (Byte2)" Index="#x2000" Sub="#x70">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 6: Target pressure (Byte1)" Index="#x2000" Sub="#x71">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 6: Target pressure (Byte2)" Index="#x2000" Sub="#x72">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 7: Target pressure (Byte1)" Index="#x2000" Sub="#x73">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 7: Target pressure (Byte2)" Index="#x2000" Sub="#x74">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 8: Target pressure (Byte1)" Index="#x2000" Sub="#x75">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 8: Target pressure (Byte2)" Index="#x2000" Sub="#x76">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 9: Target pressure (Byte1)" Index="#x2000" Sub="#x77">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 9: Target pressure (Byte2)" Index="#x2000" Sub="#x78">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 10: Target pressure (Byte1)" Index="#x2000" Sub="#x79">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 10: Target pressure (Byte2)" Index="#x2000" Sub="#x7a">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 11: Target pressure (Byte1)" Index="#x2000" Sub="#x7b">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 11: Target pressure (Byte2)" Index="#x2000" Sub="#x7c">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 12: Target pressure (Byte1)" Index="#x2000" Sub="#x7d">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 12: Target pressure (Byte2)" Index="#x2000" Sub="#x7e">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 13: Target pressure (Byte1)" Index="#x2000" Sub="#x7f">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 13: Target pressure (Byte2)" Index="#x2000" Sub="#x80">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 14: Target pressure (Byte1)" Index="#x2000" Sub="#x81">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 14: Target pressure (Byte2)" Index="#x2000" Sub="#x82">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 15: Target pressure (Byte1)" Index="#x2000" Sub="#x83">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 15: Target pressure (Byte2)" Index="#x2000" Sub="#x84">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 16: Target pressure (Byte1)" Index="#x2000" Sub="#x85">
+					<Type>BYTE</Type>
+				</Entry>
+				<Entry Name="Pressure regulator 16: Target pressure (Byte2)" Index="#x2000" Sub="#x86">
+					<Type>BYTE</Type>
+				</Entry>
+			</Pdo>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

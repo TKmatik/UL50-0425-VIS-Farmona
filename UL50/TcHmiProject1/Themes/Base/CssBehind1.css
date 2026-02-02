@@ -1,0 +1,3 @@
+.TcHmi_Controls_Helpers_Popup-content .TcHmi_Controls_System_TcHmiControl:not(.TcHmi_Controls_System_TcHmiControl) {
+    zoom: 150%;
+}

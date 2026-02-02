@@ -1,0 +1,786 @@
+<div id="DosingChart_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1520" data-tchmi-height="820" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+<div id="ManualButton_2099" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="17" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text37%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="757" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%iScrewer%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/INT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%i%iScrewer%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "symbolExpression": "%i%iScrewer%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "value": 1
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2100" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="180" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text38%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="757" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%iScrewer%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/INT",
+          "value": 2
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%i%iScrewer%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%i%iScrewer%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "value": 2
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%i%iScrewer%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "symbolExpression": "%i%iScrewer%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "value": 1
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_2::Zindex%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 5
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_5::Zindex%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 2
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/INT",
+                          "symbolExpression": "%i%iScrewer%/i%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/INT",
+                          "value": 2
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%TcHmiLineChart_2::Zindex%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/UDINT",
+                          "value": 2
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%TcHmiLineChart_5::Zindex%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/UDINT",
+                          "value": 5
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": []
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+<div id="TcHmiLineChart_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLineChart" data-tchmi-height="732" data-tchmi-height-unit="px" data-tchmi-left="13" data-tchmi-left-unit="px" data-tchmi-top="13" data-tchmi-top-unit="px" data-tchmi-width="1495" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis  1" data-tchmi-x-axis-unit="ms" data-tchmi-x-sub-tick-steps="10" data-tchmi-y-sub-tick-steps="1" data-tchmi-legend-font-size="20" data-tchmi-show-y-sub-ticks="true" data-tchmi-x-show-labels="true" data-tchmi-show-x-axis="true" data-tchmi-subgrid-show-vertical-lines="true" data-tchmi-subgrid-show-horizontal-lines="true" data-tchmi-line-graph-data="%s%PLC1.VIS.AStChartGripperScrewer1[0]%/s%" data-tchmi-show-x-sub-ticks="true" data-tchmi-show-legend="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-steps="10" data-tchmi-x-main-tick-max-value="%s%PLC1.VIS.AStChartGripperScrewer1[0][4][500]%/s%" data-tchmi-x-axis-labeling="Number" data-tchmi-creator-visibility="Visible" data-tchmi-x-axis-decimal-places="0" data-tchmi-zindex="5" data-tchmi-y-main-tick-steps="15">
+    <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
+[
+  {
+    "id": 0,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "axisName": "%l%Text105%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "autoScaling": true,
+    "unit": "mm"
+  },
+  {
+    "id": 1,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "axisName": "%l%Text742%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "autoScaling": true,
+    "unit": "%l%Text743%/l%"
+  },
+  {
+    "id": 2,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "axisName": "%l%Text106%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "autoScaling": true,
+    "unit": "mm/s"
+  },
+  {
+    "id": 3,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Auto",
+    "labelFontColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 1.0,
+    "axisName": "%l%Text627%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 4,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "mainTickMinValue": -10.0,
+    "mainTickMaxValue": 40.0,
+    "axisName": "%l%Text748%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "decimalPlaces": 1,
+    "autoScaling": false,
+    "unit": "mm"
+  }
+]
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-x-axis-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-grid-line-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-x-label-font-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-x-axis-name-font-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-subgrid-line-color" type="application/json">
+{
+  "color": "rgba(186, 195, 235, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-grid-background-color" type="application/json">
+{
+  "color": "rgba(242, 242, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
+[
+  {
+    "yAxisId": 0,
+    "legendName": "%l%Text105%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 1,
+    "legendName": "%l%Text742%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 2,
+    "legendName": "%l%Text106%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 3,
+    "legendName": "%l%Text627%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 4,
+    "legendName": "%l%Text748%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "fillTransparency": 50.0
+  }
+]
+</script>
+
+
+
+
+
+
+
+
+</div>
+<div id="TcHmiLineChart_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLineChart" data-tchmi-height="732" data-tchmi-height-unit="px" data-tchmi-left="13" data-tchmi-left-unit="px" data-tchmi-top="13" data-tchmi-top-unit="px" data-tchmi-width="1495" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis  1" data-tchmi-x-axis-unit="ms" data-tchmi-x-sub-tick-steps="10" data-tchmi-y-sub-tick-steps="1" data-tchmi-legend-font-size="20" data-tchmi-show-y-sub-ticks="true" data-tchmi-x-show-labels="true" data-tchmi-show-x-axis="true" data-tchmi-subgrid-show-vertical-lines="true" data-tchmi-subgrid-show-horizontal-lines="true" data-tchmi-line-graph-data="%s%PLC1.VIS.AStChartGripperScrewer2[0]%/s%" data-tchmi-show-x-sub-ticks="true" data-tchmi-show-legend="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-steps="10" data-tchmi-x-main-tick-max-value="%s%PLC1.VIS.AStChartGripperScrewer2[0][4][500]%/s%" data-tchmi-x-axis-labeling="Number" data-tchmi-creator-visibility="Collapsed" data-tchmi-x-axis-decimal-places="0" data-tchmi-x-logarithmic-scale="false" data-tchmi-zindex="2" data-tchmi-y-main-tick-steps="15">
+<script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
+[
+  {
+    "id": 0,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "axisName": "%l%Text105%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "autoScaling": true,
+    "unit": "mm"
+  },
+  {
+    "id": 1,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "axisName": "%l%Text742%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "autoScaling": true,
+    "unit": "%l%Text743%/l%"
+  },
+  {
+    "id": 2,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "axisName": "%l%Text106%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "autoScaling": true,
+    "unit": "mm/s"
+  },
+  {
+    "id": 3,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Auto",
+    "labelFontColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 1.0,
+    "axisName": "%l%Text627%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 4,
+    "position": "Left",
+    "labelFontColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "axisColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "mainTickMinValue": -10.0,
+    "mainTickMaxValue": 40.0,
+    "axisName": "%l%Text748%/l%",
+    "axisNameFontColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "decimalPlaces": 1,
+    "autoScaling": false,
+    "unit": "mm"
+  }
+]
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-x-axis-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-grid-line-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-x-label-font-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-x-axis-name-font-color" type="application/json">
+{
+  "color": "rgba(71, 146, 218, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-subgrid-line-color" type="application/json">
+{
+  "color": "rgba(186, 195, 235, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-grid-background-color" type="application/json">
+{
+  "color": "rgba(242, 242, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
+[
+  {
+    "yAxisId": 0,
+    "legendName": "%l%Text105%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(243, 160, 255, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 1,
+    "legendName": "%l%Text742%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 2,
+    "legendName": "%l%Text106%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 3,
+    "legendName": "%l%Text627%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(255, 175, 28, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 4,
+    "legendName": "%l%Text748%/l%",
+    "xScaleFactor": 10.0,
+    "lineWidth": 4,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(33, 63, 80, 1)"
+    },
+    "fillTransparency": 50.0
+  }
+]
+</script>
+
+
+
+
+
+
+
+
+</div>
+</div>

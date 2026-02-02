@@ -1,0 +1,2673 @@
+<div id="DosingChart_5" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1500" data-tchmi-height="800">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+<div id="ManualButton_2701" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="29" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text15%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="748" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Dozuj.png">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.VIS.udiDossagerNum%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.VIS.bDrawChart%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 0
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="ManualButton_2700" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="185" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text16%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="748" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Dozuj.png">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.VIS.bDrawChart%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 1
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 1
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.VIS.udiDossagerNum%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 1
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 1
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="ManualButton_2699" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="341" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text17%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="748" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Dozuj.png">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.VIS.bDrawChart%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 2
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 2
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.VIS.udiDossagerNum%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 2
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 2
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="ManualButton_2698" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="497" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text18%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="748" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true" data-tchmi-simage="Images/Icons/Dozuj.png">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.VIS.bDrawChart%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 3
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 3
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.VIS.udiDossagerNum%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 3
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "symbolExpression": "%s%PLC1.VIS.udiDossagerNum%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/UDINT",
+                  "value": 3
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::bValue%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="ManualButton_2697" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1344" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text740%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="747" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\Chart_1.png" data-tchmi-bvalue="%s%PLC1.VIS.bDrawChart%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.Beckhoff.Wait",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/Number",
+            "value": 500.0
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctx%owner::IsEnabled%/ctx%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/Boolean",
+          "value": false
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.Beckhoff.Wait",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/Number",
+            "value": 15000.0
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctx%owner::IsEnabled%/ctx%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/Boolean",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiToggleSwitch_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="675" data-tchmi-left-unit="px" data-tchmi-text="Rzeczywiste" data-tchmi-top="759" data-tchmi-top-unit="px" data-tchmi-width="152" data-tchmi-width-unit="px" data-tchmi-toggle-state="Active">
+
+    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onToggleStateChanged",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "symbolExpression": "%ctx%owner::ToggleState%/ctx%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "value": "Normal"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_13::LineGraphDescriptions%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiLineChart.ChartLineGraphDescriptionDefinitionList",
+                  "value": [
+                    {
+                      "yAxisId": 1,
+                      "legendName": "%l%Text308%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 2,
+                      "legendName": "%l%Text310%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 3,
+                      "legendName": "%l%Text312%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 4,
+                      "legendName": "%l%Text314%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 5,
+                      "legendName": "%l%Text316%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 0, 0, 0)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 6,
+                      "legendName": "%l%Text309%/l%",
+                      "xScaleFactor": 1.0,
+                      "yScaleFactor": 1.0,
+                      "lineWidth": 2,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 7,
+                      "legendName": "%l%Text311%/l%",
+                      "lineWidth": 2,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 8,
+                      "legendName": "%l%Text313%/l%",
+                      "lineWidth": 2,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 9,
+                      "legendName": "%l%Text315%/l%",
+                      "lineWidth": 2,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 10,
+                      "legendName": "%l%Text317%/l%",
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_13::YAxis%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiLineChart.ChartYAxisDefinitionList",
+                  "value": [
+                    {
+                      "id": 1,
+                      "showAxis": true,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "showAxisName": true,
+                      "axisName": "%l%Text275%/l%",
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "unit": "ml",
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+                    },
+                    {
+                      "id": 2,
+                      "showAxis": true,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisName": "%l%Text859%/l%",
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "unit": "mm",
+                      "mainTickMinValue": "%s%PLC1.VIS.lrDispencer1LifterStopDosePositionShow%/s%",
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%"
+                    },
+                    {
+                      "id": 3,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "SuckValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 4,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "DoseValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 5,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "VertLine_A",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 6,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "showAxisName": true,
+                      "axisName": "RealDose",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+                    },
+                    {
+                      "id": 7,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisName": "RealLifter",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "mainTickMinValue": "%s%PLC1.VIS.lrDispencer1LifterStopDosePositionShow%/s%",
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%"
+                    },
+                    {
+                      "id": 8,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "RealSuckValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 9,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "RealDoseValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 10,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "VertLine_B",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_13::LineGraphDescriptions%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiLineChart.ChartLineGraphDescriptionDefinitionList",
+                  "value": [
+                    {
+                      "yAxisId": 1,
+                      "legendName": "%l%Text308%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 6,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 2,
+                      "legendName": "%l%Text310%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 6,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 3,
+                      "legendName": "%l%Text312%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 6,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(255, 175, 28, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(255, 175, 28, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(255, 175, 28, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 4,
+                      "legendName": "%l%Text314%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 6,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(71, 239, 191, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(71, 239, 191, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(71, 239, 191, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 5,
+                      "legendName": "%l%Text316%/l%",
+                      "defaultVisibility": true,
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 6,
+                      "legendName": "%l%Text309%/l%",
+                      "xScaleFactor": 1.0,
+                      "yScaleFactor": 1.0,
+                      "lineWidth": 2,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(69, 111, 129, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 7,
+                      "legendName": "%l%Text311%/l%",
+                      "lineWidth": 2,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 198, 255, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 8,
+                      "legendName": "%l%Text313%/l%",
+                      "lineWidth": 2,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(255, 175, 28, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 9,
+                      "legendName": "%l%Text315%/l%",
+                      "lineWidth": 2,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(71, 239, 191, 0.4980392)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 10,
+                      "legendName": "%l%Text317%/l%",
+                      "lineWidth": 1,
+                      "pointDot": false,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(0, 12, 0, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": 11,
+                      "legendName": "%l%Text737%/l%",
+                      "lineWidth": 6,
+                      "pointDot": true,
+                      "pointDotRadius": 3,
+                      "pointDotStrokeWidth": 1,
+                      "lineColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    },
+                    {
+                      "yAxisId": "%f%12%/f%",
+                      "defaultVisibility": true,
+                      "lineWidth": 3,
+                      "lineColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "pointDotFillColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "pointDotStrokeColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "fillColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiLineChart::LineGraphDescriptionFillColor%/tr%"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiLineChart_13::YAxis%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiLineChart.ChartYAxisDefinitionList",
+                  "value": [
+                    {
+                      "id": 1,
+                      "showAxis": true,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "showAxisName": true,
+                      "axisName": "%l%Text275%/l%",
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(69, 111, 129, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "unit": "ml",
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+                    },
+                    {
+                      "id": 2,
+                      "showAxis": true,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisName": "%l%Text859%/l%",
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(0, 198, 255, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "unit": "mm",
+                      "mainTickMinValue": "%f%%s%PLC1.VIS.lrDispencer1LifterStartDosePositionShow%/s%-20%/f%",
+                      "mainTickMaxValue": "%f%%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%+20%/f%"
+                    },
+                    {
+                      "id": 3,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "SuckValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 4,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "DoseValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 5,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "VertLine_A",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 6,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "showAxisName": true,
+                      "axisName": "RealDose",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+                    },
+                    {
+                      "id": 7,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisName": "RealLifter",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false,
+                      "mainTickMinValue": "%f%%s%PLC1.VIS.lrDispencer1LifterStartDosePositionShow%/s%-20%/f%",
+                      "mainTickMaxValue": "%f%%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%+20%/f%"
+                    },
+                    {
+                      "id": 8,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "RealSuckValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 9,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "RealDoseValve",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 10,
+                      "showAxis": false,
+                      "position": "Left",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "mainTickMinValue": 0.0,
+                      "mainTickMaxValue": 500.0,
+                      "showAxisName": true,
+                      "axisName": "VertLine_B",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(71, 148, 218, 1)"
+                      },
+                      "decimalPlaces": 0,
+                      "autoScaling": false
+                    },
+                    {
+                      "id": 11,
+                      "showAxis": true,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisName": "%l%Text737%/l%",
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "decimalPlaces": 1,
+                      "autoScaling": false,
+                      "unit": "Bar",
+                      "mainTickMinValue": "%f%%s%ADS.PLC1.VIS.lrTorqMin%/s%-3%/f%",
+                      "mainTickMaxValue": "%f%%s%ADS.PLC1.VIS.lrTorqMax%/s%+3%/f%"
+                    },
+                    {
+                      "id": 12,
+                      "showAxis": false,
+                      "position": "Right",
+                      "logarithmicScale": false,
+                      "axisLabeling": "Number",
+                      "labelFontColor": {
+                        "color": "rgba(9, 8, 9, 1)"
+                      },
+                      "showLabels": true,
+                      "axisColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "showAxisName": true,
+                      "axisNameFontFamily": "RobotoCondensed",
+                      "axisNameFontSize": 15,
+                      "axisNameFontSizeUnit": "px",
+                      "axisNameFontWeight": "Bold",
+                      "axisNameFontColor": {
+                        "color": "rgba(196, 15, 67, 1)"
+                      },
+                      "decimalPlaces": 1,
+                      "autoScaling": false,
+                      "unit": "Bar",
+                      "mainTickMinValue": "%f%%s%ADS.PLC1.VIS.lrTorqMin%/s%-3%/f%",
+                      "mainTickMaxValue": "%f%%s%ADS.PLC1.VIS.lrTorqMax%/s%+3%/f%"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiLineChart_13" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLineChart" data-tchmi-height="738" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="1490" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis  1" data-tchmi-x-axis-unit="ms" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="1" data-tchmi-show-tooltip="true" data-tchmi-show-legend="true" data-tchmi-legend-font-size="20" data-tchmi-show-x-axis-name="False" data-tchmi-line-graph-data="%s%PLC1.VIS.aPoints%/s%" data-tchmi-subgrid-show-vertical-lines="False" data-tchmi-show-menu-bar="True" data-tchmi-menu-bar-position="Top" data-tchmi-x-axis-auto-scaling="False" data-tchmi-x-logarithmic-scale="False" data-tchmi-x-axis-labeling="Number" data-tchmi-x-main-tick-steps="5" data-tchmi-x-main-tick-max-value="%s%ADS.PLC1.VIS.nDrawLenght%/s%" data-tchmi-show-x-sub-ticks="False" data-tchmi-x-main-tick-min-value="0" data-tchmi-creator-visibility="Visible" data-tchmi-x-axis-decimal-places="0">
+<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
+[
+  {
+    "yAxisId": 1,
+    "legendName": "%l%Text308%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 6,
+    "pointDot": true,
+    "pointDotRadius": 1,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 2,
+    "legendName": "%l%Text310%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 6,
+    "pointDot": true,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 10,
+    "lineColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 3,
+    "legendName": "%l%Text312%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 6,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(34, 124, 0, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(34, 124, 0, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(34, 124, 0, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 4,
+    "legendName": "%l%Text314%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 6,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 239, 191, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 5,
+    "legendName": "%l%Text316%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 1,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 6,
+    "legendName": "%l%Text309%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 2,
+    "pointDot": true,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(69, 111, 129, 0.5)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(69, 111, 129, 0.5)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(69, 111, 129, 0.5)"
+    },
+    "fillColor": {
+      "color": "rgba(69, 111, 129, 0.5)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 7,
+    "legendName": "%l%Text311%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 2,
+    "pointDot": true,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(0, 198, 255, 0.5)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 198, 255, 0.5)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 198, 255, 0.5)"
+    },
+    "fillColor": {
+      "color": "rgba(0, 198, 255, 0.5)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 8,
+    "legendName": "%l%Text313%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 2,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(34, 124, 0, 0.4980392)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(34, 124, 0, 0.4980392)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(34, 124, 0, 0.4980392)"
+    },
+    "fillColor": {
+      "color": "rgba(34, 124, 0, 0.4980392)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 9,
+    "legendName": "%l%Text315%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 2,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 239, 191, 0.5)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 239, 191, 0.5)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 239, 191, 0.5)"
+    },
+    "fillColor": {
+      "color": "rgba(71, 239, 191, 0.5)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 10,
+    "legendName": "%l%Text317%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 1,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "fillColor": {
+      "color": "rgba(0, 12, 0, 1)"
+    },
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 11,
+    "legendName": "%l%Text737%/l%",
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 6,
+    "pointDot": true,
+    "pointDotRadius": 1,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "fillMode": "None",
+    "fillTransparency": 50.0
+  },
+  {
+    "yAxisId": 12,
+    "xScaleFactor": 1.0,
+    "yScaleFactor": 1.0,
+    "lineWidth": 3,
+    "lineColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    }
+  }
+]
+</script>
+
+        <script data-tchmi-target-attribute="data-tchmi-x-label-font-color" type="application/json">{
+  "color": "#4794da"
+}</script>
+        <script data-tchmi-target-attribute="data-tchmi-x-axis-color" type="application/json">
+{
+  "color": "rgba(238, 238, 242, 1)"
+}
+</script>
+        <script data-tchmi-target-attribute="data-tchmi-x-axis-name-font-color" type="application/json">{
+  "color": "#4794da"
+}</script>
+        <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
+[
+  {
+    "id": 1,
+    "showAxis": true,
+    "position": "Right",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "showAxisName": true,
+    "axisName": "%l%Text275%/l%",
+    "axisNameFontFamily": "RobotoCondensed",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(69, 111, 129, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false,
+    "unit": "ml",
+    "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+  },
+  {
+    "id": 2,
+    "showAxis": true,
+    "position": "Right",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "showAxisName": true,
+    "axisName": "%l%Text859%/l%",
+    "axisNameFontFamily": "RobotoCondensed",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(0, 198, 255, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false,
+    "unit": "mm",
+    "mainTickMinValue": "%f%%s%PLC1.VIS.lrDispencer1LifterStartDosePositionShow%/s%-20%/f%",
+    "mainTickMaxValue": "%f%%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%+20%/f%"
+  },
+  {
+    "id": 3,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "SuckValve",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 4,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "DoseValve",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 5,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "VertLine_A",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 6,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "showAxisName": true,
+    "axisName": "RealDose",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false,
+    "mainTickMaxValue": "%s%PLC1.VIS.lrDispencer1DoseVolumeShow%/s%"
+  },
+  {
+    "id": 7,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showAxisName": true,
+    "axisName": "RealLifter",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false,
+    "mainTickMinValue": "%f%%s%PLC1.VIS.lrDispencer1LifterStartDosePositionShow%/s%-20%/f%",
+    "mainTickMaxValue": "%f%%s%PLC1.VIS.lrDispencersLifterReadyPositionShow%/s%+20%/f%"
+  },
+  {
+    "id": 8,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "RealSuckValve",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 9,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "RealDoseValve",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 10,
+    "showAxis": false,
+    "position": "Left",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "mainTickMinValue": 0.0,
+    "mainTickMaxValue": 500.0,
+    "showAxisName": true,
+    "axisName": "VertLine_B",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false
+  },
+  {
+    "id": 11,
+    "showAxis": true,
+    "position": "Right",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "showLabels": true,
+    "axisColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "showAxisName": true,
+    "axisName": "%l%Text737%/l%",
+    "axisNameFontFamily": "RobotoCondensed",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "decimalPlaces": 1,
+    "autoScaling": false,
+    "unit": "Bar",
+    "mainTickMinValue": "%f%%s%ADS.PLC1.VIS.lrTorqMin%/s%-2%/f%",
+    "mainTickMaxValue": "%f%%s%ADS.PLC1.VIS.lrTorqMax%/s%+2%/f%"
+  },
+  {
+    "id": 12,
+    "showAxis": false,
+    "position": "Right",
+    "logarithmicScale": false,
+    "axisLabeling": "Number",
+    "labelFontColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "showLabels": false,
+    "axisColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "showAxisName": false,
+    "axisNameFontFamily": "RobotoCondensed",
+    "axisNameFontSize": 15,
+    "axisNameFontSizeUnit": "px",
+    "axisNameFontWeight": "Bold",
+    "axisNameFontColor": {
+      "color": "rgba(196, 15, 67, 1)"
+    },
+    "decimalPlaces": 0,
+    "autoScaling": false,
+    "unit": "Bar",
+    "mainTickMinValue": "%f%%s%ADS.PLC1.VIS.lrTorqMin%/s%-2%/f%",
+    "mainTickMaxValue": "%f%%s%ADS.PLC1.VIS.lrTorqMax%/s%+2%/f%"
+  }
+]
+</script>
+        <script data-tchmi-target-attribute="data-tchmi-grid-background-color" type="application/json">{
+  "color": "#f2f2f2"
+}</script>
+        <script data-tchmi-target-attribute="data-tchmi-grid-line-color" type="application/json">{
+  "color": "#4794da"
+}</script>
+        <script data-tchmi-target-attribute="data-tchmi-subgrid-line-color" type="application/json">{
+  "color": "#bac3eb"
+}</script>
+
+    
+
+</div>
+<div id="TcHmiRectangle_2141" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="417" data-tchmi-left-unit="px" data-tchmi-top="709" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(246, 247, 248, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(246, 247, 248, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(246, 247, 248, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(246, 247, 248, 1)"
+}
+</script>
+</div>
+</div>

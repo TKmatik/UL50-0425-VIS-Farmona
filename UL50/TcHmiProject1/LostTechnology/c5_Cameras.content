@@ -1,0 +1,2616 @@
+<div id="c1_Manual_5" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1545" data-tchmi-height="1080" data-tchmi-zindex="1">
+<div id="TcHmiHtmlHost" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="938" data-tchmi-left-unit="px" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-is-enabled="false">
+<input type="hidden" name="mse-url0" id="mse-url0" value="ws://192.168.40.160:8083/stream/cam1/channel/0/mse?uuid=cam1&channel=0">
+      <video id="mse-video0" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Skrypt dla kamery nr 0",
+          "const mediaPlayer0 = {",
+          "    mse: null,",
+          "    ws: null,",
+          "    sourceBuffer: null,",
+          "    queue: [],",
+          "    isPlaying: false,",
+          "    retryCount: 0",
+          "};",
+          "",
+          "// Funkcja startująca strumień",
+          "function startPlay0() {",
+          "    const videoEl0 = document.getElementById('mse-video0');",
+          "    const mseUrl0 = document.getElementById('mse-url0').value;",
+          "    ",
+          "    if (!videoEl0 || !mseUrl0) {",
+          "        console.error('Kamera 0: Brak elementu video lub URL');",
+          "        return;",
+          "    }",
+          "",
+          "    // Czyszczenie poprzedniego strumienia",
+          "    stopPlay0();",
+          "",
+          "    // Inicjalizacja MediaSource",
+          "    try {",
+          "        mediaPlayer0.mse = new MediaSource();",
+          "        videoEl0.src = URL.createObjectURL(mediaPlayer0.mse);",
+          "        ",
+          "        mediaPlayer0.mse.addEventListener('sourceopen', function() {",
+          "            initializeWebSocket0(mseUrl0);",
+          "        });",
+          "        ",
+          "        mediaPlayer0.mse.addEventListener('sourceended', function() {",
+          "            console.log('Kamera 0: Źródło zakończone');",
+          "            mediaPlayer0.isPlaying = false;",
+          "        });",
+          "        ",
+          "    } catch (error) {",
+          "        console.error('Kamera 0: Błąd inicjalizacji MediaSource', error);",
+          "        handleStreamError0();",
+          "    }",
+          "}",
+          "",
+          "function initializeWebSocket0(url) {",
+          "    try {",
+          "        mediaPlayer0.ws = new WebSocket(url);",
+          "        mediaPlayer0.ws.binaryType = 'arraybuffer';",
+          "        ",
+          "        mediaPlayer0.ws.onopen = function() {",
+          "            console.log('Kamera 0: Połączenie aktywne');",
+          "            mediaPlayer0.isPlaying = true;",
+          "            mediaPlayer0.retryCount = 0;",
+          "        };",
+          "        ",
+          "        mediaPlayer0.ws.onmessage = function(event) {",
+          "            handleMessage0(event.data);",
+          "        };",
+          "        ",
+          "        mediaPlayer0.ws.onclose = function() {",
+          "            console.log('Kamera 0: Połączenie zamknięte');",
+          "            mediaPlayer0.isPlaying = false;",
+          "        };",
+          "        ",
+          "        mediaPlayer0.ws.onerror = function(error) {",
+          "            console.error('Kamera 0: Błąd WebSocket', error);",
+          "            handleStreamError0();",
+          "        };",
+          "        ",
+          "    } catch (error) {",
+          "        console.error('Kamera 0: Błąd inicjalizacji WebSocket', error);",
+          "        handleStreamError0();",
+          "    }",
+          "}",
+          "",
+          "function handleMessage0(data) {",
+          "    const dataArray = new Uint8Array(data);",
+          "    ",
+          "    if (dataArray[0] === 9) { // Nagłówek konfiguracyjny",
+          "        try {",
+          "            const mimeCodec = new TextDecoder('utf-8').decode(dataArray.slice(1));",
+          "            mediaPlayer0.sourceBuffer = mediaPlayer0.mse.addSourceBuffer(",
+          "                `video/mp4; codecs=\"${mimeCodec}\"`",
+          "            );",
+          "            mediaPlayer0.sourceBuffer.mode = 'segments';",
+          "            mediaPlayer0.sourceBuffer.addEventListener('updateend', pushPacket0);",
+          "            mediaPlayer0.sourceBuffer.addEventListener('error', function() {",
+          "                console.error('Kamera 0: Błąd SourceBuffer');",
+          "            });",
+          "        } catch (error) {",
+          "            console.error('Kamera 0: Błąd parsowania nagłówka', error);",
+          "        }",
+          "    } else { // Dane wideo",
+          "        readPacket0(data);",
+          "    }",
+          "}",
+          "",
+          "function readPacket0(packet) {",
+          "    if (!mediaPlayer0.sourceBuffer) return;",
+          "    ",
+          "    if (!mediaPlayer0.isPlaying) {",
+          "        try {",
+          "            mediaPlayer0.sourceBuffer.appendBuffer(packet);",
+          "            mediaPlayer0.isPlaying = true;",
+          "        } catch (error) {",
+          "            console.error('Kamera 0: Błąd dodawania pakietu', error);",
+          "        }",
+          "        return;",
+          "    }",
+          "    ",
+          "    mediaPlayer0.queue.push(packet);",
+          "    if (!mediaPlayer0.sourceBuffer.updating) {",
+          "        pushPacket0();",
+          "    }",
+          "}",
+          "",
+          "function pushPacket0() {",
+          "    const videoEl0 = document.getElementById('mse-video0');",
+          "    if (!mediaPlayer0.sourceBuffer || mediaPlayer0.sourceBuffer.updating) return;",
+          "    ",
+          "    if (mediaPlayer0.queue.length > 0) {",
+          "        try {",
+          "            mediaPlayer0.sourceBuffer.appendBuffer(mediaPlayer0.queue.shift());",
+          "        } catch (error) {",
+          "            console.error('Kamera 0: Błąd dodawania do bufora', error);",
+          "            mediaPlayer0.queue = [];",
+          "        }",
+          "    }",
+          "    ",
+          "    // Naprawa zatrzymanego strumienia",
+          "    if (videoEl0 && videoEl0.buffered.length > 0) {",
+          "        const bufferEnd = videoEl0.buffered.end(videoEl0.buffered.length - 1);",
+          "        if (videoEl0.currentTime >= bufferEnd - 0.5) {",
+          "            videoEl0.currentTime = Math.max(0, bufferEnd - 0.5);",
+          "            videoEl0.play().catch(e => console.warn('Kamera 0: Błąd odtwarzania', e));",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "function stopPlay0() {",
+          "    if (mediaPlayer0.ws) {",
+          "        mediaPlayer0.ws.onclose = null;",
+          "        mediaPlayer0.ws.close();",
+          "        mediaPlayer0.ws = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer0.sourceBuffer) {",
+          "        try {",
+          "            if (!mediaPlayer0.sourceBuffer.updating) {",
+          "                mediaPlayer0.sourceBuffer.abort();",
+          "            }",
+          "        } catch (error) {",
+          "            console.warn('Kamera 0: Błąd czyszczenia SourceBuffer', error);",
+          "        }",
+          "        mediaPlayer0.sourceBuffer = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer0.mse) {",
+          "        try {",
+          "            if (mediaPlayer0.mse.readyState === 'open') {",
+          "                mediaPlayer0.mse.endOfStream();",
+          "            }",
+          "        } catch (error) {",
+          "            console.warn('Kamera 0: Błąd zamykania MediaSource', error);",
+          "        }",
+          "        mediaPlayer0.mse = null;",
+          "    }",
+          "    ",
+          "    mediaPlayer0.queue = [];",
+          "    mediaPlayer0.isPlaying = false;",
+          "}",
+          "",
+          "function handleStreamError0() {",
+          "    mediaPlayer0.retryCount++;",
+          "    const delay = Math.min(5000, mediaPlayer0.retryCount * 1000);",
+          "    ",
+          "    if (mediaPlayer0.retryCount <= 5) {",
+          "        console.log(`Kamera 0: Ponowna próba za ${delay/1000}s (${mediaPlayer0.retryCount}/5)`);",
+          "        setTimeout(startPlay0, delay);",
+          "    } else {",
+          "        console.error('Kamera 0: Przekroczono limit prób połączenia');",
+          "    }",
+          "}",
+          "",
+          "// Inicjalizacja dla TwinCAT HMI",
+          "(function initCamera0() {",
+          "    const videoEl0 = document.getElementById('mse-video0');",
+          "    if (!videoEl0) return;",
+          "    ",
+          "    // Wsparcie dla autoodtwarzania w HMI",
+          "    videoEl0.setAttribute('playsinline', '');",
+          "    videoEl0.setAttribute('muted', '');",
+          "    videoEl0.setAttribute('autoplay', '');",
+          "    ",
+          "    // Start przy załadowaniu",
+          "    startPlay0();",
+          "    ",
+          "    // Obsługa widoczności",
+          "    document.addEventListener('visibilitychange', function() {",
+          "        if (document.visibilityState === 'visible' && mediaPlayer0.isPlaying) {",
+          "            videoEl0.play().catch(e => console.warn('Kamera 0: Błąd wznowienia', e));",
+          "        }",
+          "    });",
+          "    ",
+          "    // Naprawa zatrzymanego wideo",
+          "    videoEl0.addEventListener('pause', function() {",
+          "        if (videoEl0.buffered.length > 0 && ",
+          "            videoEl0.currentTime >= videoEl0.buffered.end(videoEl0.buffered.length - 1)) {",
+          "            videoEl0.currentTime = videoEl0.buffered.end(videoEl0.buffered.length - 1) - 0.1;",
+          "            videoEl0.play();",
+          "        }",
+          "    });",
+          "})();",
+          "",
+          "// API dla TwinCAT",
+          "window.tcCamera0 = {",
+          "    start: startPlay0,",
+          "    stop: stopPlay0,",
+          "    restart: function() {",
+          "        stopPlay0();",
+          "        setTimeout(startPlay0, 100);",
+          "    },",
+          "    status: function() {",
+          "        return mediaPlayer0.isPlaying ? 1 : 0;",
+          "    }",
+          "};"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        var htmlHost = TcHmi.Controls.get('TcHmiHtmlHost');",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setTop(153);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost').setLeft(108);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setZindex(2);",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "            //TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "            //TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiHtmlHost_1" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="106" data-tchmi-left-unit="px" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Visible">
+<input type="hidden" name="mse-url1" id="mse-url1" value="ws://192.168.40.160:8083/stream/cam1/channel/1/mse?uuid=cam1&channel=1">
+      <video id="mse-video1" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Skrypt dla kamery nr 1",
+          "const mediaPlayer1 = {",
+          "    mse: null,",
+          "    ws: null,",
+          "    sourceBuffer: null,",
+          "    queue: [],",
+          "    isPlaying: false",
+          "};",
+          "",
+          "// Funkcja startująca strumień",
+          "function startPlay1() {",
+          "    const videoEl1 = document.getElementById('mse-video1');",
+          "    const mseUrl1 = document.getElementById('mse-url1').value;",
+          "    ",
+          "    // Czyszczenie poprzedniego strumienia",
+          "    if (mediaPlayer1.ws) mediaPlayer1.ws.close();",
+          "    if (mediaPlayer1.sourceBuffer) mediaPlayer1.sourceBuffer.abort();",
+          "    if (mediaPlayer1.mse) mediaPlayer1.mse.endOfStream();",
+          "    ",
+          "    // Inicjalizacja MediaSource",
+          "    mediaPlayer1.mse = new MediaSource();",
+          "    videoEl1.src = URL.createObjectURL(mediaPlayer1.mse);",
+          "    ",
+          "    mediaPlayer1.mse.addEventListener('sourceopen', function() {",
+          "        // Połączenie WebSocket",
+          "        mediaPlayer1.ws = new WebSocket(mseUrl1);",
+          "        mediaPlayer1.ws.binaryType = 'arraybuffer';",
+          "        ",
+          "        mediaPlayer1.ws.onopen = function() {",
+          "            console.log('Kamera 1: Połączenie aktywne');",
+          "            mediaPlayer1.isPlaying = true;",
+          "        };",
+          "        ",
+          "        mediaPlayer1.ws.onmessage = function(event) {",
+          "            const data = new Uint8Array(event.data);",
+          "            ",
+          "            // Nagłówek konfiguracyjny",
+          "            if (data[0] === 9) {",
+          "                const mimeCodec = new TextDecoder('utf-8').decode(data.slice(1));",
+          "                mediaPlayer1.sourceBuffer = mediaPlayer1.mse.addSourceBuffer(",
+          "                    `video/mp4; codecs=\"${mimeCodec}\"`",
+          "                );",
+          "                mediaPlayer1.sourceBuffer.mode = 'segments';",
+          "                mediaPlayer1.sourceBuffer.addEventListener('updateend', pushPacket1);",
+          "            } ",
+          "            // Dane wideo",
+          "            else {",
+          "                readPacket1(event.data);",
+          "            }",
+          "        };",
+          "        ",
+          "        mediaPlayer1.ws.onerror = function(error) {",
+          "            console.error('Kamera 1: Błąd połączenia', error);",
+          "        };",
+          "    });",
+          "}",
+          "",
+          "// Funkcja czytająca pakiety",
+          "function readPacket1(packet) {",
+          "    if (!mediaPlayer1.isPlaying && mediaPlayer1.sourceBuffer) {",
+          "        mediaPlayer1.sourceBuffer.appendBuffer(packet);",
+          "        mediaPlayer1.isPlaying = true;",
+          "        return;",
+          "    }",
+          "    mediaPlayer1.queue.push(packet);",
+          "    if (!mediaPlayer1.sourceBuffer.updating) {",
+          "        pushPacket1();",
+          "    }",
+          "}",
+          "",
+          "// Funkcja wysyłająca pakiety do dekodera",
+          "function pushPacket1() {",
+          "    const videoEl1 = document.getElementById('mse-video1');",
+          "    ",
+          "    if (!mediaPlayer1.sourceBuffer || mediaPlayer1.sourceBuffer.updating) return;",
+          "    ",
+          "    if (mediaPlayer1.queue.length > 0) {",
+          "        try {",
+          "            mediaPlayer1.sourceBuffer.appendBuffer(mediaPlayer1.queue.shift());",
+          "        } catch (e) {",
+          "            console.error('Kamera 1: Błąd dekodera', e);",
+          "            mediaPlayer1.queue = [];",
+          "        }",
+          "    }",
+          "    ",
+          "    // Naprawa zatrzymanego strumienia",
+          "    if (videoEl1.buffered.length > 0) {",
+          "        const bufferEnd = videoEl1.buffered.end(videoEl1.buffered.length - 1);",
+          "        if (videoEl1.currentTime >= bufferEnd - 0.5) {",
+          "            videoEl1.currentTime = bufferEnd - 0.5;",
+          "            videoEl1.play().catch(e => console.warn('Kamera 1: Błąd odtwarzania', e));",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "// Funkcja zatrzymująca strumień",
+          "function stopPlay1() {",
+          "    if (mediaPlayer1.ws) {",
+          "        mediaPlayer1.ws.close();",
+          "        mediaPlayer1.ws = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer1.sourceBuffer) {",
+          "        try {",
+          "            if (!mediaPlayer1.sourceBuffer.updating) {",
+          "                mediaPlayer1.sourceBuffer.abort();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 1: Błąd czyszczenia bufora', e);",
+          "        }",
+          "        mediaPlayer1.sourceBuffer = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer1.mse) {",
+          "        try {",
+          "            if (mediaPlayer1.mse.readyState === 'open') {",
+          "                mediaPlayer1.mse.endOfStream();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 1: Błąd zamykania MediaSource', e);",
+          "        }",
+          "        mediaPlayer1.mse = null;",
+          "    }",
+          "    ",
+          "    mediaPlayer1.queue = [];",
+          "    mediaPlayer1.isPlaying = false;",
+          "}",
+          "",
+          "// Automatyczna inicjalizacja",
+          "(function initCamera1() {",
+          "    const videoEl1 = document.getElementById('mse-video1');",
+          "    if (!videoEl1) return;",
+          "    ",
+          "    // Start przy załadowaniu",
+          "    startPlay1();",
+          "    ",
+          "    // Obsługa pauzy gdy ekran jest niewidoczny",
+          "    document.addEventListener('visibilitychange', function() {",
+          "        if (document.visibilityState === 'visible' && mediaPlayer1.isPlaying) {",
+          "            videoEl1.play().catch(e => console.warn(e));",
+          "        }",
+          "    });",
+          "    ",
+          "    // Naprawa zatrzymanego wideo",
+          "    videoEl1.addEventListener('pause', function() {",
+          "        if (videoEl1.buffered.length > 0 && ",
+          "            videoEl1.currentTime >= videoEl1.buffered.end(videoEl1.buffered.length - 1)) {",
+          "            videoEl1.currentTime = videoEl1.buffered.end(videoEl1.buffered.length - 1) - 0.1;",
+          "            videoEl1.play();",
+          "        }",
+          "    });",
+          "})();",
+          "",
+          "// Funkcje dostępne globalnie dla TwinCAT",
+          "window.restartCamera1 = function() {",
+          "    stopPlay1();",
+          "    startPlay1();",
+          "};",
+          "",
+          "window.getCamera1Status = function() {",
+          "    return mediaPlayer1.isPlaying ? 'active' : 'inactive';",
+          "};"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setZindex(2);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setTop(153);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_1').setLeft(938);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "           // TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_1').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_1').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_1').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "          //  TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_1').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiHtmlHost_2" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="107" data-tchmi-left-unit="px" data-tchmi-top="617" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false">
+<input type="hidden" name="mse-url2" id="mse-url2" value="ws://192.168.40.160:8083/stream/cam1/channel/2/mse?uuid=cam1&channel=2">
+      <video id="mse-video2" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "// Najpierw deklarujemy WSZYSTKIE funkcje",
+          "function getVideoElement2() {",
+          "    const el = document.getElementById('mse-video2');",
+          "    return el && el instanceof HTMLVideoElement ? el : null;",
+          "}",
+          "",
+          "function pushBuffer2() {",
+          "    if (!mediaPlayer2.active) return;",
+          "",
+          "    const videoEl = getVideoElement2();",
+          "    if (!videoEl || !mediaPlayer2.sourceBuffer || mediaPlayer2.sourceBuffer.updating) {",
+          "        return;",
+          "    }",
+          "",
+          "    if (mediaPlayer2.queue.length > 0) {",
+          "        const packet = mediaPlayer2.queue.shift();",
+          "        try {",
+          "            mediaPlayer2.sourceBuffer.appendBuffer(packet);",
+          "        } catch (e) {",
+          "            console.error('Kamera 2: Błąd dodawania do bufora', e);",
+          "            mediaPlayer2.queue = [];",
+          "            stopPlay2();",
+          "        }",
+          "    }",
+          "",
+          "    if (videoEl.buffered && videoEl.buffered.length > 0) {",
+          "        try {",
+          "            const bufferEnd = videoEl.buffered.end(videoEl.buffered.length - 1);",
+          "            if (videoEl.currentTime >= bufferEnd - 0.5) {",
+          "                videoEl.currentTime = Math.max(0, bufferEnd - 0.5);",
+          "            }",
+          "            if (videoEl.paused) {",
+          "                videoEl.play().catch(e => console.warn('Kamera 2: Błąd autoplay', e));",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 2: Błąd synchronizacji', e);",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "function stopPlay2() {",
+          "    if (!mediaPlayer2.active) return;",
+          "",
+          "    mediaPlayer2.active = false;",
+          "    mediaPlayer2.isPlaying = false;",
+          "",
+          "    // Zamknij WebSocket",
+          "    if (mediaPlayer2.ws) {",
+          "        try {",
+          "            mediaPlayer2.ws.onmessage = null;",
+          "            mediaPlayer2.ws.onerror = null;",
+          "            mediaPlayer2.ws.onclose = null;",
+          "            if ([WebSocket.OPEN, WebSocket.CONNECTING].includes(mediaPlayer2.ws.readyState)) {",
+          "                mediaPlayer2.ws.close();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 2: Błąd zamykania WebSocket', e);",
+          "        }",
+          "        mediaPlayer2.ws = null;",
+          "    }",
+          "",
+          "    // Wyczyść SourceBuffer",
+          "    if (mediaPlayer2.sourceBuffer) {",
+          "        try {",
+          "            if (!mediaPlayer2.sourceBuffer.updating) {",
+          "                mediaPlayer2.sourceBuffer.abort();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 2: Błąd czyszczenia SourceBuffer', e);",
+          "        }",
+          "        mediaPlayer2.sourceBuffer = null;",
+          "    }",
+          "",
+          "    // Wyczyść MediaSource",
+          "    if (mediaPlayer2.mse) {",
+          "        try {",
+          "            if (mediaPlayer2.mse.readyState === 'open') {",
+          "                mediaPlayer2.mse.endOfStream();",
+          "            }",
+          "            URL.revokeObjectURL(mediaPlayer2.videoEl?.src);",
+          "        } catch (e) {",
+          "            console.warn('Kamera 2: Błąd czyszczenia MediaSource', e);",
+          "        }",
+          "        mediaPlayer2.mse = null;",
+          "    }",
+          "",
+          "    // Wyczyść kolejkę",
+          "    mediaPlayer2.queue = [];",
+          "",
+          "    // Zresetuj element wideo",
+          "    const videoEl = getVideoElement2();",
+          "    if (videoEl) {",
+          "        try {",
+          "            videoEl.pause();",
+          "            videoEl.removeAttribute('src');",
+          "            videoEl.load();",
+          "        } catch (e) {",
+          "            console.warn('Kamera 2: Błąd resetowania wideo', e);",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "function processStreamData2(data) {",
+          "    if (!mediaPlayer2.active || !mediaPlayer2.sourceBuffer) return;",
+          "    ",
+          "    try {",
+          "        if (data instanceof ArrayBuffer || data instanceof Blob) {",
+          "            const buffer = data instanceof Blob ? data : new Uint8Array(data);",
+          "            mediaPlayer2.queue.push(buffer);",
+          "            pushBuffer2();",
+          "        }",
+          "    } catch (e) {",
+          "        console.error('Kamera 2: Błąd przetwarzania danych', e);",
+          "    }",
+          "}",
+          "",
+          "function initWebSocket2() {",
+          "    if (mediaPlayer2.ws) {",
+          "        mediaPlayer2.ws.close();",
+          "    }",
+          "",
+          "    mediaPlayer2.ws = new WebSocket(config.wsUrl);",
+          "",
+          "    mediaPlayer2.ws.onopen = () => {",
+          "        console.log('Kamera 2: Połączono z WebSocket');",
+          "        mediaPlayer2.retryCount = 0;",
+          "    };",
+          "",
+          "    mediaPlayer2.ws.onmessage = (event) => {",
+          "        if (!mediaPlayer2.active) return;",
+          "        processStreamData2(event.data);",
+          "    };",
+          "",
+          "    mediaPlayer2.ws.onerror = (error) => {",
+          "        console.error('Kamera 2: Błąd WebSocket', error);",
+          "        reconnectPlayer2();",
+          "    };",
+          "",
+          "    mediaPlayer2.ws.onclose = () => {",
+          "        if (mediaPlayer2.active) {",
+          "            reconnectPlayer2();",
+          "        }",
+          "    };",
+          "}",
+          "",
+          "function reconnectPlayer2() {",
+          "    if (!mediaPlayer2.active || mediaPlayer2.retryCount >= config.maxRetries) {",
+          "        console.error('Kamera 2: Przekroczono maksymalną liczbę prób połączenia');",
+          "        stopPlay2();",
+          "        return;",
+          "    }",
+          "",
+          "    mediaPlayer2.retryCount++;",
+          "    const delay = config.retryDelay * mediaPlayer2.retryCount;",
+          "    console.log(`Kamera 2: Próba ponownego połączenia za ${delay}ms (${mediaPlayer2.retryCount}/${config.maxRetries})`);",
+          "    ",
+          "    setTimeout(() => {",
+          "        if (mediaPlayer2.active) {",
+          "            initWebSocket2();",
+          "        }",
+          "    }, delay);",
+          "}",
+          "",
+          "async function initMediaSource2() {",
+          "    const videoEl = getVideoElement2();",
+          "    if (!videoEl) return false;",
+          "",
+          "    try {",
+          "        if (mediaPlayer2.mse) {",
+          "            URL.revokeObjectURL(videoEl.src);",
+          "            mediaPlayer2.mse = null;",
+          "        }",
+          "",
+          "        mediaPlayer2.mse = new MediaSource();",
+          "        videoEl.src = URL.createObjectURL(mediaPlayer2.mse);",
+          "        videoEl.muted = true;",
+          "",
+          "        return new Promise((resolve) => {",
+          "            mediaPlayer2.mse.addEventListener('sourceopen', () => {",
+          "                try {",
+          "                    mediaPlayer2.sourceBuffer = mediaPlayer2.mse.addSourceBuffer(mediaPlayer2.mimeType);",
+          "                    mediaPlayer2.sourceBuffer.addEventListener('updateend', pushBuffer2);",
+          "                    resolve(true);",
+          "                } catch (e) {",
+          "                    console.error('Kamera 2: Błąd tworzenia SourceBuffer', e);",
+          "                    resolve(false);",
+          "                }",
+          "            });",
+          "",
+          "            mediaPlayer2.mse.addEventListener('sourceended', () => {",
+          "                console.log('Kamera 2: MediaSource ended');",
+          "                stopPlay2();",
+          "            });",
+          "        });",
+          "    } catch (e) {",
+          "        console.error('Kamera 2: Błąd inicjalizacji MediaSource', e);",
+          "        return false;",
+          "    }",
+          "}",
+          "",
+          "async function startPlay2() {",
+          "    if (mediaPlayer2.active) return;",
+          "",
+          "    const videoEl = getVideoElement2();",
+          "    if (!videoEl) return;",
+          "",
+          "    try {",
+          "        mediaPlayer2.active = true;",
+          "        ",
+          "        if (!await initMediaSource2()) {",
+          "            stopPlay2();",
+          "            return;",
+          "        }",
+          "",
+          "        initWebSocket2();",
+          "",
+          "    } catch (error) {",
+          "        console.error('Kamera 2: Błąd startPlay2', error);",
+          "        stopPlay2();",
+          "    }",
+          "}",
+          "",
+          "// Konfiguracja",
+          "const config = {",
+          "    wsUrl: 'ws://192.168.40.160:8083/cam1/2',",
+          "    maxRetries: 5,",
+          "    retryDelay: 2000",
+          "};",
+          "",
+          "// Obiekt mediaPlayer",
+          "const mediaPlayer2 = {",
+          "    mse: null,",
+          "    ws: null,",
+          "    sourceBuffer: null,",
+          "    queue: [],",
+          "    isPlaying: false,",
+          "    active: false,",
+          "    retryCount: 0,",
+          "    mimeType: 'video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'",
+          "};",
+          "",
+          "// Integracja z TwinCAT HMI",
+          "(function() {",
+          "    if (typeof TcHmi !== 'undefined' && TcHmi.ScreenManager) {",
+          "        TcHmi.ScreenManager.registerOnScreenChange(function(event, data) {",
+          "            if (data.newScreen === 'CameraScreen') {",
+          "                startPlay2();",
+          "            } else {",
+          "                stopPlay2();",
+          "            }",
+          "        });",
+          "",
+          "        if (window.location.href.includes('CameraScreen')) {",
+          "            startPlay2();",
+          "        }",
+          "    } else {",
+          "        console.warn('Brak API TcHmi - uruchamiam w trybie standalone');",
+          "        startPlay2();",
+          "    }",
+          "})();"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setZindex(2);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setTop(617);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setLeft(107);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "           // TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "           // TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_2').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiHtmlHost_3" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="939" data-tchmi-left-unit="px" data-tchmi-top="617" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Visible">
+<input type="hidden" name="mse-url3" id="mse-url3" value="ws://192.168.40.160:8083/stream/cam1/channel/3/mse?uuid=cam1&channel=3">
+      <video id="mse-video3" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Skrypt dla kamery nr 3",
+          "const mediaPlayer3 = {",
+          "    mse: null,",
+          "    ws: null,",
+          "    sourceBuffer: null,",
+          "    queue: [],",
+          "    isPlaying: false",
+          "};",
+          "",
+          "// Funkcja startująca strumień",
+          "function startPlay3() {",
+          "    const videoEl3 = document.getElementById('mse-video3');",
+          "    const mseUrl3 = document.getElementById('mse-url3').value;",
+          "    ",
+          "    // Czyszczenie poprzedniego strumienia",
+          "    if (mediaPlayer3.ws) mediaPlayer3.ws.close();",
+          "    if (mediaPlayer3.sourceBuffer) mediaPlayer3.sourceBuffer.abort();",
+          "    if (mediaPlayer3.mse) mediaPlayer3.mse.endOfStream();",
+          "    ",
+          "    // Inicjalizacja MediaSource",
+          "    mediaPlayer3.mse = new MediaSource();",
+          "    videoEl3.src = URL.createObjectURL(mediaPlayer3.mse);",
+          "    ",
+          "    mediaPlayer3.mse.addEventListener('sourceopen', function() {",
+          "        // Połączenie WebSocket",
+          "        mediaPlayer3.ws = new WebSocket(mseUrl3);",
+          "        mediaPlayer3.ws.binaryType = 'arraybuffer';",
+          "        ",
+          "        mediaPlayer3.ws.onopen = function() {",
+          "            console.log('Kamera 3: Połączenie aktywne');",
+          "            mediaPlayer3.isPlaying = true;",
+          "        };",
+          "        ",
+          "        mediaPlayer3.ws.onmessage = function(event) {",
+          "            const data = new Uint8Array(event.data);",
+          "            ",
+          "            // Nagłówek konfiguracyjny",
+          "            if (data[0] === 9) {",
+          "                const mimeCodec = new TextDecoder('utf-8').decode(data.slice(1));",
+          "                mediaPlayer3.sourceBuffer = mediaPlayer3.mse.addSourceBuffer(",
+          "                    `video/mp4; codecs=\"${mimeCodec}\"`",
+          "                );",
+          "                mediaPlayer3.sourceBuffer.mode = 'segments';",
+          "                mediaPlayer3.sourceBuffer.addEventListener('updateend', pushPacket3);",
+          "            } ",
+          "            // Dane wideo",
+          "            else {",
+          "                readPacket3(event.data);",
+          "            }",
+          "        };",
+          "        ",
+          "        mediaPlayer3.ws.onerror = function(error) {",
+          "            console.error('Kamera 3: Błąd połączenia', error);",
+          "        };",
+          "    });",
+          "}",
+          "",
+          "// Funkcja czytająca pakiety",
+          "function readPacket3(packet) {",
+          "    if (!mediaPlayer3.isPlaying && mediaPlayer3.sourceBuffer) {",
+          "        mediaPlayer3.sourceBuffer.appendBuffer(packet);",
+          "        mediaPlayer3.isPlaying = true;",
+          "        return;",
+          "    }",
+          "    mediaPlayer3.queue.push(packet);",
+          "    if (!mediaPlayer3.sourceBuffer.updating) {",
+          "        pushPacket3();",
+          "    }",
+          "}",
+          "",
+          "// Funkcja wysyłająca pakiety do dekodera",
+          "function pushPacket3() {",
+          "    const videoEl3 = document.getElementById('mse-video3');",
+          "    ",
+          "    if (!mediaPlayer3.sourceBuffer || mediaPlayer3.sourceBuffer.updating) return;",
+          "    ",
+          "    if (mediaPlayer3.queue.length > 0) {",
+          "        try {",
+          "            mediaPlayer3.sourceBuffer.appendBuffer(mediaPlayer3.queue.shift());",
+          "        } catch (e) {",
+          "            console.error('Kamera 3: Błąd dekodera', e);",
+          "            mediaPlayer3.queue = [];",
+          "        }",
+          "    }",
+          "    ",
+          "    // Naprawa zatrzymanego strumienia",
+          "    if (videoEl3.buffered.length > 0) {",
+          "        const bufferEnd = videoEl3.buffered.end(videoEl3.buffered.length - 1);",
+          "        if (videoEl3.currentTime >= bufferEnd - 0.5) {",
+          "            videoEl3.currentTime = bufferEnd - 0.5;",
+          "            videoEl3.play().catch(e => console.warn('Kamera 3: Błąd odtwarzania', e));",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "// Funkcja zatrzymująca strumień",
+          "function stopPlay3() {",
+          "    if (mediaPlayer3.ws) {",
+          "        mediaPlayer3.ws.close();",
+          "        mediaPlayer3.ws = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer3.sourceBuffer) {",
+          "        try {",
+          "            if (!mediaPlayer3.sourceBuffer.updating) {",
+          "                mediaPlayer3.sourceBuffer.abort();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 3: Błąd czyszczenia bufora', e);",
+          "        }",
+          "        mediaPlayer3.sourceBuffer = null;",
+          "    }",
+          "    ",
+          "    if (mediaPlayer3.mse) {",
+          "        try {",
+          "            if (mediaPlayer3.mse.readyState === 'open') {",
+          "                mediaPlayer3.mse.endOfStream();",
+          "            }",
+          "        } catch (e) {",
+          "            console.warn('Kamera 3: Błąd zamykania MediaSource', e);",
+          "        }",
+          "        mediaPlayer3.mse = null;",
+          "    }",
+          "    ",
+          "    mediaPlayer3.queue = [];",
+          "    mediaPlayer3.isPlaying = false;",
+          "}",
+          "",
+          "// Automatyczna inicjalizacja",
+          "(function initCamera3() {",
+          "    const videoEl3 = document.getElementById('mse-video3');",
+          "    if (!videoEl3) return;",
+          "    ",
+          "    // Start przy załadowaniu",
+          "    startPlay3();",
+          "    ",
+          "    // Obsługa pauzy gdy ekran jest niewidoczny",
+          "    document.addEventListener('visibilitychange', function() {",
+          "        if (document.visibilityState === 'visible' && mediaPlayer3.isPlaying) {",
+          "            videoEl3.play().catch(e => console.warn(e));",
+          "        }",
+          "    });",
+          "    ",
+          "    // Naprawa zatrzymanego wideo",
+          "    videoEl3.addEventListener('pause', function() {",
+          "        if (videoEl3.buffered.length > 0 && ",
+          "            videoEl3.currentTime >= videoEl3.buffered.end(videoEl3.buffered.length - 1)) {",
+          "            videoEl3.currentTime = videoEl3.buffered.end(videoEl3.buffered.length - 1) - 0.1;",
+          "            videoEl3.play();",
+          "        }",
+          "    });",
+          "})();",
+          "",
+          "// Funkcje dostępne globalnie dla TwinCAT",
+          "window.restartCamera3 = function() {",
+          "    stopPlay3();",
+          "    startPlay3();",
+          "};",
+          "",
+          "window.getCamera3Status = function() {",
+          "    return mediaPlayer3.isPlaying ? 'active' : 'inactive';",
+          "};"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setZindex(2);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setTop(617);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_3').setLeft(938);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "      //      TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_3').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_3').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_3').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "      //      TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_3').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiHtmlHost_4" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="108" data-tchmi-left-unit="px" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false" data-tchmi-visibility="Visible" data-tchmi-creator-visibility="Collapsed">
+<input type="hidden" name="mse-url4" id="mse-url4" value="ws://192.168.40.160:8083/stream/cam1/channel/4/mse?uuid=cam1&channel=4">
+      <video id="mse-video4" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "// Konfiguracja kamery 4",
+          "const camera4 = {",
+          "    mse: null,",
+          "    ws: null,",
+          "    sourceBuffer: null,",
+          "    queue: [],",
+          "    isPlaying: false,",
+          "    retries: 0,",
+          "    maxRetries: 5,",
+          "    stats: {",
+          "        packetsReceived: 0,",
+          "        lastUpdate: 0,",
+          "        bufferSize: 0",
+          "    }",
+          "};",
+          "",
+          "// Inicjalizacja kamery",
+          "function initCamera4() {",
+          "    const videoEl = document.getElementById('mse-video4');",
+          "    if (!videoEl) {",
+          "        console.error('[Kamera4] Nie znaleziono elementu video');",
+          "        return;",
+          "    }",
+          "",
+          "    // Konfiguracja domyślna",
+          "    videoEl.playsInline = true;",
+          "    videoEl.muted = true;",
+          "    videoEl.autoplay = true;",
+          "",
+          "    // Obsługa zdarzeń wideo",
+          "    videoEl.addEventListener('stalled', () => {",
+          "        console.warn('[Kamera4] Wideo zatrzymane, restart...');",
+          "        restartCamera4();",
+          "    });",
+          "",
+          "    startCamera4();",
+          "}",
+          "",
+          "// Uruchomienie strumienia",
+          "function startCamera4() {",
+          "    const videoEl = document.getElementById('mse-video4');",
+          "    const streamUrl = document.getElementById('mse-url4')?.value;",
+          "",
+          "    if (!streamUrl) {",
+          "        console.error('[Kamera4] Brak URL strumienia');",
+          "        return;",
+          "    }",
+          "",
+          "    stopCamera4(); // Najpierw wyczyść istniejące połączenie",
+          "",
+          "    try {",
+          "        camera4.mse = new MediaSource();",
+          "        videoEl.src = URL.createObjectURL(camera4.mse);",
+          "        ",
+          "        camera4.mse.addEventListener('sourceopen', () => {",
+          "            connectWebSocket4(streamUrl);",
+          "        });",
+          "",
+          "        camera4.mse.addEventListener('sourceended', () => {",
+          "            console.log('[Kamera4] Źródło zakończone');",
+          "            camera4.isPlaying = false;",
+          "            updateUI4('disconnected');",
+          "        });",
+          "",
+          "    } catch (error) {",
+          "        console.error('[Kamera4] Błąd MediaSource:', error);",
+          "        handleError4();",
+          "    }",
+          "}",
+          "",
+          "// Połączenie WebSocket",
+          "function connectWebSocket4(url) {",
+          "    try {",
+          "        camera4.ws = new WebSocket(url);",
+          "        camera4.ws.binaryType = 'arraybuffer';",
+          "        ",
+          "        camera4.ws.onopen = () => {",
+          "            console.log('[Kamera4] Połączono z serwerem');",
+          "            camera4.isPlaying = true;",
+          "            camera4.retries = 0;",
+          "            updateUI4('connected');",
+          "        };",
+          "        ",
+          "        camera4.ws.onmessage = (event) => {",
+          "            processStreamData4(event.data);",
+          "        };",
+          "        ",
+          "        camera4.ws.onclose = () => {",
+          "            console.log('[Kamera4] Połączenie zamknięte');",
+          "            camera4.isPlaying = false;",
+          "            updateUI4('disconnected');",
+          "        };",
+          "        ",
+          "        camera4.ws.onerror = (error) => {",
+          "            console.error('[Kamera4] Błąd WebSocket:', error);",
+          "            handleError4();",
+          "        };",
+          "        ",
+          "    } catch (error) {",
+          "        console.error('[Kamera4] Błąd inicjalizacji WebSocket:', error);",
+          "        handleError4();",
+          "    }",
+          "}",
+          "",
+          "// Przetwarzanie danych",
+          "function processStreamData4(data) {",
+          "    const dataArray = new Uint8Array(data);",
+          "    camera4.stats.packetsReceived++;",
+          "    camera4.stats.lastUpdate = Date.now();",
+          "    ",
+          "    // Nagłówek konfiguracyjny",
+          "    if (dataArray[0] === 9) {",
+          "        try {",
+          "            const codecString = new TextDecoder('utf-8').decode(dataArray.slice(1));",
+          "            camera4.sourceBuffer = camera4.mse.addSourceBuffer(",
+          "                `video/mp4; codecs=\"${codecString}\"`",
+          "            );",
+          "            camera4.sourceBuffer.mode = 'sequence';",
+          "            camera4.sourceBuffer.addEventListener('updateend', processBuffer4);",
+          "            updateUI4('streaming');",
+          "        } catch (error) {",
+          "            console.error('[Kamera4] Błąd konfiguracji:', error);",
+          "        }",
+          "    } ",
+          "    // Dane wideo",
+          "    else {",
+          "        bufferData4(data);",
+          "    }",
+          "}",
+          "",
+          "// Buforowanie danych",
+          "function bufferData4(packet) {",
+          "    if (!camera4.sourceBuffer) return;",
+          "    ",
+          "    camera4.stats.bufferSize = camera4.queue.length;",
+          "    ",
+          "    if (!camera4.isPlaying) {",
+          "        try {",
+          "            camera4.sourceBuffer.appendBuffer(packet);",
+          "            camera4.isPlaying = true;",
+          "        } catch (error) {",
+          "            console.error('[Kamera4] Błąd buforowania:', error);",
+          "        }",
+          "        return;",
+          "    }",
+          "    ",
+          "    camera4.queue.push(packet);",
+          "    if (!camera4.sourceBuffer.updating) {",
+          "        processBuffer4();",
+          "    }",
+          "}",
+          "",
+          "// Przetwarzanie bufora",
+          "function processBuffer4() {",
+          "    const videoEl = document.getElementById('mse-video4');",
+          "    if (!camera4.sourceBuffer || camera4.sourceBuffer.updating) return;",
+          "    ",
+          "    if (camera4.queue.length > 0) {",
+          "        try {",
+          "            camera4.sourceBuffer.appendBuffer(camera4.queue.shift());",
+          "            camera4.stats.bufferSize = camera4.queue.length;",
+          "        } catch (error) {",
+          "            console.error('[Kamera4] Błąd przetwarzania:', error);",
+          "            camera4.queue = [];",
+          "            restartCamera4();",
+          "        }",
+          "    }",
+          "    ",
+          "    // Naprawa zatrzymanego strumienia",
+          "    if (videoEl.buffered.length > 0) {",
+          "        const bufferEnd = videoEl.buffered.end(videoEl.buffered.length - 1);",
+          "        if (videoEl.currentTime >= bufferEnd - 0.5) {",
+          "            videoEl.currentTime = Math.max(0, bufferEnd - 0.5);",
+          "            videoEl.play().catch(e => console.warn('[Kamera4] Błąd odtwarzania:', e));",
+          "        }",
+          "    }",
+          "}",
+          "",
+          "// Zatrzymanie kamery",
+          "function stopCamera4() {",
+          "    if (camera4.ws) {",
+          "        camera4.ws.onclose = null;",
+          "        camera4.ws.close();",
+          "        camera4.ws = null;",
+          "    }",
+          "    ",
+          "    if (camera4.sourceBuffer) {",
+          "        try {",
+          "            if (!camera4.sourceBuffer.updating) {",
+          "                camera4.sourceBuffer.abort();",
+          "            }",
+          "        } catch (error) {",
+          "            console.warn('[Kamera4] Błąd czyszczenia:', error);",
+          "        }",
+          "        camera4.sourceBuffer = null;",
+          "    }",
+          "    ",
+          "    if (camera4.mse) {",
+          "        try {",
+          "            if (camera4.mse.readyState === 'open') {",
+          "                camera4.mse.endOfStream();",
+          "            }",
+          "        } catch (error) {",
+          "            console.warn('[Kamera4] Błąd zamykania:', error);",
+          "        }",
+          "        camera4.mse = null;",
+          "    }",
+          "    ",
+          "    camera4.queue = [];",
+          "    camera4.isPlaying = false;",
+          "    updateUI4('disconnected');",
+          "}",
+          "",
+          "// Obsługa błędów",
+          "function handleError4() {",
+          "    camera4.retries++;",
+          "    const delay = Math.min(5000, camera4.retries * 1000);",
+          "    ",
+          "    if (camera4.retries <= camera4.maxRetries) {",
+          "        console.log(`[Kamera4] Ponowna próba za ${delay/1000}s (${camera4.retries}/${camera4.maxRetries})`);",
+          "        updateUI4(`reconnecting (${camera4.retries}/${camera4.maxRetries})`);",
+          "        setTimeout(startCamera4, delay);",
+          "    } else {",
+          "        console.error('[Kamera4] Przekroczono limit prób');",
+          "        updateUI4('error');",
+          "    }",
+          "}",
+          "",
+          "// Restart kamery",
+          "function restartCamera4() {",
+          "    stopCamera4();",
+          "    setTimeout(startCamera4, 100);",
+          "}",
+          "",
+          "// Aktualizacja interfejsu",
+          "function updateUI4(status) {",
+          "    const indicator = document.getElementById('camera4-status');",
+          "    if (!indicator) return;",
+          "    ",
+          "    const statusInfo = {",
+          "        'connected': { text: 'Połączono', color: '#4CAF50' },",
+          "        'streaming': { text: 'Transmisja', color: '#8BC34A' },",
+          "        'disconnected': { text: 'Rozłączono', color: '#F44336' },",
+          "        'error': { text: 'Błąd', color: '#FF5722' },",
+          "        'reconnecting': { text: 'Łączenie...', color: '#FFC107' }",
+          "    }[status.split(' ')[0]] || { text: status, color: '#9E9E9E' };",
+          "    ",
+          "    indicator.textContent = `Kamera 4: ${statusInfo.text}`;",
+          "    indicator.style.backgroundColor = statusInfo.color;",
+          "}",
+          "",
+          "// Integracja z TwinCAT",
+          "(function() {",
+          "    // Autostart",
+          "    if (document.readyState === 'complete') {",
+          "        initCamera4();",
+          "    } else {",
+          "        document.addEventListener('DOMContentLoaded', initCamera4);",
+          "    }",
+          "    ",
+          "    // Obsługa widoczności",
+          "    document.addEventListener('visibilitychange', () => {",
+          "        if (document.visibilityState === 'visible' && camera4.isPlaying) {",
+          "            document.getElementById('mse-video4')?.play()",
+          "                .catch(e => console.warn('[Kamera4] Błąd wznowienia:', e));",
+          "        }",
+          "    });",
+          "})();",
+          "",
+          "// API dla PLC",
+          "window.tcCameras = window.tcCameras || {};",
+          "window.tcCameras.camera4 = {",
+          "    start: startCamera4,",
+          "    stop: stopCamera4,",
+          "    restart: restartCamera4,",
+          "    getStatus: () => camera4.isPlaying ? 1 : 0,",
+          "    getStats: () => ({",
+          "        packets: camera4.stats.packetsReceived,",
+          "        lastData: camera4.stats.lastUpdate ? ",
+          "            Math.round((Date.now() - camera4.stats.lastUpdate)/1000) + 's temu' : 'brak',",
+          "        buffer: camera4.stats.bufferSize + ' pakietów'",
+          "    })",
+          "};"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setTop(153);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_4').setLeft(108);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setZindex(2);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Visible');",
+          "          //  TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Visible');",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_4').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_4').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_4').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Hidden');",
+          "          //  TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Hidden');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_4').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiHtmlHost_5" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="938" data-tchmi-left-unit="px" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false" data-tchmi-visibility="Visible" data-tchmi-creator-visibility="Collapsed">
+<input type="hidden" name="mse-url5" id="mse-url5" value="ws://192.168.40.160:8083/stream/cam1/channel/5/mse?uuid=cam1&channel=5">
+      <video id="mse-video5" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "const mseQueue = []",
+          "  let mseSourceBuffer",
+          "  let mseStreamingStarted = false",
+          "",
+          "  function startPlay (videoEl5, url) {",
+          "    const mse = new MediaSource()",
+          "    videoEl5.src = window.URL.createObjectURL(mse)",
+          "    mse.addEventListener('sourceopen', function () {",
+          "      const ws = new WebSocket(url)",
+          "      ws.binaryType = 'arraybuffer'",
+          "      ws.onopen = function (event) {",
+          "        console.log('Connect to ws')",
+          "      }",
+          "      ws.onmessage = function (event) {",
+          "        const data = new Uint8Array(event.data)",
+          "        if (data[0] === 9) {",
+          "          let mimeCodec",
+          "          const decodedArr = data.slice(1)",
+          "          if (window.TextDecoder) {",
+          "            mimeCodec = new TextDecoder('utf-8').decode(decodedArr)",
+          "          } else {",
+          "            mimeCodec = Utf8ArrayToStr(decodedArr)",
+          "          }",
+          "          mseSourceBuffer = mse.addSourceBuffer('video/mp4; codecs=\"' + mimeCodec + '\"')",
+          "          mseSourceBuffer.mode = 'segments'",
+          "          mseSourceBuffer.addEventListener('updateend', pushPacket)",
+          "        } else {",
+          "          readPacket(event.data)",
+          "        }",
+          "      }",
+          "    }, false)",
+          "  }",
+          "",
+          "  function pushPacket () {",
+          "    const videoEl5 = document.querySelector('#mse-video5')",
+          "    let packet",
+          "",
+          "    if (!mseSourceBuffer.updating) {",
+          "      if (mseQueue.length > 0) {",
+          "        packet = mseQueue.shift()",
+          "        mseSourceBuffer.appendBuffer(packet)",
+          "      } else {",
+          "        mseStreamingStarted = false",
+          "      }",
+          "    }",
+          "    if (videoEl5.buffered.length > 0) {",
+          "      if (typeof document.hidden !== 'undefined' && document.hidden) {",
+          "      // no sound, browser paused video without sound in background",
+          "        videoEl5.currentTime = videoEl5.buffered.end((videoEl5.buffered.length - 1)) - 0.5",
+          "      }",
+          "    }",
+          "  }",
+          "",
+          "  function readPacket (packet) {",
+          "    if (!mseStreamingStarted) {",
+          "      mseSourceBuffer.appendBuffer(packet)",
+          "      mseStreamingStarted = true",
+          "      return",
+          "    }",
+          "    mseQueue.push(packet)",
+          "    if (!mseSourceBuffer.updating) {",
+          "      pushPacket()",
+          "    }",
+          "  }",
+          "  const videoEl5 = document.querySelector('#mse-video5')",
+          "  const mseUrl5 = document.querySelector('#mse-url5').value",
+          "",
+          "  // fix stalled video in safari",
+          "  videoEl5.addEventListener('pause', () => {",
+          "    if (videoEl5.currentTime > videoEl5.buffered.end(videoEl5.buffered.length - 1)) {",
+          "      videoEl5.currentTime = videoEl5.buffered.end(videoEl5.buffered.length - 1) - 0.1",
+          "      videoEl5.play()",
+          "    }",
+          "  })",
+          "",
+          "  startPlay(videoEl5, mseUrl5)"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setZindex(2);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setTop(153);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_5').setLeft(938);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Visible');",
+          "            //TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Visible');",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_5').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_5').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_5').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Hidden');",
+          "            //TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Hidden');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_5').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiRectangle_1513" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="75" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="106" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="false">
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(0, 45, 66, 1)"
+}
+</script>
+</div>
+<div id="TcHmi_Controls_Beckhoff_TcHmiImage_55" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="69" data-tchmi-height-unit="px" data-tchmi-left="19" data-tchmi-left-unit="px" data-tchmi-src="Images/Icons/Camera_light.png" data-tchmi-top="3" data-tchmi-top-unit="px" data-tchmi-width="69" data-tchmi-width-unit="px" data-tchmi-is-enabled="false">
+</div>
+<div id="TcHmiTextblock_2186" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="134" data-tchmi-left-unit="px" data-tchmi-text="%l%Text86%/l%" data-tchmi-top="21" data-tchmi-top-unit="px" data-tchmi-width="210" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="26" data-tchmi-zindex="1" data-tchmi-is-enabled="false">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 70, 102, 1)"
+}
+</script>
+</div>
+<div id="TcHmi_Controls_Beckhoff_TcHmiImage_59" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="1437" data-tchmi-left-unit="px" data-tchmi-src="Images/Icons/Close.png" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(121, 121, 121, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%SubScreenId%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/INT",
+          "value": 0
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="TcHmiTextblock_2196" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="108" data-tchmi-left-unit="px" data-tchmi-text="%l%Text726%/l%" data-tchmi-top="435" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="false">
+</div>
+<div id="TcHmiTextblock_2197" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="938" data-tchmi-left-unit="px" data-tchmi-text="%l%Text471%/l%" data-tchmi-top="435" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="false">
+</div>
+<div id="TcHmiTextblock_2198" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="107" data-tchmi-left-unit="px" data-tchmi-text="%l%Text514%/l%" data-tchmi-top="899" data-tchmi-top-unit="px" data-tchmi-width="220" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="false">
+</div>
+<div id="TcHmiTextblock_2199" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="938" data-tchmi-left-unit="px" data-tchmi-text="%l%Text661%/l%" data-tchmi-top="901" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="false">
+</div>
+<div id="TcHmiTextblock_2200" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="108" data-tchmi-left-unit="px" data-tchmi-text="%l%Text662%/l%" data-tchmi-top="435" data-tchmi-top-unit="px" data-tchmi-width="201" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-visibility="Visible" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Collapsed">
+</div>
+<div id="TcHmiTextblock_2201" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="938" data-tchmi-left-unit="px" data-tchmi-text="%l%Text663%/l%" data-tchmi-top="435" data-tchmi-top-unit="px" data-tchmi-width="391" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-visibility="Visible" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Collapsed">
+</div>
+<div id="TcHmiTextblock_2202" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="107" data-tchmi-left-unit="px" data-tchmi-text="%l%Text664%/l%" data-tchmi-top="899" data-tchmi-top-unit="px" data-tchmi-width="237" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-visibility="Visible" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Collapsed">
+</div>
+<div id="ManualButton_2431" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1291" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="982" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="true" data-tchmi-bvalue="%i%bCameras%/i%" data-tchmi-scaption="Cameras flip" data-tchmi-simage="Images/Icons/Camera_light.png" data-tchmi-is-enabled="false">
+
+
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%i%bCameras%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%i%bCameras%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2196::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2197::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2198::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2199::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2200::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2201::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2202::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2203::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2196::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2197::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2198::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2199::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2200::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2201::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2202::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2203::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%i%bCameras%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2196::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2197::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2198::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2199::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2200::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2201::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2202::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2203::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2196::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2197::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2198::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2199::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2200::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2201::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2202::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%ctrl%TcHmiTextblock_2203::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+<div id="TcHmiHtmlHost_6" data-tchmi-type="TcHmi.Controls.System.TcHmiHtmlHost" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="107" data-tchmi-left-unit="px" data-tchmi-top="617" data-tchmi-top-unit="px" data-tchmi-width="499" data-tchmi-width-unit="px" data-tchmi-is-enabled="false" data-tchmi-creator-visibility="Collapsed">
+<input type="hidden" name="mse-url2" id="mse-url2" value="ws://192.168.40.160:8083/stream/cam1/channel/2/mse?uuid=cam1&channel=2">
+      <video id="mse-video2" autoplay="" muted="" playsinline="" style="max-width: 100%; max-height: 100%;"></video>
+  
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "const mseQueue = []",
+          "  let mseSourceBuffer",
+          "  let mseStreamingStarted = false",
+          "",
+          "  function startPlay (videoEl2, url) {",
+          "    const mse = new MediaSource()",
+          "    videoEl2.src = window.URL.createObjectURL(mse)",
+          "    mse.addEventListener('sourceopen', function () {",
+          "      const ws = new WebSocket(url)",
+          "      ws.binaryType = 'arraybuffer'",
+          "      ws.onopen = function (event) {",
+          "        console.log('Connect to ws')",
+          "      }",
+          "      ws.onmessage = function (event) {",
+          "        const data = new Uint8Array(event.data)",
+          "        if (data[0] === 9) {",
+          "          let mimeCodec",
+          "          const decodedArr = data.slice(1)",
+          "          if (window.TextDecoder) {",
+          "            mimeCodec = new TextDecoder('utf-8').decode(decodedArr)",
+          "          } else {",
+          "            mimeCodec = Utf8ArrayToStr(decodedArr)",
+          "          }",
+          "          mseSourceBuffer = mse.addSourceBuffer('video/mp4; codecs=\"' + mimeCodec + '\"')",
+          "          mseSourceBuffer.mode = 'segments'",
+          "          mseSourceBuffer.addEventListener('updateend', pushPacket)",
+          "        } else {",
+          "          readPacket(event.data)",
+          "        }",
+          "      }",
+          "    }, false)",
+          "  }",
+          "",
+          "  function pushPacket () {",
+          "    const videoEl2 = document.querySelector('#mse-video2')",
+          "    let packet",
+          "",
+          "    if (!mseSourceBuffer.updating) {",
+          "      if (mseQueue.length > 0) {",
+          "        packet = mseQueue.shift()",
+          "        mseSourceBuffer.appendBuffer(packet)",
+          "      } else {",
+          "        mseStreamingStarted = false",
+          "      }",
+          "    }",
+          "    if (videoEl2.buffered.length > 0) {",
+          "      if (typeof document.hidden !== 'undefined' && document.hidden) {",
+          "      // no sound, browser paused video without sound in background",
+          "        videoEl2.currentTime = videoEl2.buffered.end((videoEl2.buffered.length - 1)) - 0.5",
+          "      }",
+          "    }",
+          "  }",
+          "",
+          "  function readPacket (packet) {",
+          "    if (!mseStreamingStarted) {",
+          "      mseSourceBuffer.appendBuffer(packet)",
+          "      mseStreamingStarted = true",
+          "      return",
+          "    }",
+          "    mseQueue.push(packet)",
+          "    if (!mseSourceBuffer.updating) {",
+          "      pushPacket()",
+          "    }",
+          "  }",
+          "  const videoEl2 = document.querySelector('#mse-video2')",
+          "  const mseUrl2 = document.querySelector('#mse-url2').value",
+          "",
+          "  // fix stalled video in safari",
+          "  videoEl2.addEventListener('pause', () => {",
+          "    if (videoEl2.currentTime > videoEl2.buffered.end(videoEl2.buffered.length - 1)) {",
+          "      videoEl2.currentTime = videoEl2.buffered.end(videoEl2.buffered.length - 1) - 0.1",
+          "      videoEl2.play()",
+          "    }",
+          "  })",
+          "",
+          "  startPlay(videoEl2, mseUrl2)"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%var_for_vis%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "(function (TcHmi) {",
+          "    var isFullscreen = false;",
+          "    function toggleFullscreen() {",
+          "        if (isFullscreen) {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setHeight(300);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setWidth(499);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setZindex(2);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setTop(617);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setLeft(107);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Visible');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "           // TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "",
+          "            isFullscreen = false;",
+          "        } else {",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setHeight(940);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setWidth(1580);",
+          "            TcHmi.Controls.get('TcHmiHtmlHost_2').setZindex(5);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setTop(76);",
+          "\t\t\tTcHmi.Controls.get('TcHmiHtmlHost_2').setLeft(36);",
+          "\t\t\tTcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_1::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_3::Visibility%/ctrl%\", 'Hidden');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_4::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_5::Visibility%/ctrl%\", 'Collapsed');",
+          "            TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_6::Visibility%/ctrl%\", 'Collapsed');",
+          "           // TcHmi.Symbol.writeEx(\"%ctrl%TcHmiHtmlHost_7::Visibility%/ctrl%\", 'Collapsed');",
+          "            isFullscreen = true;",
+          "",
+          "            isFullscreen = true;",
+          "        }",
+          "    }",
+          "    TcHmi.Controls.get('TcHmiHtmlHost_2').__element.on('click', function () {",
+          "        toggleFullscreen();",
+          "    });",
+          "",
+          "})(TcHmi);"
+        ],
+        "asyncWait": true,
+        "injectContextObject": false,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+</div>

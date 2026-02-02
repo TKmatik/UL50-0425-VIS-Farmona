@@ -1,0 +1,11 @@
+<div id="Content2_2" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1300" data-tchmi-height="800">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+<div id="TcHmiEcDiagnostics_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEcDiagnostics" data-tchmi-allow-zoom-and-pan="true" data-tchmi-device="CapSorter" data-tchmi-height="772" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-toolbox-reset-view="true" data-tchmi-top="14" data-tchmi-top-unit="px" data-tchmi-width="1272" data-tchmi-width-unit="px">
+</div>
+</div>

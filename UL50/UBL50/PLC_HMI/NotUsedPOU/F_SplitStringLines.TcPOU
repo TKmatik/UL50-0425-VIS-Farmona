@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="F_SplitStringLines" Id="{639847bf-347e-44be-85f0-666ae95aea97}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_SplitStringLines : INT
+VAR_INPUT
+    userString : STRING(1024);  // String do podziału
+    separator   : STRING(1);    // Separator (np. '\n')
+END_VAR
+VAR_OUTPUT
+    linesArray  : ARRAY[1..100] OF STRING(255);  // Tablica linii
+END_VAR
+VAR
+    pos         : INT;           // Pozycja separatora
+    startPos    : INT;           // Pozycja początku nowej linii
+    lineCount   : INT := 0;     // Licznik linii
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[startPos := 1;
+
+WHILE LEN(userString) > 0 DO
+    pos := FIND(userString, separator);
+    IF pos > 0 THEN
+        linesArray[lineCount + 1] := LEFT(userString, pos - 1);
+        userString := RIGHT(userString, LEN(userString) - pos - LEN(separator) + 1);
+        lineCount := lineCount + 1;
+    ELSE
+        linesArray[lineCount + 1] := userString;
+        userString := '';
+        lineCount := lineCount + 1;
+    END_IF
+END_WHILE
+
+F_SplitStringLines := lineCount;  // Zwracamy liczbę linii]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

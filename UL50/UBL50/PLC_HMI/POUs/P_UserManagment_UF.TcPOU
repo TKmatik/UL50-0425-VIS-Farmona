@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_UserManagment_UF" Id="{db36cadf-dc1a-4901-b21b-8f4fb9fdb4dd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_UserManagment_UF
+VAR	
+	user_log				:BOOL 				:= GVL_USER_UF.user_try_to_log;           	//użytkownik wywołał okno logowania
+	user_accept				:BOOL 				:= GVL_USER_UF.user_accept_to_log_in;     	//użytkownik zaakceptował hasło
+	outside_login_accept	:BOOL				:= gvl_user_uf.outside_accept_login;		//przekazanie potwierdzenia procesu logowania
+	user_login_error		:BOOL 				:= GVL_USER_UF.no_user_found;				//brak dopasowanego użytkownika
+	user_log_succes			:BOOL 				:= GVL_USER_UF.user_succesed_log;			//zalogowano z powodzeniem
+	i,j,z					:INT;														//zmienne dla warunków
+	bprzypisanie			:BOOL;
+	btest					:BOOL:=FALSE;
+	k						:INT;
+	userExists				:BOOL;														//zmienne dla programu
+	outside_login_pool		:STRING(255)		:= gvl_user_uf.outside_login_pool;												//przekazanie loginu do wizualizacji
+	user_password			:STRING(255) 		:= GVL_USER_UF.putted_user_password;		//wprowadzone użytkownikiem hasło
+	b_new_users				:BOOL;									
+	delayTimer: TON;  // Timer do opóźnienia o 500 ms					//nowe wgranie użytkowników
+	allowedGroups : ARRAY[1..5] OF STRING(80) := ['Admin', 'Mechanik', 'Operator', 'Technolog', 'Serwis'];
+	validGroup    : BOOL;  // Zmienna do walidacji grupy
+    uniqueUser    : BOOL;  // Zmienna sprawdzająca unikalność hasła
+    freeSlot      : BOOL;  // Zmienna wskazująca wolne miejsce na nowego użytkownika
+	bwait	:BOOL :=gvl_user_uf.bwait; //ekran oczekiwania na plc
+	bClear	:BOOL:=FALSE;
+	iClearArrayNr :INT;
+	
+	actual_user : WSTRING(255);
+	
+
+	new_user				:BOOL := GVL_USER_UF.new_user;			//inicjalizacja dodania nowego użytkownika
+	new_user_accept			:BOOL := GVL_USER_UF.new_user_accept;			//akceptacja dodania użytkownika z ekranu
+	new_user_added			:BOOL := GVL_USER_UF.new_user_added;			//udane dodanie użytkownika
+	new_user_add_error		:BOOL := GVL_USER_UF.new_user_add_error;			//nieudane dodawanie
+	newautoLogOff			:STRING(80) := GVL_USER_UF.newautoLogOff;			//czas do wylogowania
+	newuserNameSurname 		:WSTRING(255)  := GVL_USER_UF.newuserNameSurname;	//imię i nazwisko				
+	newpassword				:STRING(255) := GVL_USER_UF.newpassword;	//hasło
+	newpasswordRFID			:STRING(255) := GVL_USER_UF.newpasswordRFID;	//hasło rfid
+	newpasswordQR			:STRING(255) := GVL_USER_UF.newpasswordQR;	//hasło qr
+	newuserGroup			:STRING(80) := GVL_USER_UF.newuserGroup;		//grupa użytkowników
+	newuserLogoffbetween 	:STRING(80);
+	
+	edit_user						:BOOL := GVL_USER_UF.edit_user;	//inicjalizacja edycji parametrów użytkownika
+	edit_user_accept				:BOOL := GVL_USER_UF.edit_user_accept;	//akceptacja wprowadzonych zmiennych z ekranu
+	user_eddited					:BOOL := GVL_USER_UF.user_eddited;	//odpowiedź z plc do hmi - udana edycja
+	edit_user_qr_or_rfid_password	:BOOL := GVL_USER_UF.edit_user_qr_or_rfid_password;	//edycja rfid lub qr dopisanego do użytkownika
+	edit_user_error					:BOOL := GVL_USER_UF.edit_user_error;			//odpowiedź z plc do hmi - nieudana edycja uzytkownika
+	editautoLogOff					:STRING(80) := GVL_USER_UF.editautoLogOff;			//czas do wylogowania użytkownika
+	edituserNameSurname 			:WSTRING(255) := GVL_USER_UF.edituserNameSurname ;	//imię i nazwisko
+	editpassword					:STRING(255) := GVL_USER_UF.editpassword;	//hasło
+	editpasswordRFID				:STRING(255) := GVL_USER_UF.editpasswordRFID;	//hasło rfid
+	editpasswordQR					:STRING(255) := GVL_USER_UF.editpasswordQR;	//hasło qr
+	edituserGroup					:STRING(80) := GVL_USER_UF.edituserGroup;	//grupa użytkowników
+	edituserLogoffbetween 	:STRING(80);
+
+	userExists_2			:BOOL;
+	userExists_3			:BOOL;
+	
+	bFirstCycle				:BOOL := plctasksysteminfo.FirstCycle;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+IF bClear THEN 
+    // Sprawdzamy, czy numer wiersza mieści się w zakresie tablicy
+    IF (iClearArrayNr >= 1) AND (iClearArrayNr <= 100) THEN
+        // Czyszczenie wybranego wiersza tablicy
+        GVL_USER_UF.user_array[iClearArrayNr].userID := 0;
+        GVL_USER_UF.user_array[iClearArrayNr].domain := '';
+        GVL_USER_UF.user_array[iClearArrayNr].enabled := FALSE;
+        GVL_USER_UF.user_array[iClearArrayNr].userLogin := '';
+        GVL_USER_UF.user_array[iClearArrayNr].userNameSurname := "";  // WSTRING wymaga również pustego ciągu znaków
+        GVL_USER_UF.user_array[iClearArrayNr].password := '';
+        GVL_USER_UF.user_array[iClearArrayNr].passwordRFID := 'tup';
+        GVL_USER_UF.user_array[iClearArrayNr].passwordQR := 'tup';
+        GVL_USER_UF.user_array[iClearArrayNr].userGroup := '';
+        GVL_USER_UF.user_array[iClearArrayNr].autoLogOff := '';
+        GVL_USER_UF.user_array[iClearArrayNr].locale := '';
+        GVL_USER_UF.user_array[iClearArrayNr].timeFormatlocale := '';
+        GVL_USER_UF.user_array[iClearArrayNr].timeZone := '';
+        GVL_USER_UF.user_array[iClearArrayNr].signedPassword := '';
+    END_IF
+
+    // Resetowanie flagi bClear po wykonaniu czyszczenia
+    bClear := FALSE;
+END_IF
+
+// Proces logowania użytkownika
+IF GVL_USER_UF.user_try_to_log AND GVL_USER_UF.user_accept_to_log_in THEN
+    GVL_USER_UF.user_succesed_log := FALSE;
+    GVL_USER_UF.no_user_found := TRUE;
+    gvl_user_uf.bwait := TRUE;
+
+    // Pętla przez wszystkich użytkowników
+    userExists_3 := FALSE;
+    FOR i := 1 TO 100 DO
+        IF GVL_USER_UF.user_array[i].password = GVL_USER_UF.putted_user_password OR 
+           (GVL_USER_UF.user_array[i].passwordRFID = GVL_USER_UF.putted_user_password) OR 
+           (GVL_USER_UF.user_array[i].passwordQR = GVL_USER_UF.putted_user_password) THEN
+            GVL_USER_UF.currentUser := i;
+            userExists_3 := TRUE;
+            EXIT;  // Zatrzymujemy pętlę, gdy znajdziemy użytkownika
+        END_IF
+    END_FOR
+
+    IF NOT userExists_3 THEN
+        GVL_USER_UF.no_user_found := TRUE;
+        gvl_user_uf.bwait := FALSE;
+		userExists_3 := FALSE;
+    ELSE
+        
+
+        FOR i := 1 TO 100 DO
+            // Sprawdzenie, czy użytkownik jest aktywny
+            IF GVL_USER_UF.user_array[i].enabled THEN
+                // Sprawdzenie, czy wprowadzone hasło odpowiada loginowi lub RFID/QR
+                GVL_USER_UF.no_user_found := FALSE;
+                IF (GVL_USER_UF.user_array[i].password = GVL_USER_UF.putted_user_password) OR
+                   (GVL_USER_UF.user_array[i].passwordRFID = GVL_USER_UF.putted_user_password) OR
+                   (GVL_USER_UF.user_array[i].passwordQR = GVL_USER_UF.putted_user_password) THEN
+                   delayTimer(IN := TRUE, PT := T#1S);
+                    // Jeśli wprowadzony kod to RFID lub QR, zastąp go przypisanym hasłem
+                    IF GVL_USER_UF.user_array[i].passwordRFID = GVL_USER_UF.putted_user_password THEN
+                        GVL_USER_UF.putted_user_password := GVL_USER_UF.user_array[i].password;
+                    	ELSIF GVL_USER_UF.user_array[i].passwordQR = GVL_USER_UF.putted_user_password THEN
+                        	GVL_USER_UF.putted_user_password := GVL_USER_UF.user_array[i].password;
+                    END_IF
+
+                 // Sprawdzanie grupy użytkownika i przypisanie odpowiedniej wartości
+                 	IF GVL_USER_UF.user_array[i].userGroup = 'Admin' THEN
+                        gvl_user_uf.password_to_log_in := GVL_USER_UF.user_array[i].signedPassword;
+                    	ELSIF GVL_USER_UF.user_array[i].userGroup = 'Operator' THEN
+                        	gvl_user_uf.password_to_log_in := GVL_USER_UF.user_array[i].signedPassword;
+                    	ELSIF GVL_USER_UF.user_array[i].userGroup = 'Serwis' THEN
+                        	gvl_user_uf.password_to_log_in := GVL_USER_UF.user_array[i].signedPassword;
+                    	ELSIF GVL_USER_UF.user_array[i].userGroup = 'Technolog' THEN
+                       		gvl_user_uf.password_to_log_in := GVL_USER_UF.user_array[i].signedPassword;
+                    	ELSIF GVL_USER_UF.user_array[i].userGroup = 'Mechanik' THEN
+                        	gvl_user_uf.password_to_log_in := GVL_USER_UF.user_array[i].signedPassword;
+                    END_IF
+                    IF delayTimer.Q THEN
+                		delayTimer(IN := FALSE);
+					gvl_user_uf.currentUserName := GVL_USER_UF.user_array[i].userNameSurname;
+					gvl_user_uf.currentUserGroup := GVL_USER_UF.user_array[i].userGroup;
+                    GVL_USER_UF.user_succesed_log := TRUE;
+                    GVL_USER_UF.no_user_found := FALSE;
+                    //gvl_user_uf.outside_accept_login := TRUE;  // Informacja dla wizualizacji
+                    gvl_user_uf.bwait := FALSE;
+
+                    // Zerowanie zmiennych po udanym logowaniu
+                    GVL_USER_UF.user_try_to_log := FALSE;
+                    GVL_USER_UF.user_accept_to_log_in := FALSE;
+                    //GVL_USER_UF.putted_user_password := '';   // Wyczyszczenie wprowadzonego hasła
+                         // Wyczyszczenie hasła do logowania
+					gvl_user_uf.password_to_log_in := '';
+					//userExists_3 := FALSE;
+					END_IF					
+                END_IF
+            END_IF
+        END_FOR
+		
+        // Jeżeli pętla się zakończy i nie znaleziono użytkownika
+        IF NOT GVL_USER_UF.user_succesed_log THEN
+            GVL_USER_UF.no_user_found := TRUE; // Ustaw błąd logowania
+            gvl_user_uf.bwait := FALSE;
+			userExists_3 := FALSE;
+			GVL_USER_UF.user_succesed_log := FALSE;
+			GVL_USER_UF.putted_user_password:='';
+        END_IF
+    END_IF
+END_IF
+
+
+// Dodawanie nowego użytkownika
+IF GVL_USER_UF.new_user AND GVL_USER_UF.new_user_accept THEN
+    GVL_USER_UF.new_user_added := FALSE;
+    GVL_USER_UF.new_user_add_error := TRUE;
+	gvl_user_uf.bwait := TRUE;
+    validGroup := FALSE;  // Na początku zakładamy, że grupa nie jest poprawna
+    uniqueUser := TRUE;   // Na początku zakładamy, że hasło jest unikalne
+    freeSlot := FALSE;    // Na początku zakładamy, że nie ma wolnego miejsca
+    
+    // Sprawdzanie, czy wybrana grupa jest jedną z dozwolonych
+    FOR j := 1 TO 5 DO
+        IF GVL_USER_UF.newuserGroup = allowedGroups[j] THEN
+            validGroup := TRUE;  // Jeśli grupa jest dozwolona, ustawiamy na TRUE
+        END_IF
+    END_FOR
+
+    // Jeśli grupa nie jest poprawna, przerywamy proces dodawania użytkownika
+    IF NOT validGroup THEN
+        GVL_USER_UF.new_user_add_error := TRUE;
+    ELSE
+        // Sprawdzanie, czy hasło nie jest już przypisane do innego użytkownika
+        FOR i := 7 TO 100 DO
+            IF GVL_USER_UF.user_array[i].enabled AND 
+               ((GVL_USER_UF.user_array[i].password = GVL_USER_UF.newpassword) OR 
+                (GVL_USER_UF.user_array[i].passwordRFID = GVL_USER_UF.newpasswordRFID) OR 
+                (GVL_USER_UF.user_array[i].passwordQR = GVL_USER_UF.newpasswordQR)) THEN
+                uniqueUser := FALSE;  // Jeśli hasło, RFID lub QR istnieje, ustawiamy na FALSE
+            END_IF
+        END_FOR
+
+        // Jeśli hasło jest unikalne, szukamy wolnego miejsca w tablicy
+        IF uniqueUser THEN
+            FOR i := 6 TO 100 DO
+                IF NOT GVL_USER_UF.user_array[i].enabled THEN
+                    // Przypisanie danych nowego użytkownika
+                    GVL_USER_UF.user_array[i].userID := i;
+                    GVL_USER_UF.user_array[i].userLogin := GVL_USER_UF.newpassword; // Używamy loginu z hasła
+                    GVL_USER_UF.user_array[i].userNameSurname := GVL_USER_UF.newuserNameSurname;
+                    GVL_USER_UF.user_array[i].password := GVL_USER_UF.newpassword;
+
+                    // Sprawdzanie, czy pole RFID jest puste - jeśli tak, zapisujemy "tup"
+                    IF GVL_USER_UF.newpasswordRFID = '' THEN
+                        GVL_USER_UF.user_array[i].passwordRFID := 'tup';
+                    ELSE
+                        GVL_USER_UF.user_array[i].passwordRFID := GVL_USER_UF.newpasswordRFID;
+                    END_IF
+
+                    // Sprawdzanie, czy pole QR jest puste - jeśli tak, zapisujemy "tup"
+                    IF GVL_USER_UF.newpasswordQR = '' THEN
+                        GVL_USER_UF.user_array[i].passwordQR := 'tup';
+                    ELSE
+                        GVL_USER_UF.user_array[i].passwordQR := GVL_USER_UF.newpasswordQR;
+                    END_IF
+                    newuserLogoffbetween:= CONCAT('PT',GVL_USER_UF.newautoLogOff);
+                    GVL_USER_UF.user_array[i].userGroup := GVL_USER_UF.newuserGroup;  // Grupa musi być poprawna
+                    GVL_USER_UF.user_array[i].autoLogOff := Concat(newuserLogoffbetween,'M');
+                    GVL_USER_UF.user_array[i].enabled := TRUE;
+					gvl_user_uf.user_array[i].locale:='client';
+					gvl_user_uf.user_array[i].timeFormatlocale:='project';
+					gvl_user_uf.user_array[i].timeZone:='project';
+					gvl_user_uf.user_array[i].domain:='TcHmiUserManagment';
+					
+					IF GVL_USER_UF.newuserGroup = 'Admin' THEN
+                        GVL_USER_UF.user_array[i].signedPassword := 'adm';
+                    ELSIF GVL_USER_UF.newuserGroup = 'Operator' THEN
+                        GVL_USER_UF.user_array[i].signedPassword := 'opr';
+                    ELSIF GVL_USER_UF.newuserGroup = 'Serwis' THEN
+                        GVL_USER_UF.user_array[i].signedPassword := 'ser';
+                    ELSIF GVL_USER_UF.newuserGroup = 'Technolog' THEN
+                        GVL_USER_UF.user_array[i].signedPassword := 'tech';
+                    ELSIF GVL_USER_UF.newuserGroup = 'Mechanik' THEN
+                        GVL_USER_UF.user_array[i].signedPassword := 'mech';
+                    END_IF
+                    
+                    // Potwierdzenie dodania nowego użytkownika
+                    GVL_USER_UF.new_user_added := TRUE;
+                    GVL_USER_UF.new_user_add_error := FALSE;
+                    freeSlot := TRUE;  // Znalazło się wolne miejsce
+					gvl_user_uf.bwait := FALSE;
+                    EXIT;  // Możemy zakończyć pętlę, bo użytkownik został dodany
+                END_IF
+            END_FOR
+        ELSE
+            // Hasło, RFID lub QR już istnieje - błąd dodawania użytkownika
+            GVL_USER_UF.new_user_add_error := TRUE;
+			gvl_user_uf.bwait := FALSE;
+        END_IF
+    END_IF
+
+    // Jeśli nie znaleziono wolnego miejsca, ustawiamy błąd dodawania
+    IF NOT freeSlot THEN
+        GVL_USER_UF.new_user_add_error := TRUE;
+		gvl_user_uf.bwait := FALSE;
+    END_IF
+	GVL_USER_UF.new_user:=FALSE;
+	validGroup:=FALSE;
+	GVL_USER_UF.user_succesed_log := FALSE;
+END_IF
+
+IF NOT GVL_USER_UF.new_user THEN
+	GVL_USER_UF.new_user_accept:=FALSE;
+	gvl_user_uf.bwait := FALSE;
+	validGroup:=FALSE;
+	GVL_USER_UF.newpasswordQR:='';
+	GVL_USER_UF.newpasswordRFID:='';
+	newuserLogoffbetween:='';
+END_IF
+
+
+
+// Edycja istniejącego użytkownika
+IF GVL_USER_UF.edit_user AND GVL_USER_UF.edit_user_accept THEN
+    GVL_USER_UF.user_eddited := FALSE;
+    GVL_USER_UF.edit_user_error := TRUE;
+    validGroup := FALSE;  // Na początku zakładamy, że grupa nie jest poprawna
+	gvl_user_uf.bwait := TRUE;
+    
+    // Sprawdzanie, czy użytkownik o podanym imieniu i nazwisku istnieje
+    userExists := FALSE;
+    FOR i := 1 TO 100 DO
+        IF GVL_USER_UF.user_array[i].enabled AND 
+           GVL_USER_UF.user_array[i].userNameSurname = GVL_USER_UF.actual_editted_user THEN
+            GVL_USER_UF.currentUser := i;
+            userExists := TRUE;
+            EXIT;  // Zatrzymujemy pętlę, gdy znajdziemy użytkownika
+        END_IF
+    END_FOR
+
+    // Jeśli użytkownik nie istnieje, kończymy edycję
+    IF NOT userExists THEN
+        GVL_USER_UF.edit_user_error := TRUE;
+        gvl_user_uf.bwait := FALSE;
+    ELSE
+        // Sprawdzanie, czy użytkownik do edycji jest aktywny
+        IF GVL_USER_UF.user_array[GVL_USER_UF.currentUser].enabled THEN
+            // Aktualizacja danych użytkownika	
+
+            // Sprawdzanie, czy Imię i Nazwisko ma być zmienione
+            IF GVL_USER_UF.edituserNameSurname <> "" THEN
+                GVL_USER_UF.user_array[GVL_USER_UF.currentUser].userNameSurname := GVL_USER_UF.edituserNameSurname;
+            END_IF
+			
+            // Sprawdzanie, czy hasło ma być zmienione
+			IF GVL_USER_UF.editpassword <> '' THEN
+                GVL_USER_UF.user_array[GVL_USER_UF.currentUser].password := GVL_USER_UF.editpassword;
+            END_IF
+
+            // Sprawdzanie, czy RFID ma być zmienione
+            IF GVL_USER_UF.editpasswordRFID <> '' THEN
+                GVL_USER_UF.user_array[GVL_USER_UF.currentUser].passwordRFID := GVL_USER_UF.editpasswordRFID;
+            END_IF
+
+            // Sprawdzanie, czy QR ma być zmienione
+            IF GVL_USER_UF.editpasswordQR <> '' THEN
+                GVL_USER_UF.user_array[GVL_USER_UF.currentUser].passwordQR := GVL_USER_UF.editpasswordQR;
+            END_IF
+			
+			// Sprawdzanie, czy czas wylogowania ma być zmieniony
+            IF GVL_USER_UF.editautoLogOff <> '' THEN
+				edituserLogoffbetween := CONCAT('PT', GVL_USER_UF.editautoLogOff);
+                GVL_USER_UF.user_array[GVL_USER_UF.currentUser].autoLogOff := CONCAT(edituserLogoffbetween, 'M');
+            END_IF
+
+            // Sprawdzanie, czy grupa ma być zmieniona
+            IF GVL_USER_UF.edituserGroup <> '' THEN
+                // Sprawdzanie, czy wybrana grupa jest jedną z dozwolonych
+                FOR j := 1 TO 5 DO
+                    IF GVL_USER_UF.edituserGroup = allowedGroups[j] THEN
+                        validGroup := TRUE;  // Jeśli grupa jest dozwolona, ustawiamy na TRUE
+                        EXIT;  // Wychodzimy z pętli, bo znaleźliśmy poprawną grupę
+                    END_IF
+                END_FOR
+
+                // Jeśli grupa nie jest poprawna, przerywamy proces edycji użytkownika
+                IF NOT validGroup THEN
+                    GVL_USER_UF.edit_user_error := TRUE;
+					gvl_user_uf.bwait := FALSE;
+					RETURN;  // Kończymy operację, gdy grupa jest nieprawidłowa
+                ELSE
+                    GVL_USER_UF.user_array[GVL_USER_UF.currentUser].userGroup := GVL_USER_UF.edituserGroup;
+                END_IF
+            END_IF
+            
+            // Potwierdzenie edycji użytkownika
+            GVL_USER_UF.user_eddited := TRUE;
+            GVL_USER_UF.edit_user_error := FALSE;
+			gvl_user_uf.bwait := FALSE;
+			GVL_USER_UF.user_succesed_log := FALSE;
+        END_IF
+    END_IF
+END_IF
+
+IF NOT GVL_USER_UF.edit_user THEN
+	GVL_USER_UF.edit_user_accept:=FALSE;
+	gvl_user_uf.bwait := FALSE;
+END_IF
+
+
+// Usuwanie użytkownika
+IF GVL_USER_UF.delete_user AND GVL_USER_UF.delete_user_accept THEN
+    GVL_USER_UF.delete_user_error := TRUE;  // Zakładamy na początku, że operacja się nie uda
+    GVL_USER_UF.user_deleted_succes := FALSE;  // Zmienna sygnalizująca usunięcie użytkownika
+    
+    // Sprawdzanie, czy użytkownik o podanym imieniu i nazwisku istnieje
+    userExists_2 := FALSE;
+    FOR i := 1 TO 100 DO
+        IF GVL_USER_UF.user_array[i].enabled AND 
+           GVL_USER_UF.user_array[i].userNameSurname = GVL_USER_UF.choosen_to_delete THEN
+           
+            // Użytkownik znaleziony, usuwamy go
+            GVL_USER_UF.user_array[i].userID := 0;
+            GVL_USER_UF.user_array[i].domain := '';
+            GVL_USER_UF.user_array[i].enabled := FALSE;
+            GVL_USER_UF.user_array[i].userLogin := '';
+            GVL_USER_UF.user_array[i].userNameSurname := "";
+            GVL_USER_UF.user_array[i].password := '';
+            GVL_USER_UF.user_array[i].passwordRFID := '';
+            GVL_USER_UF.user_array[i].passwordQR := '';
+            GVL_USER_UF.user_array[i].userGroup := '';
+            GVL_USER_UF.user_array[i].autoLogOff := '';
+            GVL_USER_UF.user_array[i].locale := '';
+            GVL_USER_UF.user_array[i].timeFormatlocale := '';
+            GVL_USER_UF.user_array[i].timeZone := '';
+            
+            userExists_2 := TRUE;
+            GVL_USER_UF.delete_user_error := FALSE;  // Operacja usunięcia powiodła się
+            GVL_USER_UF.user_deleted_succes := TRUE;  // Potwierdzenie, że użytkownik został usunięty
+            EXIT;  // Zatrzymanie pętli po znalezieniu i usunięciu użytkownika
+        END_IF
+    END_FOR
+    
+    // Jeśli użytkownika nie znaleziono, ustaw błąd
+    IF NOT userExists_2 THEN
+        GVL_USER_UF.delete_user_error := TRUE;  // Nie znaleziono użytkownika
+        GVL_USER_UF.user_deleted_succes := FALSE;
+    END_IF
+	gvl_user_uf.choosen_to_delete:="";
+	gvl_user_uf.delete_user_accept:=FALSE;
+	userExists_2:=FALSE;
+	GVL_USER_UF.user_succesed_log := FALSE;
+	GVL_USER_UF.user_deleted_succes := FALSE;
+END_IF
+
+
+// Proces wylogowania użytkownika
+IF GVL_USER_UF.logout THEN
+    // Czyszczenie danych aktualnie zalogowanego użytkownika
+    IF GVL_USER_UF.currentUser >= 1 AND GVL_USER_UF.currentUser <= 100 THEN
+       
+        // Ustawienie użytkownika "niezalogowany" z wiersza pod indeksem 6
+        GVL_USER_UF.currentUser := 6;
+		gvl_user_uf.currentUserName :="Niezalogowany Użytkownik";
+		gvl_user_uf.currentUserGroup :='Niezalogowany';
+        GVL_USER_UF.user_succesed_log := TRUE;  // Potwierdzenie, że wylogowanie i logowanie zakończyły się sukcesem
+        GVL_USER_UF.logout := FALSE;  // Resetowanie sygnału wylogowania
+		GVL_USER_UF.putted_user_password:='';
+    END_IF
+	GVL_USER_UF.user_succesed_log := FALSE;
+END_IF
+
+//Proces nadpisania użytkowników w razie utraty Persistent
+IF gvl_user_uf.b_rewrite_users_after_issues //or bFirstCycle 
+	THEN
+	//admin
+	gvl_user_uf.user_array[1].enabled:=TRUE;
+	gvl_user_uf.user_array[1].userGroup:='Admin';
+	gvl_user_uf.user_array[1].userNameSurname:="Administrator";
+	gvl_user_uf.user_array[1].password:='adm';
+	gvl_user_uf.user_array[1].passwordRFID:='adm';
+	gvl_user_uf.user_array[1].passwordQR:='adm';
+	gvl_user_uf.user_array[1].userLogin:='adm';
+	gvl_user_uf.user_array[1].signedPassword:='adm';
+	//serwis
+	gvl_user_uf.user_array[2].enabled:=TRUE;
+	gvl_user_uf.user_array[2].userGroup:='Serwis';
+	gvl_user_uf.user_array[2].userNameSurname:="Serwisant";
+	gvl_user_uf.user_array[2].password:='ser';
+	gvl_user_uf.user_array[2].passwordRFID:='ser';
+	gvl_user_uf.user_array[2].passwordQR:='ser';
+	gvl_user_uf.user_array[2].userLogin:='ser';
+	gvl_user_uf.user_array[2].signedPassword:='ser';
+	//niezalogowany
+	gvl_user_uf.user_array[3].enabled:=TRUE;
+	gvl_user_uf.user_array[3].userGroup:='Niezalogowany';
+	gvl_user_uf.user_array[3].userNameSurname:="Niezalogowany";
+	gvl_user_uf.user_array[1].password:='niez';
+	gvl_user_uf.user_array[3].passwordRFID:='niez';
+	gvl_user_uf.user_array[3].passwordQR:='niez';
+	gvl_user_uf.user_array[3].userLogin:='niez';
+	gvl_user_uf.user_array[3].signedPassword:='niez';
+	//technolog
+	gvl_user_uf.user_array[4].enabled:=TRUE;
+	gvl_user_uf.user_array[4].userGroup:='Technolog';
+	gvl_user_uf.user_array[4].userNameSurname:="Technolog";
+	gvl_user_uf.user_array[4].password:='tech';
+	gvl_user_uf.user_array[4].passwordRFID:='tech';
+	gvl_user_uf.user_array[4].passwordQR:='tech';
+	gvl_user_uf.user_array[4].userLogin:='tech';	
+	gvl_user_uf.user_array[4].signedPassword:='tech';
+	//operator
+	gvl_user_uf.user_array[5].enabled:=TRUE;
+	gvl_user_uf.user_array[5].userGroup:='Operator';
+	gvl_user_uf.user_array[5].userNameSurname:="Operator";
+	gvl_user_uf.user_array[5].password:='opr';
+	gvl_user_uf.user_array[5].passwordRFID:='opr';
+	gvl_user_uf.user_array[5].passwordQR:='opr';
+	gvl_user_uf.user_array[5].userLogin:='opr';	
+	gvl_user_uf.user_array[5].signedPassword:='opr';
+	
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

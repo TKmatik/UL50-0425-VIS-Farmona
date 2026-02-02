@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL_HIS" Id="{83e9eea9-2ebf-44a6-81b4-1f1d883723b1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+	// wyjścia cyfrowe
+	Historical_array 			: ARRAY [1..1000] OF WSTRING(1000);
+	ST_Alarmy 					: ARRAY [1..1000] OF st_for_screen;
+	ST_Alarmy_ar1 				: ARRAY [0..28] OF st_for_screen;
+	ST_Alarmy_New				:ARRAY  [1..1000] OF st_for_screen_new;
+	ST_Alarmy_ar2 				: ARRAY [0..28] OF st_for_screen_new;
+	user_for_alarms	 			: WSTRING(80);
+	bclearhistory				: BOOL;
+	s_time_mainscreen			: WSTRING(80);
+	b_next_hist_page			:BOOL;
+	b_prev_hist_page			:BOOL;
+	i_start_index				:INT:=0;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

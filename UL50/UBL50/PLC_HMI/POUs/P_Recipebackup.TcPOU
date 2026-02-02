@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Recipebackup" Id="{e88941ba-10d1-4936-8802-0333e653227d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Recipebackup
+VAR
+	tonBackup : TON;                     // Timer TON 2 sekund
+    tonHour : TON;                       // Timer TON 1 godzina
+    bBackupActive : BOOL := FALSE;       // Flaga true
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[tonHour(IN := NOT tonHour.Q, PT := T#3600S);
+IF tonHour.Q THEN
+    // Zakończenie liczenia godziny, zaczynamy generowanie sygnału TRUE
+    tonHour(IN := FALSE);                // Zresetuj timer godziny
+    bBackupActive := TRUE;               // Aktywuj sygnał TRUE
+    tonBackup(IN := TRUE, PT := T#2S);   // Zainicjuj timer na 2 sekundy
+END_IF
+
+// Timer dla 2 sekundowego sygnału
+IF tonBackup.Q THEN
+    bBackupActive := FALSE;              // Wyłącz sygnał TRUE po 2 sekundach
+    tonBackup(IN := FALSE);              // Zresetuj timer backupu
+END_IF
+gvl_recipe.b_recipe_backup := bBackupActive;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

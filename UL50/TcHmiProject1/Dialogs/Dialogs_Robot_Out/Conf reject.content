@@ -1,0 +1,1195 @@
+<div id="DialogBox_52" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="600" data-tchmi-height="450" data-tchmi-zindex="2" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">[]</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(244, 248, 250, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+<div id="TcHmiTextblock_2501" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="55" data-tchmi-left-unit="px" data-tchmi-text="X" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+</div>
+<div id="TcHmiTextblock_2502" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="215" data-tchmi-left-unit="px" data-tchmi-text="Y" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+</div>
+<div id="TcHmiTextblock_2503" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="375" data-tchmi-left-unit="px" data-tchmi-text="Z" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+</div>
+<div id="TcHmiTextblock_2504" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="55" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": []
+  }
+]</script>
+</div>
+<div id="TcHmiTextblock_2505" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="215" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": []
+  }
+]</script>
+</div>
+<div id="TcHmiTextblock_2506" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="375" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onAttached",
+    "actions": []
+  }
+]</script>
+</div>
+<div id="ManualButton_2204" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijPrzod.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bUp%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2205" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijTyl.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bDown%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", function (data) {",
+                  "    if (data.error === TcHmi.Errors.NONE) {",
+                  "        var currentValue = data.value;",
+                  "        var newValue = currentValue - 1;",
+                  "",
+                  "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", newValue);",
+                  "",
+                  "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+                  "        setTimeout(function () {",
+                  "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", true);",
+                  "",
+                  "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+                  "            setTimeout(function () {",
+                  "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", false);",
+                  "            }, 2000); // 1000 ms = 1 sekunda",
+                  "        }, 2000); // 500 ms opóźnienia",
+                  "    }",
+                  "});"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2206" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijPrzod.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2207" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijTyl.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2208" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijPrzod.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2209" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormalRectangle.usercontrol" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijTyl.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 1;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2210" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="142" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text380%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="398" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-bvalue="%s%PLC1.VIS.bBottleTransferManualCatch|BindingMode=TwoWay%/s%" data-tchmi-simage="Images/icons/Chwytaj.png" data-tchmi-basswitch="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%s%PLC1.VIS.bBottleTransferManualCatchVisibility%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualCatchVisibility%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%ManualButton_229::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%ManualButton_229::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2211" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="298" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text381%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="398" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-simage="Images/icons/Close.png" data-tchmi-basswitch="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualEditOffset%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPlace2%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": false
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_44",
+        "fn": "close",
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2212" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="99" data-tchmi-left-unit="px" data-tchmi-scaption="+5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="123" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bUp%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2213" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-scaption="+10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2214" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-scaption="+5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="123" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2215" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-scaption="+10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2216" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-scaption="+5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="123" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2217" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="99" data-tchmi-left-unit="px" data-tchmi-scaption="+10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bUp%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue + 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2218" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="99" data-tchmi-left-unit="px" data-tchmi-scaption="-5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="308" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bDown%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", function (data) {",
+                  "    if (data.error === TcHmi.Errors.NONE) {",
+                  "        var currentValue = data.value;",
+                  "        var newValue = currentValue - 5;",
+                  "",
+                  "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", newValue);",
+                  "",
+                  "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+                  "        setTimeout(function () {",
+                  "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", true);",
+                  "",
+                  "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+                  "            setTimeout(function () {",
+                  "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", false);",
+                  "            }, 2000); // 1000 ms = 1 sekunda",
+                  "        }, 2000); // 500 ms opóźnienia",
+                  "    }",
+                  "});"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2219" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="99" data-tchmi-left-unit="px" data-tchmi-scaption="-10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="349" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%ManualButton_554::bDown%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", function (data) {",
+                  "    if (data.error === TcHmi.Errors.NONE) {",
+                  "        var currentValue = data.value;",
+                  "        var newValue = currentValue - 10;",
+                  "",
+                  "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPickOffsetXShow%/s%\", newValue);",
+                  "",
+                  "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+                  "        setTimeout(function () {",
+                  "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", true);",
+                  "",
+                  "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+                  "            setTimeout(function () {",
+                  "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPick%/s%\", false);",
+                  "            }, 2000); // 1000 ms = 1 sekunda",
+                  "        }, 2000); // 500 ms opóźnienia",
+                  "    }",
+                  "});"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": false,
+                "symbolExpression": "%s%PLC1.VIS.bBottleTransferManualPick%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetXShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 200); // 1000 ms = 1 sekunda",
+          "        }, 200); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2220" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-scaption="-5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="308" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2221" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-scaption="-10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="349" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetYShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2222" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-scaption="-5" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="308" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 5;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+<div id="ManualButton_2223" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="31" data-tchmi-height-unit="px" data-tchmi-left="420" data-tchmi-left-unit="px" data-tchmi-scaption="-10" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonShortRectangle.usercontrol" data-tchmi-top="349" data-tchmi-top-unit="px" data-tchmi-width="62" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "TcHmi.Symbol.readEx2(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", function (data) {",
+          "    if (data.error === TcHmi.Errors.NONE) {",
+          "        var currentValue = data.value;",
+          "        var newValue = currentValue - 10;",
+          "",
+          "        TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.iBottleTransferPlace2OffsetZShow%/s%\", newValue);",
+          "",
+          "        // Dodajemy 500 ms opóźnienia przed załączeniem zmiennej na TRUE",
+          "        setTimeout(function () {",
+          "            TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", true);",
+          "",
+          "            // Po 1 sekundzie zmieniamy stan zmiennej na FALSE",
+          "            setTimeout(function () {",
+          "                TcHmi.Symbol.writeEx(\"%s%PLC1.VIS.bBottleTransferManualPlace2%/s%\", false);",
+          "            }, 2000); // 1000 ms = 1 sekunda",
+          "        }, 2000); // 500 ms opóźnienia",
+          "    }",
+          "});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]</script>
+</div>
+</div>

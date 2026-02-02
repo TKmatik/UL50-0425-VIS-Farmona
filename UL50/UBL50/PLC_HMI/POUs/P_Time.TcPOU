@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Time" Id="{aa9264fc-39ea-42a6-97ad-99c5a5cff593}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Time
+VAR
+    fbSystemTime : GETSYSTEMTIME;
+    timeAsFileTime : T_FILETIME;
+    timeAsDT : DT;
+	actual_date_meawhile :DT;
+	s_time_mainscreen	:WSTRING(80);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fbSystemTime(
+    timeLoDW => timeAsFileTime.dwLowDateTime,
+    timeHiDW => timeAsFileTime.dwHighDateTime 
+);
+timeAsDT := FILETIME_TO_DT(timeAsFileTime);
+actual_date_meawhile:=timeAsDT;
+actual_date_meawhile := actual_date_meawhile + T#2H;
+s_time_mainscreen := DT_TO_WSTRING(actual_date_meawhile);
+s_time_mainscreen := WRIGHT(s_time_mainscreen, WLEN(s_time_mainscreen) - 3);
+gvl_his.s_time_mainscreen:=s_time_mainscreen;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

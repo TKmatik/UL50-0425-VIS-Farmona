@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<TcEventSources Version="2">
+	<Source>
+		<GUID>{2AE079A3-1D8B-4224-893E-BB4214FCEBCB}</GUID>
+		<Name LcId="1033">MachineEvents</Name>
+		<Event>
+			<Id>1</Id>
+			<Message LcId="1033">Process Started</Message>
+			<Detail>
+				<Name>DescriptionUrl</Name>
+				<Text LcId="1033">ciul start</Text>
+			</Detail>
+		</Event>
+		<Event>
+			<Id>2</Id>
+			<Message LcId="1033">Process stoped</Message>
+			<Detail>
+				<Name>DescriptionUrl</Name>
+				<Text LcId="1033">ciul stop</Text>
+			</Detail>
+		</Event>
+		<Event>
+			<Id>3</Id>
+			<Message LcId="1033">Process test</Message>
+			<Detail>
+				<Name>DescriptionUrl</Name>
+				<Text LcId="1033">ciul test</Text>
+			</Detail>
+		</Event>
+	</Source>
+</TcEventSources>

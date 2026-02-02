@@ -1,0 +1,42 @@
+{
+  "parameters": [
+    {
+      "name": "data-tchmi-sliter",
+      "displayName": "sLiter",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "R",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "sLiter",
+      "propertySetterName": "setSLiter",
+      "propertyGetterName": "getSLiter",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-bvisible",
+      "displayName": "bVisible",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "bVisible",
+      "propertySetterName": "setBVisible",
+      "propertyGetterName": "getBVisible",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.760.54/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

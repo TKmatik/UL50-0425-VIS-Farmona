@@ -1,0 +1,162 @@
+<div id="Content1_12" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1400" data-tchmi-height="850">
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+<div id="TcHmiDatagrid_26" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDatagrid" data-tchmi-height="653" data-tchmi-height-unit="px" data-tchmi-left="12" data-tchmi-left-unit="px" data-tchmi-top="15" data-tchmi-top-unit="px" data-tchmi-width="1376" data-tchmi-width-unit="px" data-tchmi-show-row-numbers="false" data-tchmi-src-data="%s%PLC1.VIS_RFID.AStRFIDCheck%/s%" data-tchmi-grid-font-size="8" data-tchmi-row-height="10">
+<script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+[
+  {
+    "name": "iNumber",
+    "label": "iNumber",
+    "control": "TextBlock",
+    "width": 17,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "iReaded1",
+    "label": "iReaded1 (przed doz)",
+    "control": "TextBlock",
+    "width": 17,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "iReaded2",
+    "label": "iReaded2 (bef scales)",
+    "control": "TextBlock",
+    "width": 16,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "iReaded3",
+    "label": "iReaded3 (bef screwer)",
+    "control": "TextBlock",
+    "width": 16,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "iReaded4",
+    "label": "iReaded4 (after screwer)",
+    "control": "TextBlock",
+    "width": 16,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 70,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "iReaded5",
+    "label": "iReaded5 (robot)",
+    "control": "TextBlock",
+    "width": 16,
+    "widthUnit": "%",
+    "resize": false,
+    "sortable": false,
+    "minWidth": 70,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+
+
+
+</div>
+<div id="TcHmiTextblock_2539" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1" data-tchmi-left-unit="px" data-tchmi-text="%f%'Opis sumy błędów'+%s%PLC1.VIS_RFID.sRFIDInfo%/s%%/f%" data-tchmi-top="680" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="ManualButton_2312" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1278" data-tchmi-left-unit="px" data-tchmi-scaption="Reset" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="792" data-tchmi-top-unit="px" data-tchmi-width="112" data-tchmi-width-unit="px" data-tchmi-bvalue="%s%PLC1.VIS_RFID.bRFIDCheckReset%/s%">
+</div>
+<div id="TcHmiTextblock_2540" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1" data-tchmi-left-unit="px" data-tchmi-text="%f%'Formatki po przeważaniu'+%s%PLC1.VIS_RFID.iRFIDCheckNumberOfFormsAfterWeighting%/s%%/f%" data-tchmi-top="736" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2541" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba formatek na linii'+%s%PLC1.VIS_RFID.iRFIDCheckNumberOfFormsExecute%/s%%/f%" data-tchmi-top="795" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2542" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="843" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba błędnych rejestrów dozowniki'+%s%PLC1.VIS_RFID.iRFIDCheckDispencerWarning%/s%%/f%" data-tchmi-top="794" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2543" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="843" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba błędnych rejestrów wagi'+%s%PLC1.VIS_RFID.iRFIDCheckWeightWarning%/s%%/f%" data-tchmi-top="736" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2544" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="424" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba błędnych rejestrów zakrecarki'+%s%PLC1.VIS_RFID.iRFIDCheckBeforeScrewerWarning%/s%%/f%" data-tchmi-top="736" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2545" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="424" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba błędnych rejestrów test zakrecenia'+%s%PLC1.VIS_RFID.iRFIDCheckAfterScrewerWarning%/s%%/f%" data-tchmi-top="794" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+<div id="TcHmiTextblock_2546" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="422" data-tchmi-left-unit="px" data-tchmi-text="%f%'Liczba błędnych rejestrów robot'+%s%PLC1.VIS_RFID.iRFIDCheckBottleTransferWarning%/s%%/f%" data-tchmi-top="680" data-tchmi-top-unit="px" data-tchmi-width="411" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left">
+</div>
+</div>

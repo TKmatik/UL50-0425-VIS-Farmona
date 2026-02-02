@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
+	<LicenseInfo>
+		<SystemId>{C0E00110-8B01-E91C-E63A-9A0BB72C5732}</SystemId>
+		<IssueTime>2025-08-25T08:36:00</IssueTime>
+		<ExpireTime>2025-09-02T00:00:00</ExpireTime>
+		<LicenseKey>a3ef4405eb0f2c3eff814a6eb59d01774daa9d06cb5addf3c587355436cdc147679b523f95a05ad8fd02c0ef4242035e48080aa64d8834c87eb9391d2c5df43d43bc07d3dee7d171b720544aafaea5dc85792c468fcd9a259ce4471cbdb68542ef526402fe47451f5ba0035c592e6f06225b697f1732874728f7e0f7271fed68637663e1714a7c83f6363de63e8f97537eee2e05d12f59723562c8f27e97c63ced96213ed40cb97d0eb36a7459de637b39546bda93f0674cd769fa939e688ba843b9eae90de9af229f1e914043317260f1ec29cbed389012ca3dc27a10c3c950e9bb5b4f99f4049a1a6d453323ef828e68a55b48f69743c8388a08965437ca19</LicenseKey>
+		<License>
+			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
+			<Name>TC3 ADS</Name>
+			<OrderNo>TC1000</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{3FF18E97-7754-401B-93FB-70544DE28A13}</LicenseId>
+			<Name>TC3 IO</Name>
+			<OrderNo>TC1100</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{66689887-CCBD-452C-AC9A-039D997C6E66}</LicenseId>
+			<Name>TC3 PLC</Name>
+			<OrderNo>TC1200</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>
+			<Name>TC3 HMI Clients</Name>
+			<Instances>1</Instances>
+		</License>
+		<License>
+			<LicenseId>{A2091C4C-7D04-4202-B173-9984E7125BC0}</LicenseId>
+			<Name>TC3 HMI Targets</Name>
+			<Instances>9</Instances>
+		</License>
+		<License>
+			<LicenseId>{CCE50C10-2CAA-4243-8182-080F02C5BE3D}</LicenseId>
+			<Name>TC3 Reporting Server</Name>
+		</License>
+		<License>
+			<LicenseId>{796D380F-D49E-4C0C-A05F-500052FAC883}</LicenseId>
+			<Name>TC3 HMI Server</Name>
+			<OrderNo>TF2000</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{F1CFF3CF-B042-45EE-A380-4FB3270F0BA5}</LicenseId>
+			<Name>TC3 HMI Targets Pack 1</Name>
+			<OrderNo>TF2050</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{AC534BD2-49E1-4025-9C78-0BC8AE4A36A9}</LicenseId>
+			<Name>TC3 HMI Targets Pack 2</Name>
+			<OrderNo>TF2055</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{2D2E5D68-23A1-4B53-BDF7-41C3861F6DB7}</LicenseId>
+			<Name>TC3 HMI Targets Pack 5</Name>
+			<OrderNo>TF2065</OrderNo>
+		</License>
+	</LicenseInfo>
+</TcLicenseInfo>

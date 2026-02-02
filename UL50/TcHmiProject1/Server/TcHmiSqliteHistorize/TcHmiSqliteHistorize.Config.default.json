@@ -1,0 +1,40 @@
+{
+    "commitInterval": "PT10S",
+    "enableBackup": false,
+    "historizedSymbolList": {
+        "ADS.PLC1.P09_CapPuttedCheck.fbCapPuttedCheckSensorAverage.rAverage": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.P11_CapCorrectCheck.fbCapCorrectCheckSensorAverage.rAverage": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.VIS.iOEEPackMLSuspendedReason": {
+            "interval": "PT10S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.VIS.uiCounterMachineEfficiency": {
+            "interval": "PT10S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "PLC1.VIS.uiCounterInstantEfficiency": {
+            "interval": "PT10S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        }
+    },
+    "inMemory": false,
+    "maxBackups": 1,
+    "mode": 3,
+    "vacuumOnStartup": false
+}

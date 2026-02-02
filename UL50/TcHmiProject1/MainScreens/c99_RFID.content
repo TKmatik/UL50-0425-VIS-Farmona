@@ -1,0 +1,24 @@
+<div id="RFID_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1545" data-tchmi-height="999">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+<div id="ManualButton_2486" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1322" data-tchmi-left-unit="px" data-tchmi-scaption="Zapisz" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="418" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-basswitch="True" data-tchmi-bvalue="%s%ADS.PLC1.P00_ReadRFIDCard.iWriteDataOn%/s%">
+</div>
+<div id="LrParam_1875" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1053" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="418" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="Wartość nadpisywana na RFID" data-tchmi-value="%s%ADS.PLC1.P00_ReadRFIDCard.fbAfterDispencersReader.diWriteData%/s%" data-tchmi-min="1" data-tchmi-max="1000">
+</div>
+<div id="TcHmiTextblock_2882" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="109" data-tchmi-height-unit="px" data-tchmi-left="1053" data-tchmi-left-unit="px" data-tchmi-text="%f%'Odczytana wartość RFID: ' +%s%ADS.PLC1.P00_ReadRFIDCard.fbAfterDispencersReader.diReadedCode%/s%%/f%" data-tchmi-top="471" data-tchmi-top-unit="px" data-tchmi-width="415" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-font-size="25">
+</div>
+<div id="TcHmiTextblock_2883" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="655" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="140" data-tchmi-top-unit="px" data-tchmi-width="1033" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="29" data-tchmi-text="1) Zbliżyć formatkę jedną ze stron z pastylką RFID do czytnika RFID za dozownikami a przed wagami. 
+2) Wpisać wartość jaką chcemy nadpisać na daną pastylkę RFID i naciskamy przycisk Zapisz
+3) Po tym obracamy drugą stroną formatki, gdzie znajduje się druga pastylka i zapisujemy te samą liczbę, aby obie strony formatki miały ten sam numer. Odciskamy przycisk zapisz
+4) Naklejamy naklejkę na formatkę (w razie potrzeby)
+5) Bierzemy inną formatkę i przejeżdżamy obok czujnika (aby zresetować odczytaną wartość przez czujnik RFID)
+6) Przejeżdżamy uprzednio zaprogramowaną formatką pod czujnikiem, aby odczytać czy obydwie strony mają ten sam numer.
+7) Ponownie bierzemy inną formatkę aby zresetować 	odczytany numer
+8) Ponownie przejeżdżamy świeżo zaprogramowaną formatką 	przed czujnikiem aby upewnić się, że obydwie strony formatki mają ten sam, poprawnie nadany numer, zgodny z naklejką na formatce ">
+</div>
+</div>

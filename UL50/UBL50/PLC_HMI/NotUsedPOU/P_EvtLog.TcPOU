@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_EvtLog" Id="{9aabee9d-fd10-41fa-905a-b31c943be084}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_EvtLog
+VAR
+	alarm : FB_TcAlarm;
+	state: INT;
+	raise: BOOL;
+	clear: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE state OF
+	0:
+		alarm.Create(
+			eventClass			:= TC_EVENT_CLASSES.NewEventClass, 
+			nEventId			:= TC_EVENTS.NewEventClass.Event.nEventId, 
+			eSeverity			:= TcEventSeverity.Error, 
+			bWithConfirmation	:= FALSE, 
+			ipSourceInfo		:= 0);
+		state := 10;
+		
+	10:
+		alarm.ipArguments.Clear().AddString('Tekst1').AddString('Tekst2').AddString('Tekst3');
+		state := 20;
+		
+	20:
+		IF raise THEN
+			alarm.Raise(0);
+		END_IF
+		IF clear THEN
+			alarm.Clear(0, FALSE);
+		END_IF
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

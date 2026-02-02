@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Error_Handling" Id="{5eb44a98-fabb-4813-8a46-5d437dc16fe6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Error_Handling 
+VAR
+	bErrorOccure	:BOOL;
+	bErrorTrig		:R_trig;
+	bNewSystem		:BOOL:=TRUE;
+
+	udiStationInError				: UDINT;
+	previousStationErrorCode		: UDINT;
+	udiStationErrorCode				: UDINT;
+	i,j,k,l,n,m: INT;
+	bAlarmExist				:BOOL;
+	i_current_alarm			:INT;
+	j_current_alarm			: INT;
+	bAlarmExist_j: BOOL;
+	bAlarmExist_i: BOOL;
+	b_write:BOOL;
+	b_write2:BOOL;
+	wstrStation :WSTRING(255);
+	wstrStation2 :WSTRING(255);
+	bFirstCycle				:BOOL := FALSE;
+	values: ARRAY[1..175] OF INT := [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 
+        31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 
+        46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 
+        61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 
+        76, 77, 78, 79, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 
+        95, 96, 97, 98, 99, 101, 102, 103, 104, 105, 106, 107, 111, 
+        112, 121, 122, 123, 124, 125, 131, 132, 141, 142, 143, 144, 
+        145, 146, 147, 148, 149, 150, 151, 161, 162, 163, 164, 165, 
+        171, 172, 173, 174, 175, 181, 182, 191, 192, 193, 194, 195, 
+        196, 201, 202, 211, 221, 222, 223, 224, 225, 226, 227, 228, 
+        229, 230, 241, 242, 243, 251, 252, 253, 254, 255, 256, 257, 
+        258, 261, 262, 263, 264, 265, 266, 271, 272, 273, 281, 282, 
+        283, 284, 285, 291, 292, 293, 294, 295, 296, 297, 301, 302, 
+        303
+    ];
+
+	rTrigError_1:r_trig;
+	bisAlarmChanged:BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bFirstCycle:=TRUE;
+bErrorOccure			:= p_ads_1.bTrigger;
+bErrorTrig				(CLK:= bErrorOccure);
+//udiStationInError		:=P_ADS_ERR.udiStationInError;
+IF P_ADS_ERR.udiStationInError=0 THEN
+	udiStationInError:=1;
+	ELSE
+	udiStationInError:= P_ADS_ERR.udiStationInError;
+END_IF
+udiStationErrorCode:=P_ADS_ERR.udiStationErrorCode;
+
+IF bErrorTrig.Q OR rTrigError_1.Q //AND bNewSystem 
+THEN
+	bAlarmExist_j:=FALSE;
+	bAlarmExist_i:=FALSE;
+	FOR i:=1 TO 57 DO
+		 IF gvl_error.A_Error_station[i].udiStationInError 		= udiStationInError THEN
+            i_current_alarm						:= i;
+            bAlarmExist_i 						:= TRUE;
+			gvl_error.b_empy_error:=FALSE;
+			 EXIT;       
+		ELSE
+			gvl_error.b_empy_error:=TRUE;
+			bAlarmExist_i 						:= FALSE;	
+		END_IF		
+	END_FOR
+		FOR j:=1 TO 177 DO
+		 IF gvl_error.A_Error_description[j].udiStationErrorCode 		= udiStationErrorCode THEN
+            j_current_alarm						:= j;
+            bAlarmExist_j 						:= TRUE;
+			gvl_error.b_empy_error:=FALSE;
+			previousStationErrorCode:=udiStationErrorCode;
+			EXIT;
+		ELSE
+			gvl_error.b_empy_error:=TRUE;
+			bAlarmExist_j 						:=FALSE;
+            
+        END_IF		
+	END_FOR
+		
+	IF  bAlarmExist_i=TRUE AND bAlarmExist_j=TRUE THEN
+        	gvl_error.ws_Stasion_In_Error				:= gvl_error.A_Error_station[i_current_alarm].wsStasionInError;
+			gvl_error.udi_Station_In_Error 				:= gvl_error.A_Error_station[i_current_alarm].udiStationInError ;
+			gvl_error.udi_Station_In_Error_Code 		:= gvl_error.A_Error_description[j_current_alarm].udiStationErrorCode ;
+			gvl_error.ws_Station_Error_Description		:= gvl_error.A_Error_description[j_current_alarm].wsStationErrorDescription;
+			gvl_error.ws_Station_Error_Description_2 	:= P_ADS_ERR.sStationErrorDescription2;
+    	ELSE
+		i_current_alarm := 0;
+		gvl_error.b_empy_error:=TRUE;
+	END_IF
+	
+END_IF
+
+
+
+gvl_error.b_new_system:=bNewSystem;
+
+
+
+IF bFirstCycle=TRUE OR b_write=TRUE THEN
+	gvl_error.A_Error_station[1].udiStationInError:=1;
+	gvl_error.A_Error_station[1].wsStasionInError:="Station1";
+	gvl_error.A_Error_description[176].udiStationErrorCode:=311;
+	gvl_error.A_Error_description[176].wsStationErrorDescription:="Error176";
+	gvl_error.A_Error_description[177].udiStationErrorCode:=18;
+	gvl_error.A_Error_description[177].wsStationErrorDescription:="Error177";
+	
+	FOR k := 2 TO 57 DO
+    gvl_error.A_Error_station[k].udiStationInError := 9 + k; // udiStationInError od 11 do 66
+    
+    wstrStation := WCONCAT("Station", INT_TO_WSTRING(k));
+    gvl_error.A_Error_station[k].wsStasionInError := wstrStation;  // Przypisanie wartości WSTRING
+	END_FOR
+	FOR l := 1 TO 175 DO
+    
+    wstrStation2 := WCONCAT("Error", INT_TO_WSTRING(l));
+    gvl_error.A_Error_description[l].wsStationErrorDescription := wstrStation2;  // Przypisanie wartości WSTRING
+	END_FOR
+END_IF
+
+IF bFirstCycle=TRUE OR b_write2=TRUE	THEN
+	m := 1;  // Inicjalizacja indeksu dla tablicy values
+	FOR n := 1 TO 175 DO
+    gvl_error.A_Error_description[n].udiStationErrorCode := values[m];  // Przypisanie wartości z tablicy values do A_Error_description
+    m := m + 1;  // Przejście do następnej wartości
+	END_FOR	
+
+END_IF
+
+IF (previousStationErrorCode <> udiStationErrorCode) AND (udiStationErrorCode <>0)  THEN
+	bisAlarmChanged:=TRUE;
+END_IF
+IF(previousStationErrorCode = udiStationErrorCode) THEN
+		bisAlarmChanged:=FALSE;
+END_IF
+	rTrigError_1(CLK:=bisAlarmChanged);
+gvl_error.b_empy_error:=FALSE;]]></ST>
+    </Implementation>
+    <LineIds Name="P_Error_Handling">
+      <LineId Id="463" Count="95" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

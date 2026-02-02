@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_ParseString" Id="{00bc9a68-41c4-4a0c-ba7d-d05918694574}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_ParseString
+VAR
+    result     : BOOL;  // Zmienna pomocnicza do sprawdzenia wyniku parsowania
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Sprawdzenie, czy string z HMI nie jest pusty
+IF LEN(gvl_his.string_of_properties) > 0 THEN
+    result := F_ParseUserString(gvl_his.string_of_properties);  // Wywołanie funkcji parsującej string
+
+    IF result THEN
+        GVL_USER.currentUser := GVL_USER.currentUser + 1;  // Zwiększamy indeks dla następnego użytkownika
+        IF GVL_USER.currentUser > 100 THEN
+            GVL_USER.currentUser := 1;  // Zawijamy indeks, gdy przekroczymy 100 użytkowników
+        END_IF;
+    END_IF;
+END_IF;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

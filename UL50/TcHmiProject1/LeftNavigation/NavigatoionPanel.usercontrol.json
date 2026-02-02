@@ -1,0 +1,26 @@
+{
+  "parameters": [
+    {
+      "name": "data-tchmi-selectedscreen",
+      "displayName": "SelectedScreen",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/UDINT",
+      "category": "",
+      "description": "",
+      "defaultValue": 0,
+      "defaultValueInternal": 0,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SelectedScreen",
+      "propertySetterName": "setSelectedScreen",
+      "propertyGetterName": "getSelectedScreen",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.760.54/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

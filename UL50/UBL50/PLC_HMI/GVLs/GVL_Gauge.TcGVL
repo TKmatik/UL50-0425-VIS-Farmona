@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL_Gauge" Id="{51d36106-8e90-42b2-a9c5-9be858b34f77}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	//input
+	lr_WeightMass_recipe	:LREAL;
+	lr_Dispencer1WeightMeasured	:LREAL;
+	lr_Dispencer2WeightMeasured	:LREAL;
+	lr_Dispencer3WeightMeasured	:LREAL;
+	lr_Dispencer4WeightMeasured	:LREAL;
+	lr_Tolerance_Low			:LREAL;
+	lr_Tolerance_High			:LREAL;
+	lr_weight_measured_1		:LREAL;
+	lr_weight_measured_2		:LREAL;
+	lr_weight_measured_3		:LREAL;
+	lr_weight_measured_4		:LREAL;
+	
+	lr_mass_value_1				:LREAL;
+	lr_mass_value_2				:LREAL;
+	lr_mass_value_3				:LREAL;
+	lr_mass_value_4				:LREAL;
+	
+	
+	//output
+	lr_out_max_weight_value :LREAL;
+	lr_out_min_tolerance_low :LREAL;
+	lr_out_max_tolerance_high :LREAL;
+	
+	lr_out_weight_measured_1 :LREAL;
+	lr_out_weight_measured_2 :LREAL;
+	lr_out_weight_measured_3 :LREAL;
+	lr_out_weight_measured_4 :LREAL;
+	
+	s_actual_weight_1	:STRING;
+	s_actual_weight_2	:STRING;	
+	s_actual_weight_3	:STRING;
+	s_actual_weight_4	:STRING;
+	
+	s_actual_weight_1_diff	:STRING;
+	s_actual_weight_2_diff	:STRING;
+	s_actual_weight_3_diff	:STRING;
+	s_actual_weight_4_diff	:STRING;
+
+	s_actual_corr_1		:STRING;
+	s_actual_corr_2		:STRING;
+	s_actual_corr_3		:STRING;
+	s_actual_corr_4		:STRING;	
+	
+	s_actual_dose_1		:STRING;
+	s_actual_dose_2		:STRING;
+	s_actual_dose_3		:STRING;
+	s_actual_dose_4		:STRING;
+	
+	lr_corr_add_1	:LREAL;
+	lr_corr_sub_1	:LREAL;
+	lr_corr_add_2	:LREAL;
+	lr_corr_sub_2	:LREAL;
+	lr_corr_add_3	:LREAL;
+	lr_corr_sub_3	:LREAL;
+	lr_corr_add_4	:LREAL;
+	lr_corr_sub_4	:LREAL;
+	
+	s_actual_torque_1	:STRING;
+	s_actual_torque_2	:STRING;
+	s_actual_torque_diff_1		:STRING;
+	s_actual_torque_diff_2		:STRING;
+	
+	s_actual_level_1	:STRING;
+	s_actual_level_2	:STRING;
+	
+	lr_out_torque_low_1		:LREAL;
+	lr_out_torque_low_2		:LREAL;
+	lr_out_torque_high_1		:LREAL;
+	lr_out_torque_high_2		:LREAL;	
+
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,77 @@
+<div id="c99_conf" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1517" data-tchmi-height="770" data-tchmi-zindex="1" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(237, 240, 242, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">[
+  {
+    "color": {
+      "color": "rgba(121, 121, 121, 1)"
+    },
+    "offsetX": 5.0,
+    "offsetXUnit": "px",
+    "offsetY": 5.0,
+    "offsetYUnit": "px",
+    "blur": 5.0,
+    "blurUnit": "px",
+    "spread": 0.0,
+    "spreadUnit": "px"
+  }
+]</script>
+<div id="TcHmiTextblock_2869" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="357" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="26" data-tchmi-zindex="1" data-tchmi-text="Konfiguracja wizki">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 70, 102, 1)"
+}
+</script>
+</div>
+<div id="TcHmiCheckbox_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="BuPu" data-tchmi-top="212" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bBottleBuPu%/s%">
+
+
+</div>
+<div id="TcHmiTextblock_2870" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Podawanie butelek" data-tchmi-top="139" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiCheckbox_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="PI" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bBottlePI%/s%">
+</div>
+<div id="TcHmiCheckbox_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Sorter butelek UBF" data-tchmi-top="331" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bBottleUBF%/s%">
+
+
+
+
+</div>
+<div id="TcHmiCheckbox_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Sorter zamknięć UCF" data-tchmi-top="211" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bCapUCF%/s%">
+
+
+</div>
+<div id="TcHmiTextblock_2871" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Podawanie zamknięć" data-tchmi-top="139" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiCheckbox_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Sorter Fliptopów SO" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bCapSO%/s%">
+</div>
+<div id="TcHmiCheckbox_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Sorter wibracyjny" data-tchmi-top="331" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bCapWibro%/s%">
+</div>
+<div id="TcHmiCheckbox_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Żyrafa podająca" data-tchmi-top="392" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bCapGiraffe%/s%">
+</div>
+<div id="TcHmiCheckbox_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Airless" data-tchmi-top="212" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bAirless%/s%">
+</div>
+<div id="TcHmiTextblock_2872" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Stacje specjalne" data-tchmi-top="139" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiCheckbox_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Platynkowanie" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bPlatinsCFG%/s%">
+</div>
+<div id="TcHmiCheckbox_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="ROPP" data-tchmi-top="331" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bROPP%/s%">
+</div>
+<div id="TcHmiCheckbox_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Dwufaza" data-tchmi-top="392" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bTwoPhaseCFG%/s%">
+</div>
+
+
+
+
+
+
+<div id="TcHmiCheckbox_18" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="109" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Wenglor kontrola obecności" data-tchmi-top="451" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bWenglorCapPutted%/s%">
+</div>
+<div id="TcHmiCheckbox_19" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="110" data-tchmi-height-unit="px" data-tchmi-left="1029" data-tchmi-left-unit="px" data-tchmi-text="Wenglor kontrola zakręcenia" data-tchmi-top="570" data-tchmi-top-unit="px" data-tchmi-width="474" data-tchmi-width-unit="px" data-tchmi-text-font-size="30" data-tchmi-state-symbol="%s%ADS.HMI.GVL_CFG.bWenglorCapCorrect%/s%">
+</div>
+</div>

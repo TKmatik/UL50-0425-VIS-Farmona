@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_Error_Station_Handling" Id="{81fc7fe8-857c-46a5-9a32-7ea880e1ec6f}">
+    <Declaration><![CDATA[TYPE ST_Error_Station_Handling :
+STRUCT
+	udiStationInError			:UDINT;
+	wsStasionInError				:WSTRING(255);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

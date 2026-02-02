@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.55" ClassName="CNestedPlcProjDef">
+	<Project GUID="{BCBFC0C5-AEC6-41DC-A969-B0F67E4A0D2C}" Name="PLC_HMI" PrjFilePath="..\..\PLC_HMI\PLC_HMI.plcproj" TmcFilePath="..\..\PLC_HMI\PLC_HMI.tmc" ReloadTmc="true" AmsPort="853" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance Id="#x08502080" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC_HMI\PLC_HMI.tmc" TmcHash="{E89063CD-5C7A-D2BA-706A-42875B46E3F4}">
+			<Name>PLC_HMI Instance</Name>
+			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Contexts>
+				<Context>
+					<Id>0</Id>
+					<Name>PlcTask</Name>
+					<ManualConfig>
+						<OTCID>#x02010080</OTCID>
+					</ManualConfig>
+					<Priority>30</Priority>
+					<CycleTime>10000000</CycleTime>
+				</Context>
+			</Contexts>
+			<TaskPouOids>
+				<TaskPouOid Prio="30" OTCID="#x08502081"/>
+			</TaskPouOids>
+		</Instance>
+	</Project>
+</TcSmItem>

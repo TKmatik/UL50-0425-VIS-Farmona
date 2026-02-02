@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_History_New" Id="{08e7030d-30f7-4d0a-9193-499ea62c1732}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_History_New
+VAR
+	nowyAlarm			: BOOL;
+	i,j,k,n 			: INT; 
+	m					: INT:=0;
+	trescAlarmu1		: WSTRING(255);
+	trescAlarmu2		: WSTRING(255);
+	trescAlarmu3		: WSTRING(255);
+	numerAlarmu			: INT;
+	aktualnaData		: DT;
+	station_id			:UDINT;
+	alarm_id			:UDINT;
+	
+	bTrigerZapisu 		: R_TRIG;
+	
+	historical_alarm	: WSTRING(1000);
+	historical_alarm_id	: UDINT;
+	historical_station_id	:UDINT;
+	tempDateString		: WSTRING(255);
+	
+	previousTrescAlarmu1 : WSTRING(255);
+    previousTrescAlarmu2 : WSTRING(255);
+    previousTrescAlarmu3 : WSTRING(255);
+    previousNumerAlarmu  : INT;
+    previousAktualnaData : DT;
+	
+	isAlarmChanged : BOOL := FALSE;
+	
+	isDuplicate: BOOL;
+	bCzyszczenie :BOOL :=gvl_his.bclearhistory;
+	bDuplikat :	BOOL;
+	
+	fbPersistent	: FB_Persistent;
+	i_start_index		:INT;
+	b_next_hist_page_old	:BOOL;
+	b_prev_hist_page_old	:BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbPersistent(
+    bWrite := , 
+    tInterval := T#30M, 
+    bBusy => , 
+    bErr => , 
+    udErrID => 
+);
+
+trescAlarmu1 := P_ADS_1.sTextAlarm1;
+trescAlarmu2 := P_ADS_1.sTextAlarm2;
+trescAlarmu3 := P_ADS_1.sTextAlarm3;
+numerAlarmu := P_ADS_1.iNumberAlarm;
+aktualnaData := P_time.timeAsDT;
+station_id	:=p_ads_err.udiStationInError;
+alarm_id	:=p_ads_err.udiStationErrorCode;
+
+
+isAlarmChanged := (previousTrescAlarmu1 <> trescAlarmu1) OR
+                  (previousTrescAlarmu2 <> trescAlarmu2) OR
+                  (previousTrescAlarmu3 <> trescAlarmu3) OR
+                  (previousNumerAlarmu <> numerAlarmu);
+
+bTrigerZapisu(CLK := P_ADS_1.bTrigger);
+
+IF bTrigerZapisu.Q OR isAlarmChanged THEN
+    // Przesuwanie alarmów
+    FOR i := 1000 TO 2 BY -1 DO
+        GVL_HIS.Historical_array[i] := GVL_HIS.Historical_array[i - 1];
+//		GVL_HIS.ST_Alarmy[i] := GVL_HIS.ST_Alarmy[i - 1];
+     	GVL_HIS.ST_Alarmy_New[i].alarmy := GVL_HIS.ST_Alarmy_New[i - 1].alarmy;  // Przesunięcie struktury do przodu
+		GVL_HIS.ST_Alarmy_New[i].data := GVL_HIS.ST_Alarmy_New[i - 1].data;
+		GVL_HIS.ST_Alarmy_New[i].user := GVL_HIS.ST_Alarmy_New[i - 1].user;
+		GVL_HIS.ST_Alarmy_New[i].bErrorOccure := GVL_HIS.ST_Alarmy_New[i - 1].bErrorOccure;
+		gvl_his.ST_Alarmy_New[i].alarmy_id:=gvl_his.ST_Alarmy_New[i-1].alarmy_id;
+		gvl_his.ST_Alarmy_New[i].stacja:=gvl_his.ST_Alarmy_New[i-1].stacja;
+    END_FOR
+    historical_alarm := WCONCAT(UDINT_TO_WSTRING(numerAlarmu), " | ");
+    historical_alarm := WCONCAT(historical_alarm, trescAlarmu1);
+    historical_alarm := WCONCAT(historical_alarm, " | ");
+    historical_alarm := WCONCAT(historical_alarm, trescAlarmu2);
+    historical_alarm := WCONCAT(historical_alarm, " | ");
+    historical_alarm := WCONCAT(historical_alarm, trescAlarmu3);
+    historical_alarm := WCONCAT(historical_alarm, " ");
+    aktualnaData := aktualnaData + T#1H;
+    tempDateString := DT_TO_WSTRING(aktualnaData);
+    tempDateString := WRIGHT(tempDateString, WLEN(tempDateString) - 3);
+	historical_alarm_id:=alarm_id;
+	historical_station_id:=station_id;
+	
+	
+	
+//	historical_alarm := CONCAT(historical_alarm,tempDateString);
+
+    IF WLEN(historical_alarm) >= 30 THEN
+		
+        GVL_HIS.Historical_array[1] := historical_alarm;     
+		GVL_HIS.ST_Alarmy_new[1].alarmy := historical_alarm;      
+        GVL_HIS.ST_Alarmy_new[1].data := tempDateString;         
+        GVL_HIS.ST_Alarmy_new[1].user := gvl_his.user_for_alarms;
+		GVL_HIS.ST_Alarmy_new[1].alarmy_id:=historical_alarm_id;
+		GVL_HIS.ST_Alarmy_new[1].stacja:=historical_station_id;         
+        GVL_HIS.ST_Alarmy_new[1].bErrorOccure := TRUE;
+        
+        j := 1;
+	
+        FOR i := 1 TO 1000 DO
+            IF WLEN(GVL_HIS.Historical_array[i]) >= 30 THEN
+                GVL_HIS.Historical_array[j] := GVL_HIS.Historical_array[i];
+				GVL_HIS.ST_Alarmy_new[j].alarmy := GVL_HIS.ST_Alarmy_new[i].alarmy; 
+				GVL_HIS.ST_Alarmy_new[j].data := GVL_HIS.ST_Alarmy_new[i].data;
+				GVL_HIS.ST_Alarmy_new[j].user := GVL_HIS.ST_Alarmy_new[i].user;
+				GVL_HIS.ST_Alarmy_new[j].alarmy_id:=GVL_HIS.ST_Alarmy_new[i].alarmy_id;
+				GVL_HIS.ST_Alarmy_new[j].stacja:=GVL_HIS.ST_Alarmy_new[i].stacja; 
+				GVL_HIS.ST_Alarmy_new[j].bErrorOccure := GVL_HIS.ST_Alarmy_new[i].bErrorOccure;
+                j := j + 1;
+            END_IF
+        END_FOR
+
+		IF j >= 500 THEN
+            FOR i := 500 TO 1000 DO
+                GVL_HIS.Historical_array[i] := "";  // Czyszczenie najstarszych wpisów
+                GVL_HIS.ST_Alarmy_new[i].alarmy := "";  // Czyszczenie najstarszych alarmów
+                GVL_HIS.ST_Alarmy_new[i].data := "";  
+                GVL_HIS.ST_Alarmy_new[i].user := "";
+				GVL_HIS.ST_Alarmy_new[i].alarmy_id:=0;
+				GVL_HIS.ST_Alarmy_new[i].stacja:=0;  
+                GVL_HIS.ST_Alarmy_new[i].bErrorOccure := FALSE;
+            END_FOR
+            j := 500;  // Aktualizacja j, aby tablica miała maksymalnie 850 alarmów
+        END_IF		
+
+        FOR i := j TO 1000 DO
+            GVL_HIS.Historical_array[i] := "";
+			GVL_HIS.ST_Alarmy_new[i].alarmy := "";     
+       		GVL_HIS.ST_Alarmy_new[i].data := "";           
+      		GVL_HIS.ST_Alarmy_new[i].user := "";           
+      		GVL_HIS.ST_Alarmy_new[i].bErrorOccure := FALSE;
+			GVL_HIS.ST_Alarmy_new[i].alarmy_id:=0;
+			GVL_HIS.ST_Alarmy_new[i].stacja:=0;               
+        END_FOR		
+    END_IF
+    
+    previousTrescAlarmu1 := trescAlarmu1;
+    previousTrescAlarmu2 := trescAlarmu2;
+    previousTrescAlarmu3 := trescAlarmu3;
+    previousNumerAlarmu := numerAlarmu;
+	
+	FOR i := 1000 TO 2 BY -1 DO
+    isDuplicate := (GVL_HIS.ST_Alarmy_new[i].alarmy = GVL_HIS.ST_Alarmy_new[i-1].alarmy) AND
+                   (GVL_HIS.ST_Alarmy_new[i].data = GVL_HIS.ST_Alarmy_new[i-1].data) AND
+                   (GVL_HIS.ST_Alarmy_new[i].user = GVL_HIS.ST_Alarmy_new[i-1].user);
+    	IF isDuplicate AND bDuplikat THEN
+        		FOR j := i TO 1000 - 1 DO
+            		GVL_HIS.ST_Alarmy_new[j] := GVL_HIS.ST_Alarmy_new[j + 1];
+        		END_FOR
+        	GVL_HIS.ST_Alarmy_new[1000].alarmy := "";
+        	GVL_HIS.ST_Alarmy_new[1000].data := "";
+        	GVL_HIS.ST_Alarmy_new[1000].user := "";
+			GVL_HIS.ST_Alarmy_new[1000].alarmy_id:=0;
+			GVL_HIS.ST_Alarmy_new[1000].stacja:=0;   
+    	END_IF
+	END_FOR
+
+	IF bCzyszczenie THEN
+		FOR i := 1 TO 1000 DO
+    		GVL_HIS.ST_Alarmy_new[i].alarmy := ""; 
+    		GVL_HIS.ST_Alarmy_new[i].data := "";   
+    		GVL_HIS.ST_Alarmy_new[i].user := "";
+			GVL_HIS.ST_Alarmy_new[i].bErrorOccure:=FALSE;
+			GVL_HIS.ST_Alarmy_new[i].alarmy_id:=0;
+	        GVL_HIS.ST_Alarmy_new[i].stacja:=0;   
+		END_FOR
+	END_IF
+END_IF
+
+IF gvl_his.b_next_hist_page = TRUE AND b_next_hist_page_old = FALSE AND gvl_his.i_start_index<20 THEN
+	gvl_his.i_start_index:=gvl_his.i_start_index+1;
+END_IF
+
+IF gvl_his.b_prev_hist_page = TRUE AND b_prev_hist_page_old = FALSE AND gvl_his.i_start_index>0 THEN
+	gvl_his.i_start_index:=gvl_his.i_start_index-1;
+END_IF
+
+b_next_hist_page_old := gvl_his.b_next_hist_page;
+b_prev_hist_page_old := gvl_his.b_prev_hist_page;
+
+i_start_index := gvl_his.i_start_index * 28;
+
+
+IF (i_start_index > 0) AND (i_start_index<580) THEN
+FOR m := 0 TO 28 DO
+        gvl_his.ST_Alarmy_ar2[m].alarmy := gvl_his.ST_Alarmy_new[i_start_index + m].alarmy;
+        gvl_his.ST_Alarmy_ar2[m].bErrorOccure := gvl_his.ST_Alarmy_new[i_start_index + m].bErrorOccure;
+        gvl_his.ST_Alarmy_ar2[m].data := gvl_his.ST_Alarmy_new[i_start_index + m].data;
+        gvl_his.ST_Alarmy_ar2[m].user := gvl_his.ST_Alarmy_new[i_start_index + m].user;
+		gvl_his.ST_Alarmy_ar2[m].stacja := gvl_his.ST_Alarmy_new[i_start_index + m].stacja;
+		gvl_his.ST_Alarmy_ar2[m].alarmy_id := gvl_his.ST_Alarmy_new[i_start_index + m].alarmy_id;
+		
+    END_FOR;
+END_IF
+IF i_start_index=0 THEN
+		FOR m := 1 TO 28 DO
+        gvl_his.ST_Alarmy_ar2[m].alarmy := gvl_his.ST_Alarmy_new[i_start_index + m].alarmy;
+        gvl_his.ST_Alarmy_ar2[m].bErrorOccure := gvl_his.ST_Alarmy_new[i_start_index + m].bErrorOccure;
+        gvl_his.ST_Alarmy_ar2[m].data := gvl_his.ST_Alarmy_new[i_start_index + m].data;
+        gvl_his.ST_Alarmy_ar2[m].user := gvl_his.ST_Alarmy_new[i_start_index + m].user;
+		gvl_his.ST_Alarmy_ar2[m].stacja := gvl_his.ST_Alarmy_new[i_start_index + m].stacja;
+        gvl_his.ST_Alarmy_ar2[m].alarmy_id := gvl_his.ST_Alarmy_new[i_start_index + m].alarmy_id;
+    	END_FOR;
+END_IF;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,70 @@
+{
+  "function": {
+    "name": "CustomBinding",
+    "namespace": "TcHmi.Functions.TcHmiProject8",
+    "displayName": "CustomBinding",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "Other",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "control",
+        "displayName": "control",
+        "type": "tchmi:framework#/definitions/Control",
+        "description": "Target control of binding ",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "propertyName",
+        "displayName": "propertyName",
+        "type": "tchmi:framework#/definitions/ControlPropertyName",
+        "description": "The target attribute of selected control",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false,
+        "refTo": "control"
+      },
+      {
+        "name": "par1",
+        "displayName": "Parameter",
+        "type": "tchmi:general#/definitions/Object",
+        "description": "This is an important Parameter which does... This text is used in a tooltip.",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "./../Packages/Beckhoff.TwinCAT.HMI.Framework.12.762.44/runtimes/native1.12-tchmi/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "CustomBinding.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ]
+}

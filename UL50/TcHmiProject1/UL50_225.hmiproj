@@ -1,0 +1,2355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Clean;Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <TcHmiDirectory>$(registry:HKEY_CURRENT_USER\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <TcHmiDirectory Condition="'$(TcHmiDirectory)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <TcHmiDirectory Condition="'$(TcHmiDirectory)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Wow6432Node\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <AvailablePlatforms>TwinCAT HMI</AvailablePlatforms>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <HmiTitle>UBL50-0125</HmiTitle>
+    <HmiVerboseLevel>2</HmiVerboseLevel>
+    <HmiVersion>1.0.0.0</HmiVersion>
+    <HmiCommunicationServerPort>3016</HmiCommunicationServerPort>
+    <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
+    <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
+    <HmiDefaultLanguage>pl-PL</HmiDefaultLanguage>
+    <TargetFrameworkMoniker>native,Version=v1.12.0,Profile=tchmi</TargetFrameworkMoniker>
+    <TargetFramework>native1.12-tchmi</TargetFramework>
+    <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+    <Name>UL50_225</Name>
+    <HmiCommunicationRouterPort>10205</HmiCommunicationRouterPort>
+    <HmiCommunicationServerAuthPort>13014</HmiCommunicationServerAuthPort>
+    <HmiInitial>1.12.760.54</HmiInitial>
+    <HmiRecent>14.3.436.1</HmiRecent>
+    <HmiServerNodeAdvancedView>True</HmiServerNodeAdvancedView>
+    <HmiServerNodeAdvancedSettingsView>False</HmiServerNodeAdvancedSettingsView>
+    <HmiCfgWindowBringIntoViewAutomatically>True</HmiCfgWindowBringIntoViewAutomatically>
+    <HmiTmcFiles>[
+  {
+    "FileName": "TmpProject\\PLC_HMI\\PLC_HMI.tmc",
+    "RootNamespace": "PLC_HMI",
+    "IsFromSolution": false
+  }
+]</HmiTmcFiles>
+    <TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>false</TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <HmiCompanyName>TKMATIK</HmiCompanyName>
+    <HmiCompanyWebsite>https://www.tkmatik.pl/</HmiCompanyWebsite>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TwinCATHmi_Tasks>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.tasks</TwinCATHmi_Tasks>
+    <TwinCATHmi_Targets>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.targets</TwinCATHmi_Targets>
+  </PropertyGroup>
+  <Import Project="$(TwinCATHmi_Tasks)" />
+  <Import Project="$(TwinCATHmi_Targets)" />
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>96fba322-c1d1-4331-b88a-ccc11aa8c6a4</ProjectGuid>
+    <RootNamespace>TwinCAT3HmiProject</RootNamespace>
+    <AssemblyName>TwinCAT3HmiProject</AssemblyName>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">TwinCAT HMI</Platform>
+  </PropertyGroup>
+  <!-- Any CPU -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|TwinCAT HMI' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>TwinCAT HMI</PlatformTarget>
+    <DefaultNamespace>TcHmiProject1</DefaultNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|TwinCAT HMI' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>TwinCAT HMI</PlatformTarget>
+    <DefaultNamespace>TcHmiProject1</DefaultNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="'$(RestoreProjectStyle)' == 'PackageReference'" />
+  <PropertyGroup>
+    <PreBuildEventDependsOn />
+  </PropertyGroup>
+  <Target Name="PreBuildEvent" Condition="'$(PreBuildEvent)'!=''" DependsOnTargets="$(PreBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PreBuildEvent)" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEventDependsOn />
+  </PropertyGroup>
+  <Target Name="PostBuildEvent" Condition="'$(PostBuildEvent)' != '' and ('$(RunPostBuildEvent)'=='Always' or '$(RunPostBuildEvent)'=='OnOutputUpdated')" DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <Target Name="GetFrameworkPaths" />
+  <PropertyGroup>
+    <BuiltProjectOutputGroupDependsOn>
+			PreBuildEvent;
+			CoreBuild;
+			PostBuildEvent
+		</BuiltProjectOutputGroupDependsOn>
+    <CleanDependsOn>
+			BaseClean
+		</CleanDependsOn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TcHmi_ProjectDirectory Condition="'$(TcHmi_ProjectDirectory)' == ''">$(MSBuildProjectDirectory)</TcHmi_ProjectDirectory>
+    <TcHmi_ServerAddress Condition="'$(TcHmi_ServerAddress)' == ''">127.0.0.1</TcHmi_ServerAddress>
+    <TcHmi_ServerPort Condition="'$(TcHmi_ServerPort)' == ''">1010</TcHmi_ServerPort>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_TcHmiNodeJsMode>Global</_TcHmiNodeJsMode>
+    <_TcHmiNodeJsMode Condition="'$(_TcHmiNodeJsMode)' == ''">Global</_TcHmiNodeJsMode>
+    <_TcHmiNodePath Condition="'$(_TcHmiNodeJsMode)' == 'Global'">$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Node.js@InstallPath)</_TcHmiNodePath>
+    <_TcHmiNodePath Condition="'$(_TcHmiNodeJsMode)' == 'Global' AND '$(_TcHmiNodePath)' == '' AND Exists('C:\Program Files\nodejs\')">C:\Program Files\nodejs\</_TcHmiNodePath>
+    <_TcHmiNodePath Condition="'$(_TcHmiNodeJsMode)' == 'Global' AND '$(_TcHmiNodePath)' == '' AND Exists('C:\Program Files (x86)\nodejs\')">C:\Program Files (x86)\nodejs\</_TcHmiNodePath>
+  </PropertyGroup>
+  <Target Name="ReTargetNodePath" Condition="'$(_TcHmiNodePath)' != ''" BeforeTargets="$(CompileDependsOn)">
+    <PropertyGroup>
+      <NodePath>$(_TcHmiNodePath)</NodePath>
+    </PropertyGroup>
+  </Target>
+  <Target Name="CoreBuild">
+    <TcHmiMSBuild.Publish.TcHmiBuild TaskAction="Clean" ProjectDirectory="$(TcHmi_ProjectDirectory)" OutputPath="$(OutputPath)" />
+    <TcHmiMSBuild.Publish.TcHmiBuild TaskAction="Build" ProjectDirectory="$(TcHmi_ProjectDirectory)" OutputPath="$(OutputPath)" ProjectFiles="@(Content)" VirtualMappings="$(TcHmi_VirtualMappings)" />
+    <TcHmiMSBuild.Publish.TcHmiGenerator TaskAction="EntryPage" ProjectDirectory="$(TcHmi_ProjectDirectory)" OutputPath="$(OutputPath)" TcHmiServerAddress="$(TcHmi_ServerAddress)" TcHmiServerPort="$(TcHmi_ServerPort)">
+      <Output TaskParameter="Result" PropertyName="TaskResult0" />
+    </TcHmiMSBuild.Publish.TcHmiGenerator>
+    <Message Text="Generating the Default.html within OutputPath('$(OutputPath)'): $(TaskResult0)" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="$(BuiltProjectOutputGroupDependsOn)" />
+  <Target Name="Clean" DependsOnTargets="$(CleanDependsOn)" />
+  <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
+  <ItemGroup>
+    <Content Include="Chart\WeightChartBig.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Chart\DosingChartRecipeF1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Chart\DosingChartBig.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Chart\DosingChartRecipeF2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Chart\ScrewerChart.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Chart\Screwer_backlog.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ColorConvert.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ColorConvert.ts</DependentUpon>
+    </Content>
+    <Content Include="ColorConvert.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\ChangeOver\ChangeOver_Forms.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\ChangeOver\ChangeOver_Weights.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\ConnectionProblems\ConnectionProblemBottleSorter.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\ConnectionProblems\ConnectionProblemCapSorter.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\ConnectionProblems\ConnectionProblemUL.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Main\Main_cfg_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Main\Main_cfg.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Main\Main_info.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\CapCorrect.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\CapPutted.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\Zmiany koordynatów.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\TrendlineLegend.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\DIAG_UP.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\Festo.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\OEE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\PumpDialogBox.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\NewRecipeSugestions.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\ResetBeforeRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\TaraDialogBox.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\DIAG_UF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\DialogBox.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\Instruction.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\PDF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\RFID.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\RecipeChanges.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\DIAG_UL.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\MinMax.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\NewInformationDown.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\NewErrorDown.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\NewError.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\NewWarningDown.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_PopUp\SafetyMapa.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_MACHINE_BuPu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_main_BuPu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_MACHINE_PI.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_main_PI.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_1_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_1_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_2_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_3_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_Menu_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_Recipe_Menu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_SO_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_SO_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_1_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_2_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_4_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_Menu_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_Recipe_Menu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_5_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_3_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza1_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza2_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza_dozowniki1-2_small.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza_dozowniki_3-4_small.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza1-2-3-4_small.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_knoty_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_knoty.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_main_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_platynki_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_ropp_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_ropp.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_faza2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_platynki.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_wagi_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Doses\Dosing_wagi.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Out\Out_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_1_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_2_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_3_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_4_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_5_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_rolls.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_param_small.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_param.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_opt.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Robot_Out\Conf 1 bott pos.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Robot_Out\Conf 2 bott pos.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Robot_Out\Conf label.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Robot_Out\Conf reject.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Errors_PoPuP_EventLogger.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\PopUp_small_event_logger.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\ChangeRecipeName.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\CopyRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\CopyValueToRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\DeleteRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\Done.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\LoadRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\NewRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\RecipeManagment\Nope.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_pi.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_ropp.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_ropp_feed.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_c_sorter.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_b_sorter.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_screwers.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_platins.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_scales.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_tnaks.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_pump.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Region_ubf_robot.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\DeleteUser.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\EditUser.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\LoadingPleaseWait.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\LoginDialog.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\LogOutDialog.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\NeedLogIn.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\NewUser.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\No auth.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\PleaseLOGIN.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\UserManagment\UserError.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Regions_C0\Region_dosing.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_3_robot.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_BSorter\BSorter_UBF_2_trans.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_putter_4.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_options_2.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_main_1.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_robot_5.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_trans_3.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Out\Out.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_Screwers\Cup_Screwers_1.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Black.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Bold.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-ExtraBold.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-ExtraLight.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Italic.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Light.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Medium.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Regular.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-SemiBold.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Fonts\Poppins\Poppins-Thin.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CustomTimeEventlogger.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CustomTimeEventlogger.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CustomTimeEventlogger.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ActivateComplexRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\ActivateComplexRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\ActivateComplexRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ConvertDatagridToRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\ConvertDatagridToRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\ConvertDatagridToRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ConvertRecipeToDatagrid.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\ConvertRecipeToDatagrid.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\ConvertRecipeToDatagrid.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CreateComplexRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CreateComplexRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CreateComplexRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CreateComplexRecipeCopy.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CreateComplexRecipeCopy.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CreateComplexRecipeCopy.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CreateRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CreateRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CreateRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CustomBinding.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CustomBinding.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CustomBinding.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CustomWriteFunction.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CustomWriteFunction.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CustomWriteFunction.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\CustomWriteFunction2.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\CustomWriteFunction2.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\CustomWriteFunction2.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DeleteRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\DeleteRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\DeleteRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DownloadRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\DownloadRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\DownloadRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\DuplicateRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\DuplicateRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\DuplicateRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\FunctionJS1.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\FunctionJS1.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\FunctionJS1.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GetRecipies.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\GetRecipies.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\GetRecipies.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GetRecipiesByType.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\GetRecipiesByType.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\GetRecipiesByType.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\GetRecipieTypes.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\GetRecipieTypes.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\GetRecipieTypes.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ListRecipesAsReferenceArray.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\ListRecipesAsReferenceArray.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\ListRecipesAsReferenceArray.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\RemoveRecipie.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\RemoveRecipie.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\RemoveRecipie.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\RenameRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\RenameRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\RenameRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\ReturnMess.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\ReturnMess.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\ReturnMess.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\simpleDelay.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\simpleDelay.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\simpleDelay.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TeachComplexRecipie.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\TeachComplexRecipie.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\TeachComplexRecipie.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\UpdateDatagridFromTarget.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\UpdateDatagridFromTarget.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\UpdateDatagridFromTarget.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\UploadRecipe.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\UploadRecipe.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\UploadRecipe.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035398 NG.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035398 OK.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035399 NG 2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035399 NG.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035399 OK.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CapCheck\TK 035399.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\cz1.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\cz2.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\InfoGrn.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\InfoWht.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\WarningWht.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\WarningYel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\ErrorRed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\ErrInfoWarning\ErrorWht.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Format.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\FormTr.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\FormTr2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Arror_right.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Arrow_Left.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Arrow_Up.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Bazowanie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\brush.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Bullets-02-WF blue2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camerablack.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camerablue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camera_deep.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camera_deep_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camera_deep_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Camera_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Chart_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Check - Copy.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Check.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Chwytaj.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Cisnienie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\clock.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\clockk.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Close.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Close_black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Close_black_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Close_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\czerwony_emg.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\DaneOProdukcjiBordowe.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Delta.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Delta_error.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Document_black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Document_black_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Document_deep.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Document_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Dozownik.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Dozuj_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Edit.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Etykieciarka_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Eye_blue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Fan.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Fan_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Fan_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Faster.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Filter-12-WF.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\filter_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\filter_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\F_Gauge-02-WF.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\F_Jar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\arrows.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\F_Load-Man_blue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Garbag.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\DaneOProdukcji.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Garbage_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Garbage_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Glow_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Manual_deep.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Manual_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Menu_deep.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Menu_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Microscope.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Microscope_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Microscope_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\New.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\New_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Photo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Podajnik_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Puls_blue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Racing_flag.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Racing_flag_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Repeat.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Repeat_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Robot2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Robot2_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Rocket.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Rotate _Twohand.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Rotate _Twohand_small.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Rotate_small_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\rygiel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Rygiel_yellow.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Save.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Screw_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Slower.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Table.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\table2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\table2_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\tkmatik_logotyp_rgb_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Tloczenie_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\tr.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\tr.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Cykl.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Development-WF blue2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Screw.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\DocisnijRolki.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Document-WF blue2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Dol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Domontaz.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Dozuj.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Etykieciarka.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Fast.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\GrzalkaDol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Glow.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Ignoruj.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Logout.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Miedzy.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Mieszanie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Odluz.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Offset.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Pobierz.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Podajnik.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Pompa.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\PrzeciagnijLewo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\PrzeciagnijPrawo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\PrzeciagnijPrzod.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\PrzeciagnijTyl.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Przed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Reset.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Ruch.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Slow.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Ssanie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Ssawka.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Start.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Stol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Szlaban.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Tacka.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Tarowanie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Tloczenie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\tr_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\UpDown.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Users-WF blue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\User_deep.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\User_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Warning_red.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Wazenie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Wazenie_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Wbijaj.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Wpusc.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Wydmuch.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Icons\Zwolnij.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\HandBlue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\HandRed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\PlayBlue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\PlayGreen.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\PlayOrange.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\PlayWhite.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\StopRed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\StationControl\StopWhite.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\tkmatik vis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Minimalist_info_Icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\pompka ucf.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Testy\duzo butelek .png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Testy\duzo2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Testy\malo2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Testy\malo_but.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\Testy\srednio butelek .png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\UL50-0225.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="KeyboardLayouts\Polish %28214%29 - basic.keyboard.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="KeyboardLayouts\Ukrainian - basic.keyboard.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Keyboards\Numpad (plusminus) - indirect.keyboard.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LeftNavigation\NavigatoionPanel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LeftNavigation\NavigatoionPanel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>LeftNavigation\NavigatoionPanel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Localization\Control-TcHmiEventGrid-en.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\Control-TcHmiEventGrid-pl-PL.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\pl.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\ua.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\c5_Cameras.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Content1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Events.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\LoginPage.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\NewRecipies2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Numpad (plusminus).keyboard.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\NumPad.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\ErrorDialog.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\ErrorDown.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\IncorrectValue.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\InformationDown.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\InternalError.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\OLD_DIALOGS\WarningDown.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Page.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Param1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\POC_EventLogger.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\ChangeRecipeName.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\CopyRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\DeleteRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\LoadRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\NewRecipe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\RecipeManagmentTXT\RecipeChanges.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Select-txt.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\Settings.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\StartPage.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\ucNumPad.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LostTechnology\ucNumPad.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>LostTechnology\ucNumPad.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="LostTechnology\Untitled.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MainScreens\c0_Main.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="MainScreens\c11_New_History_Errors.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="MainScreens\c1_Manual - Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="MainScreens\c3_Recipe -Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="MainScreens\c99_conf.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MainScreens\c9_Format.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MainScreens\c4_Menu.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="MainScreens\c6_Errors.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MainScreens\c99_RFID.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonLong.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonLong.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonLong.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormalRectangleBIG.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormalRectangleBIG.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonNormalRectangleBIG.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonShortRectangle.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonShortRectangle.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonShortRectangle.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonShort.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonShort.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonShort.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormalRectangle.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormalRectangle.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonNormalRectangle.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormal.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\NewManualButtonNormal.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\NewManualButtonNormal.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualButtonC0.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualButtonC0.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\ManualButtonC0.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualSide.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualSide.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\ManualSide.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualUpDown wo value.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualUpDown wo value.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\ManualUpDown wo value.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualUpDown.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\CommonControls\ManualUpDown.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>ManualMode\CommonControls\ManualUpDown.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\BSorter_Manual_1_BuPu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\BSorter_Manual_1_PI.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\BSorter_Manual_1_UBF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\BSorter_Manual_2_UBF.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\Bsorter_Manual_Main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\BSorter\BSorter_Manula_UBF_Menu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_1_SO.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_1_UCF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_3_UCF.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_2_UCF.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_Main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_UCF_Menu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Dosing\Dosing_Manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Dosing\Dosing_Manual_Main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Dosing\Dosing_Manual_2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\ROPP\ROPP_Manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\ROPP\ROPP_Manual_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Screwers\Screwers_Manual_Roll.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\SpecialFunc\Special_Func_Manual_Main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\TECH.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Out\Out_manual_2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Out\Out_manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Out\Out_manual_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Platins\Platinum_Manual_2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Platins\Platinum_Manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Platins\Platinum_Manual_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Screwers\Screwers_Manual_3.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Screwers\Screwers_Manual_Main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Screwers\Screwers_Manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\TECH3.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\TECH2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Wicks\Wicks_Manual_1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Wicks\Wicks_Manual_2.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\Wicks\Wicks_Manual_main.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\bParamShort.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\bParamShort.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Recipe\CommonControls\bParamShort.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Recipe\CommonControls\bParam.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\bParam.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Recipe\CommonControls\bParam.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Recipe\CommonControls\chSel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\chUnSel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\lrParam_short.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\lrParam_short.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Recipe\CommonControls\lrParam_short.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Recipe\CommonControls\lrParam.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\CommonControls\lrParam.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Recipe\CommonControls\lrParam.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeBottleSorter\r08_BSorter_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeBottleSorter\r08_BSorter.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeCapSorter\r07_CSorter_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeCapSorter\r07_CSorter.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeDosing\r01_Dosing_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeDosing\r01_Dosing_Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeMain\r10_Main_Machine.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeMain\r10_Main - Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeMenu\Param -Machine - Docelowe.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeMenu\Param - Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeMenu\Select - Docelowe.content">
+      <SubType>Content</SubType>
+      <Cache>True</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeOut\r05_Out_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeOut\r05_Out.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeScrewer\r04_Cup_MACHINE.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Recipe\Contents\RecipeScrewer\r04_Cup.content">
+      <SubType>Content</SubType>
+      <Cache>False</Cache>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.default.json" />
+    <Content Include="Server\ADS\ADS.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.remote.json" />
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiLua\TcHmiLua.Config.remote.json">
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiRecipeManagement\TcHmiRecipeManagement.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiRecipeManagement\TcHmiRecipeManagement.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiRecipeManagement\TcHmiRecipeManagement.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\CssBehind2.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\checkbox.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\datetimepicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\datetimepicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\dropdown.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort_asc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort_desc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\timespanpicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\timespanpicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\CssBehind1.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\CssBehind2.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\CssBehind3.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\CssBehind4.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\checkbox.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\checkbox_userinput.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\datetimepicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\datetimepicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\dropdown.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\sort.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\sort_asc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\sort_desc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\timespanpicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\timespanpicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\alarm-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\alarm.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\columns-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\columns.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\confirm-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\confirm.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\confirmall-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\confirmall.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\critical-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\critical.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\deselect-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\deselect-selected.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\deselect.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\error-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\error.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\filter-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\filter.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\info-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\info.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\message-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\message.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\move-down-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\move-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\move-up-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\move-up.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\select-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\select.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\verbose-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\verbose.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\warning-active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\warning.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiKeyboard\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiNumericInput\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\checkbox.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\datetimepicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\datetimepicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\dropdown.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort_asc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\sort_desc.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\timespanpicker_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images\timespanpicker_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Form.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\Form.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserControls\Form.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UserControls\StdStationControl.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserControls\StdStationControl.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserControls\StdStationControl.usercontrol</DependentUpon>
+    </Content>
+    <Folder Include="Dialogs\ConnectionProblems" />
+    <Folder Include="Dialogs\Dialogs_PopUp" />
+    <Folder Include="Dialogs\Dialogs_Recipes_Doses" />
+    <Folder Include="Dialogs\Dialogs_Recipes_Screwers" />
+    <Folder Include="Dialogs\Dialogs_Recipes_Out" />
+    <Folder Include="Dialogs\Dialogs_Recipes_BSorter" />
+    <Folder Include="Dialogs\Dialogs_Recipes_CSorter" />
+    <Folder Include="Dialogs\Dialogs_Robot_Out" />
+    <Folder Include="Dialogs\ChangeOver" />
+    <Folder Include="Dialogs\Dialogs_Main" />
+    <Folder Include="Dialogs\RecipeManagment" />
+    <Folder Include="Dialogs\Regions_C0" />
+    <Folder Include="Dialogs\UserManagment" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Fonts\Poppins" />
+    <Folder Include="Images" />
+    <Folder Include="Images\Manifest" />
+    <Folder Include="Images\ErrInfoWarning" />
+    <Folder Include="Images\Icons" />
+    <Folder Include="Images\CapCheck" />
+    <Folder Include="Images\StationControl" />
+    <Folder Include="Images\PLC\" />
+    <Folder Include="Images\TwinCAT\" />
+    <Folder Include="Imports" />
+    <Folder Include="Imports\Images" />
+    <Folder Include="Imports\Images\Testy" />
+    <Folder Include="Imports\Videos" />
+    <Folder Include="KeyboardLayouts\" />
+    <Folder Include="Localization" />
+    <Folder Include="LeftNavigation" />
+    <Folder Include="LostTechnology\OLD_DIALOGS" />
+    <Folder Include="LostTechnology\RecipeManagmentTXT" />
+    <Folder Include="MainScreens" />
+    <Folder Include="ManualMode" />
+    <Folder Include="ManualMode\CommonControls" />
+    <Folder Include="ManualMode\Components" />
+    <Folder Include="ManualMode\Screens - Docelowe" />
+    <Folder Include="Dialogs" />
+    <Folder Include="Keyboards" />
+    <Folder Include="Functions" />
+    <Folder Include="Chart" />
+    <Folder Include="Comp" />
+    <Folder Include="ManualMode\Screens - Docelowe\BSorter" />
+    <Folder Include="ManualMode\Screens - Docelowe\CSorter" />
+    <Folder Include="ManualMode\Screens - Docelowe\Dosing" />
+    <Folder Include="ManualMode\Screens - Docelowe\Wicks" />
+    <Folder Include="ManualMode\Screens - Docelowe\SpecialFunc" />
+    <Folder Include="ManualMode\Screens - Docelowe\ROPP" />
+    <Folder Include="ManualMode\Screens - Docelowe\Screwers" />
+    <Folder Include="ManualMode\Screens - Docelowe\Platins" />
+    <Folder Include="ManualMode\Screens - Docelowe\Out" />
+    <Folder Include="LostTechnology" />
+    <Folder Include="Recipe" />
+    <Folder Include="Recipe\CommonControls" />
+    <Folder Include="Recipe\Contents" />
+    <Folder Include="Recipe\Contents\RecipeMachine" />
+    <Folder Include="Recipe\Contents\RecipeOut" />
+    <Folder Include="Recipe\Contents\RecipeBottleSorter" />
+    <Folder Include="Recipe\Contents\RecipeCapSorter" />
+    <Folder Include="Recipe\Contents\RecipeScrewer" />
+    <Folder Include="Recipe\Contents\RecipeMenu" />
+    <Folder Include="Recipe\Contents\RecipeMain" />
+    <Folder Include="Recipe\Contents\RecipeDosing" />
+    <Folder Include="Server\TcHmiEcDiagnostics" />
+    <Folder Include="Server\TcHmiEventLogger" />
+    <Folder Include="Server\TcHmiRecipeManagement" />
+    <Folder Include="Server\TcHmiSqliteHistorize" />
+    <Folder Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica" />
+    <Folder Include="Themes\Base-Dark\TcHmi.Controls.Beckhoff.TcHmiTablica\Images" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiDatagrid\Images\" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiEventGrid\Images\" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiKeyboard" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiNumericInput" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica" />
+    <Folder Include="Themes\Base\TcHmi.Controls.Beckhoff.TcHmiTablica\Images" />
+    <Folder Include="UserControls" />
+    <Folder Include="Server\ADS\" />
+    <Folder Include="Server\TcHmiLua\" />
+    <Folder Include="Server\TcHmiSqliteLogger\" />
+    <Folder Include="Server\TcHmiSrv\" />
+    <Folder Include="Server\TcHmiUserManagement\" />
+    <Folder Include="Themes" />
+    <Folder Include="Themes\Base-Dark\Images\" />
+    <Folder Include="Themes\Base-Dark\Images\Events\" />
+    <Folder Include="Themes\Base-Dark\Images\Placeholder\" />
+    <Folder Include="Themes\Base-Dark\Images\Settings\" />
+    <Folder Include="Themes\Base\" />
+    <Folder Include="Themes\Base-Dark\" />
+    <Folder Include="Server">
+      <WorkingDirectory>UBL50-0124</WorkingDirectory>
+    </Folder>
+    <Folder Include="Properties" />
+    <Content Include=".eslintrc.json">
+      <Visible>false</Visible>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\ADS\ADS.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\ADS\ADS.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiLua\TcHmiLua.Storage.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiSqliteLogger\TcHmiSqliteLogger.Config.default.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiSqliteLogger\TcHmiSqliteLogger.Config.remote.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiSqliteLogger\TcHmiSqliteLogger.Storage.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiSrv\TcHmiSrv.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSrv\TcHmiSrv.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSrv\TcHmiSrv.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiUserManagement\TcHmiUserManagement.Config.default.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiUserManagement\TcHmiUserManagement.Config.remote.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Server\TcHmiUserManagement\TcHmiUserManagement.Storage.json">
+      <SubType>Content</SubType>
+      <Visible>True</Visible>
+    </Content>
+    <Content Include="Themes\Base-Dark\Base-Dark.theme">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Base-DarkStyle.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Background.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Beckhoff_Logo.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Events\message_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Events\message_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Events\message_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Placeholder\placeholder_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Placeholder\placeholder_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Placeholder\placeholder_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Settings\settings_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Settings\settings_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Settings\settings_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Splash-320x534.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Splash-420x200.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base-Dark\Images\Splash-800x600.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Base.theme">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\BaseStyle.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Background.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Events\message_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Events\message_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Events\message_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Placeholder\placeholder_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Placeholder\placeholder_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Placeholder\placeholder_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Settings\settings_active.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Settings\settings_normal.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Settings\settings_pressed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Splash-320x534.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Splash-420x200.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Splash-800x600.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="tsconfig.tpl.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="tsconfig.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+      <DependentUpon>tsconfig.tpl.json</DependentUpon>
+    </Content>
+    <Content Include="packages.xsd">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <Content Include="Properties\tchmiconfig.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Properties\tchmi.framework.Schema.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Properties\tchmi.project.Schema.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Properties\tchmipublish.config.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Properties\tchmimanifest.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Properties\Default.tpl">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include=".tfignore">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <Content Include=".gitignore">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <Content Include="Fonts\Fonts.css">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Fonts\Roboto-Condensed-webfont.woff">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Localization\de.localization">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Localization\en.localization">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="KeyboardLayouts\German - compact.keyboard.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="KeyboardLayouts\US - compact.keyboard.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Favicon.ico">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Beckhoff_Logo.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-0-75x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-1-5x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-1x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-2x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-3x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\Manifest\launcher-icon-4x.png">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\PLC\plc-config.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\PLC\plc-exeption.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\PLC\plc-fallback.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\PLC\plc-run.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\PLC\plc-stop.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\TwinCAT\twincat-config.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\TwinCAT\twincat-exeption.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\TwinCAT\twincat-fallback.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\TwinCAT\twincat-run.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Images\TwinCAT\twincat-stop.svg">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="Desktop.view">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Folder Include="Themes\Base\Images\" />
+    <Folder Include="Themes\Base\Images\Events\" />
+    <Folder Include="Themes\Base\Images\Placeholder\" />
+    <Folder Include="Themes\Base\Images\Settings\" />
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.9.2\build\Microsoft.TypeScript.MSBuild.targets')" />
+</Project>

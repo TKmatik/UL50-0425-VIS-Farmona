@@ -1,0 +1,16 @@
+{
+    "TARGET_SYSTEMS": {
+        "UniBotFeeder": {
+            "ADDRESS": "192.168.40.185.1.1",
+            "ENABLED": true
+        },
+        "UniBotLine": {
+            "ADDRESS": "192.168.40.180.1.1",
+            "ENABLED": true
+        },
+        "UniCapFeeder": {
+            "ADDRESS": "192.168.40.190.1.1",
+            "ENABLED": true
+        }
+    }
+}

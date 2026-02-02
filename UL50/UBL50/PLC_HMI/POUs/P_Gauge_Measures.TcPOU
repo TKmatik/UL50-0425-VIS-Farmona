@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Gauge_Measures" Id="{40397bd0-6dce-45a1-a8e7-24628434be4a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Gauge_Measures
+VAR
+	lr_receaved_weight_from_recipe :LREAL;
+	lr_max_value :LREAL;
+	
+	lr_tolerance_actual_low :LREAL;
+	lr_tolerance_actual_high :LREAL;
+	lr_tolerance_actual_low_weight :LREAL;
+	lr_tolerance_actual_high_weight :LREAL;
+	
+	lr_measured_weight_1 :LREAL;
+	s_measured_weight_1_show :STRING;
+	s_difference_weight_1_show :STRING;
+	lr_difference_weight_1_show_math :LREAL;
+	lr_measured_weight_2 :LREAL;
+	s_measured_weight_2_show :STRING;
+	s_difference_weight_2_show :STRING;
+	lr_difference_weight_2_show_math :LREAL;
+	lr_measured_weight_3 :LREAL;
+	s_measured_weight_3_show :STRING;
+	s_difference_weight_3_show :STRING;
+	lr_difference_weight_3_show_math :LREAL;
+	lr_measured_weight_4 :LREAL;
+	s_difference_weight_4_show :STRING;
+	s_measured_weight_4_show :STRING;
+	lr_difference_weight_4_show_math :LREAL;
+	
+	s_correction_weight_1	:STRING;
+	lr_correction_weight_1_math	:LREAL;
+	s_correction_weight_2	:STRING;
+	lr_correction_weight_2_math	:LREAL;	
+	s_correction_weight_3	:STRING;
+	lr_correction_weight_3_math	:LREAL;
+	s_correction_weight_4	:STRING;
+	lr_correction_weight_4_math	:LREAL;
+	
+	lr_dosed_1_math			:LREAL;
+	s_dosed_1				:STRING;
+	lr_dosed_2_math			:LREAL;
+	s_dosed_2				:STRING;	
+	lr_dosed_3_math			:LREAL;
+	s_dosed_3				:STRING;
+	lr_dosed_4_math			:LREAL;
+	s_dosed_4				:STRING;
+	
+//korekta	
+	lr_add_correction_value_1	:LREAL;
+	lr_add_correction_value_2	:LREAL;
+	lr_add_correction_value_3	:LREAL;
+	lr_add_correction_value_4	:LREAL;
+	lr_sub_correction_value_1	:LREAL;
+	lr_sub_correction_value_2	:LREAL;
+	lr_sub_correction_value_3	:LREAL;
+	lr_sub_correction_value_4	:LREAL;	
+	
+//zakręcanie	
+	lr_torque_recipe_set		:LREAL;
+	lr_torque_recipe_set_2		:LREAL;
+	lr_torque_1					:LREAL;
+	s_torque_1					:STRING;
+	lr_torque_2					:LREAL;
+	s_torque_2					:STRING;
+	lr_torq_diff_1				:LREAL;
+	lr_torq_diff_2				:LREAL;
+	s_torq_diff_1				:STRING;
+	s_torq_diff_2				:STRING;
+	lr_low_torque_1				:LREAL;
+	lr_low_torque_2				:LREAL;
+	lr_high_torque_1			:LREAL;
+	lr_high_torque_2			:LREAL;
+	
+//poziomy w zbiornikach
+	i_tank_lvl_1				:INT;
+	s_tank_lvl_1				:STRING;
+	i_tank_lvl_2				:INT;
+	s_tank_lvl_2				:STRING;	
+	lr_try_value				:lreal;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//maksymalny zakres miernika
+lr_receaved_weight_from_recipe:=gvl_gauge.lr_WeightMass_recipe; //otrzymanie wartości z receptur
+lr_max_value:=2*lr_receaved_weight_from_recipe; //zwiększenie zakresu maksymalnej wagi
+gvl_gauge.lr_out_max_weight_value:=lr_max_value; //przepisanie wartości maksymalnej do wykresów wag
+
+//tolerancje dozowników
+lr_tolerance_actual_low_weight:=gvl_gauge.lr_Tolerance_Low; //przepisanie wartości z receptury
+lr_tolerance_actual_high_weight:=gvl_gauge.lr_Tolerance_High; //przepisanie wartości z receptury
+lr_tolerance_actual_low:=lr_receaved_weight_from_recipe-lr_tolerance_actual_low_weight; //ustalenie dolnej granicy
+lr_tolerance_actual_high:=lr_receaved_weight_from_recipe+lr_tolerance_actual_high_weight; //ustalenie górnej granicy
+//gvl_gauge.lr_out_min_tolerance_low:=lr_tolerance_actual_low*0.775; //przepisanie dolnej granicy
+//gvl_gauge.lr_out_max_tolerance_high:=lr_tolerance_actual_high*1.225; //przepisanie górnej granicy 
+gvl_gauge.lr_out_min_tolerance_low:=lr_tolerance_actual_low; //przepisanie dolnej granicy
+gvl_gauge.lr_out_max_tolerance_high:=lr_tolerance_actual_high; //przepisanie górnej granicy 
+
+//powiększenie wskazania pomiaru
+lr_measured_weight_1:=p_ads_gauge.lr_weight_1;
+lr_measured_weight_2:=p_ads_gauge.lr_weight_2;
+lr_measured_weight_3:=p_ads_gauge.lr_weight_3;
+lr_measured_weight_4:=p_ads_gauge.lr_weight_4;
+
+//wskazanie w lewym rogu aktualnej wagi
+s_measured_weight_1_show:=CONCAT(LREAL_TO_STRING((TRUNC(p_ads_gauge.lr_weight_1 * 10))/10.0),' g');
+s_measured_weight_2_show:=CONCAT(LREAL_TO_STRING((TRUNC(p_ads_gauge.lr_weight_2 * 10))/10.0),' g');
+s_measured_weight_3_show:=CONCAT(LREAL_TO_STRING((TRUNC(p_ads_gauge.lr_weight_3 * 10))/10.0),' g');
+s_measured_weight_4_show:=CONCAT(LREAL_TO_STRING((TRUNC(p_ads_gauge.lr_weight_4 * 10))/10.0),' g');
+
+gvl_gauge.s_actual_weight_1:=s_measured_weight_1_show;
+gvl_gauge.s_actual_weight_2:=s_measured_weight_2_show;
+gvl_gauge.s_actual_weight_3:=s_measured_weight_3_show;
+gvl_gauge.s_actual_weight_4:=s_measured_weight_4_show;
+
+//wskazanie różnicy pomiaru w prawym rogu
+lr_difference_weight_1_show_math:=lr_receaved_weight_from_recipe - p_ads_gauge.lr_weight_1;
+s_difference_weight_1_show:=CONCAT((LREAL_TO_FMTSTR(lr_difference_weight_1_show_math,1,TRUE)),' g');
+
+lr_difference_weight_2_show_math:=lr_receaved_weight_from_recipe - p_ads_gauge.lr_weight_2;
+s_difference_weight_2_show:=CONCAT((LREAL_TO_FMTSTR(lr_difference_weight_2_show_math,1,TRUE)),' g');
+
+lr_difference_weight_3_show_math:=lr_receaved_weight_from_recipe - p_ads_gauge.lr_weight_3;
+s_difference_weight_3_show:=CONCAT((LREAL_TO_FMTSTR(lr_difference_weight_3_show_math,1,TRUE)),' g');
+
+lr_difference_weight_4_show_math:=lr_receaved_weight_from_recipe - p_ads_gauge.lr_weight_4;
+s_difference_weight_4_show:=CONCAT((LREAL_TO_FMTSTR(lr_difference_weight_4_show_math,1,TRUE)),' g');
+
+gvl_gauge.s_actual_weight_1_diff:=s_difference_weight_1_show;
+gvl_gauge.s_actual_weight_2_diff:=s_difference_weight_2_show;
+gvl_gauge.s_actual_weight_3_diff:=s_difference_weight_3_show;
+gvl_gauge.s_actual_weight_4_diff:=s_difference_weight_4_show;
+
+//wyświetlanie korekty prawy górny róg
+lr_correction_weight_1_math:=p_ads_gauge.lr_correction_weight_1;
+s_correction_weight_1:=concat(LREAL_TO_fmtstr(lr_correction_weight_1_math,1,TRUE), ' ml');
+
+lr_correction_weight_2_math:=p_ads_gauge.lr_correction_weight_2;
+s_correction_weight_2:=concat(LREAL_TO_fmtstr(lr_correction_weight_2_math,1,TRUE), ' ml');
+
+lr_correction_weight_3_math:=p_ads_gauge.lr_correction_weight_3;
+s_correction_weight_3:=concat(LREAL_TO_fmtstr(lr_correction_weight_3_math,1,TRUE), ' ml');
+
+lr_correction_weight_4_math:=p_ads_gauge.lr_correction_weight_4;
+s_correction_weight_4:=concat(LREAL_TO_fmtstr(lr_correction_weight_4_math,1,TRUE), ' ml');
+
+
+gvl_gauge.s_actual_corr_1:=s_correction_weight_1;
+gvl_gauge.s_actual_corr_2:=s_correction_weight_2;
+gvl_gauge.s_actual_corr_3:=s_correction_weight_3;
+gvl_gauge.s_actual_corr_4:=s_correction_weight_4;
+
+//wyświetlanie wydozowanej ilości lewy górny róg
+s_dosed_1:=concat(LREAL_TO_fmtstr(p_ads_gauge.lr_dosed_1,1,TRUE),' ml');
+
+s_dosed_2:=concat(LREAL_TO_fmtstr(p_ads_gauge.lr_dosed_2,1,TRUE),' ml');
+
+s_dosed_3:=concat(LREAL_TO_fmtstr(p_ads_gauge.lr_dosed_3,1,TRUE),' ml');
+
+s_dosed_4:=concat(LREAL_TO_fmtstr(p_ads_gauge.lr_dosed_4,1,TRUE),' ml');
+
+gvl_gauge.s_actual_dose_1:=s_dosed_1;
+gvl_gauge.s_actual_dose_2:=s_dosed_2;
+gvl_gauge.s_actual_dose_3:=s_dosed_3;
+gvl_gauge.s_actual_dose_4:=s_dosed_4;
+
+//zmiana korekty dozowania
+lr_add_correction_value_1:=lr_correction_weight_1_math+0.5;
+lr_add_correction_value_2:=lr_correction_weight_2_math+0.5;
+lr_add_correction_value_3:=lr_correction_weight_3_math+0.5;
+lr_add_correction_value_4:=lr_correction_weight_4_math+0.5;
+
+lr_sub_correction_value_1:=lr_correction_weight_1_math-0.5;
+lr_sub_correction_value_2:=lr_correction_weight_2_math-0.5;
+lr_sub_correction_value_3:=lr_correction_weight_3_math-0.5;
+lr_sub_correction_value_4:=lr_correction_weight_4_math-0.5;
+
+gvl_gauge.lr_corr_add_1:=lr_add_correction_value_1;
+gvl_gauge.lr_corr_add_2:=lr_add_correction_value_2;
+gvl_gauge.lr_corr_add_3:=lr_add_correction_value_3;
+gvl_gauge.lr_corr_add_4:=lr_add_correction_value_4;
+gvl_gauge.lr_corr_sub_1:=lr_sub_correction_value_1;
+gvl_gauge.lr_corr_sub_2:=lr_sub_correction_value_2;
+gvl_gauge.lr_corr_sub_3:=lr_sub_correction_value_3;
+gvl_gauge.lr_corr_sub_4:=lr_sub_correction_value_4;
+
+//momenty i różnice
+lr_torque_recipe_set:=p_ads_gauge.lr_screwer_torque_set;
+lr_torque_recipe_set_2:=p_ads_gauge.lr_screwer_torque_set_2;
+lr_torque_1:=p_ads_gauge.lr_screwer_torque_1;
+s_torque_1:=concat(LREAL_TO_fmtstr(lr_torque_1,1,TRUE),' Nm');
+gvl_gauge.s_actual_torque_1:=s_torque_1;
+lr_torque_2:=p_ads_gauge.lr_screwer_torque_2;
+s_torque_2:=concat(LREAL_TO_fmtstr(lr_torque_2,1,TRUE),' Nm');
+gvl_gauge.s_actual_torque_2:=s_torque_2;
+
+lr_torq_diff_1:=lr_torque_recipe_set - lr_torque_1;
+s_torq_diff_1:=concat(LREAL_TO_FMTSTR(lr_torq_diff_1,1,TRUE),' Nm');
+gvl_gauge.s_actual_torque_diff_1:=s_torq_diff_1;
+lr_torq_diff_2:=lr_torque_recipe_set_2 - lr_torque_2;
+s_torq_diff_2:=concat(LREAL_TO_FMTSTR(lr_torq_diff_2,1,TRUE),' Nm');
+gvl_gauge.s_actual_torque_diff_2:=s_torq_diff_2;
+
+
+gvl_gauge.lr_out_torque_high_1:=lr_torque_recipe_set*1.1;
+gvl_gauge.lr_out_torque_high_2:=lr_torque_recipe_set_2*1.1;
+gvl_gauge.lr_out_torque_low_1:=lr_torque_recipe_set*0.9;
+gvl_gauge.lr_out_torque_low_2:=lr_torque_recipe_set_2*0.9;
+
+
+//poziomy zbiorników
+i_tank_lvl_1:=p_ads_gauge.isensor_value_1;
+s_tank_lvl_1:=concat(INT_TO_STRING(i_tank_lvl_1),' mm');
+gvl_gauge.s_actual_level_1:=s_tank_lvl_1;
+i_tank_lvl_2:=p_ads_gauge.isensor_value_2;
+s_tank_lvl_2:=concat(INT_TO_STRING(i_tank_lvl_2),' mm');
+gvl_gauge.s_actual_level_2:=s_tank_lvl_2;
+
+
+
+
+
+(*IF lr_measured_weight_1 > gvl_gauge.lr_out_min_tolerance_low AND lr_measured_weight_1 < gvl_gauge.lr_out_max_tolerance_high
+	THEN
+	IF lr_measured_weight_1 < lr_receaved_weight_from_recipe AND lr_measured_weight_1>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_1:=lr_measured_weight_1*1.2;
+	ELSIF lr_measured_weight_1 > lr_receaved_weight_from_recipe AND lr_measured_weight_1<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_1:=lr_measured_weight_1*0.8;		
+	END_IF		
+END_IF*)
+
+gvl_gauge.lr_out_weight_measured_1:=lr_measured_weight_1;
+
+
+(*	IF lr_measured_weight_1 < lr_receaved_weight_from_recipe AND lr_measured_weight_1>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_1:=lr_measured_weight_1*1.225;
+	ELSIF lr_measured_weight_1 > lr_receaved_weight_from_recipe AND lr_measured_weight_1<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_1:=lr_measured_weight_1*0.775;		
+	ELSIF lr_measured_weight_1 < lr_receaved_weight_from_recipe AND lr_measured_weight_1<gvl_gauge.lr_out_min_tolerance_low
+		THEN 
+		gvl_gauge.lr_out_weight_measured_1:=0;
+	ELSIF lr_measured_weight_1 > lr_receaved_weight_from_recipe AND lr_measured_weight_1>gvl_gauge.lr_out_max_tolerance_high
+		THEN 
+		gvl_gauge.lr_out_weight_measured_1:=lr_max_value;	
+	END_IF		
+*)
+(*IF lr_measured_weight_2 > gvl_gauge.lr_out_min_tolerance_low AND lr_measured_weight_2 < gvl_gauge.lr_out_max_tolerance_high
+	THEN
+	IF lr_measured_weight_2 < lr_receaved_weight_from_recipe AND lr_measured_weight_2>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_2:=lr_measured_weight_2*1.06;
+	ELSIF lr_measured_weight_2 > lr_receaved_weight_from_recipe AND lr_measured_weight_2<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_2:=lr_measured_weight_2*0.94;		
+	END_IF		
+END_IF*)
+
+		gvl_gauge.lr_out_weight_measured_2:=lr_measured_weight_2;
+
+(*	IF lr_measured_weight_2 < lr_receaved_weight_from_recipe AND lr_measured_weight_2>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_2:=lr_measured_weight_2*1.225;
+	ELSIF lr_measured_weight_2 > lr_receaved_weight_from_recipe AND lr_measured_weight_2<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_2:=lr_measured_weight_2*0.775;		
+	ELSIF lr_measured_weight_2 < lr_receaved_weight_from_recipe AND lr_measured_weight_2<gvl_gauge.lr_out_min_tolerance_low
+		THEN 
+		gvl_gauge.lr_out_weight_measured_2:=0;
+	ELSIF lr_measured_weight_2 > lr_receaved_weight_from_recipe AND lr_measured_weight_2>gvl_gauge.lr_out_max_tolerance_high
+		THEN 
+		gvl_gauge.lr_out_weight_measured_2:=lr_max_value;	
+	END_IF	
+*)
+(*IF lr_measured_weight_3 > gvl_gauge.lr_out_min_tolerance_low AND lr_measured_weight_3 < gvl_gauge.lr_out_max_tolerance_high
+	THEN
+	IF lr_measured_weight_3 < lr_receaved_weight_from_recipe AND lr_measured_weight_3>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_3:=lr_measured_weight_3*1.06;
+	ELSIF lr_measured_weight_3 > lr_receaved_weight_from_recipe AND lr_measured_weight_3<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_3:=lr_measured_weight_3*0.94;		
+	END_IF		
+END_IF*)
+
+gvl_gauge.lr_out_weight_measured_3:=lr_measured_weight_3;
+
+(*	IF lr_measured_weight_3 < lr_receaved_weight_from_recipe AND lr_measured_weight_3>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_3:=lr_measured_weight_3*1.225;
+	ELSIF lr_measured_weight_3 > lr_receaved_weight_from_recipe AND lr_measured_weight_3<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_3:=lr_measured_weight_3*0.775;
+	ELSIF lr_measured_weight_3 < lr_receaved_weight_from_recipe AND lr_measured_weight_3<gvl_gauge.lr_out_min_tolerance_low
+		THEN 
+		gvl_gauge.lr_out_weight_measured_3:=0;
+	ELSIF lr_measured_weight_3 > lr_receaved_weight_from_recipe AND lr_measured_weight_3>gvl_gauge.lr_out_max_tolerance_high
+		THEN 
+		gvl_gauge.lr_out_weight_measured_3:=lr_max_value;			
+	END_IF		
+*)
+(*IF lr_measured_weight_4 > gvl_gauge.lr_out_min_tolerance_low AND lr_measured_weight_4 < gvl_gauge.lr_out_max_tolerance_high
+	THEN
+	IF lr_measured_weight_4 < lr_receaved_weight_from_recipe AND lr_measured_weight_4>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_4:=lr_measured_weight_4*1.06;
+	ELSIF lr_measured_weight_4 > lr_receaved_weight_from_recipe AND lr_measured_weight_4<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_4:=lr_measured_weight_4*0.94;		
+	END_IF		
+END_IF*)
+
+gvl_gauge.lr_out_weight_measured_4:=lr_measured_weight_4;
+
+(*	IF lr_measured_weight_4 < lr_receaved_weight_from_recipe AND lr_measured_weight_4>gvl_gauge.lr_out_min_tolerance_low
+		THEN			
+		gvl_gauge.lr_out_weight_measured_4:=lr_measured_weight_4*1.225;
+	ELSIF lr_measured_weight_4 > lr_receaved_weight_from_recipe AND lr_measured_weight_4<gvl_gauge.lr_out_max_tolerance_high
+		THEN			
+		gvl_gauge.lr_out_weight_measured_4:=lr_measured_weight_4*0.775;
+	ELSIF lr_measured_weight_4 < lr_receaved_weight_from_recipe AND lr_measured_weight_4<gvl_gauge.lr_out_min_tolerance_low
+		THEN 
+		gvl_gauge.lr_out_weight_measured_4:=0;
+	ELSIF lr_measured_weight_4 > lr_receaved_weight_from_recipe AND lr_measured_weight_4>gvl_gauge.lr_out_max_tolerance_high
+		THEN 
+		gvl_gauge.lr_out_weight_measured_4:=lr_max_value;	
+	END_IF	
+	*)]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

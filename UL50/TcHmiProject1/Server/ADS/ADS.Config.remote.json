@@ -1,0 +1,36 @@
+{
+    "RUNTIMES": {
+        "BottleSorter": {
+            "ENABLED": true,
+            "NETID": "192.168.40.185.1.1",
+            "PORT": 851,
+            "READ_ONLY": false,
+            "SYMBOLS": {},
+            "USE_WHITELISTING": false
+        },
+        "CapSorter": {
+            "ENABLED": true,
+            "NETID": "192.168.40.190.1.1",
+            "PORT": 851,
+            "READ_ONLY": false,
+            "SYMBOLS": {},
+            "USE_WHITELISTING": false
+        },
+        "HMI": {
+            "ENABLED": true,
+            "NETID": "192.168.40.180.1.1",
+            "PORT": 853,
+            "READ_ONLY": false,
+            "SYMBOLS": {},
+            "USE_WHITELISTING": false
+        },
+        "PLC1": {
+            "ENABLED": true,
+            "NETID": "192.168.40.180.1.1",
+            "PORT": 851,
+            "READ_ONLY": false,
+            "SYMBOLS": {},
+            "USE_WHITELISTING": false
+        }
+    }
+}

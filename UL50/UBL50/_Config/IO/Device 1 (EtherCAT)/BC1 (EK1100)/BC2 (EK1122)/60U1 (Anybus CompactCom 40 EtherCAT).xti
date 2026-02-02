@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.55" ClassName="CFlbTermDef" SubType="9099">
+	<Box Id="60" BoxType="9099">
+		<Name>__FILENAME__</Name>
+		<ImageId>114</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x3680" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="51" FoeType="1" VendorId="#x0000001b" ProductCode="#x00000036" RevisionNo="#x00020018" InfoDataAddr="true" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="Anybus CompactCom 40 EtherCAT" Desc="Anybus CompactCom 40 EtherCAT">
+			<SyncMan>004014012600010001000000000000001401004026010000</SyncMan>
+			<SyncMan>004814012200010002000000000000001401004822010000</SyncMan>
+			<SyncMan>001048006400010003000000000000004800001064030000</SyncMan>
+			<SyncMan>002848002000010004000000000000004800002820030000</SyncMan>
+			<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000002800010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<BootStrapData>0040000400480004</BootStrapData>
+			<Pdo Name="Transmit PDO Mapping" Index="#x1a00" Flags="#x0011" SyncMan="3">
+				<Entry Name="SubIndex 001" Index="#x2200" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 002" Index="#x2200" Sub="#x02">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 003" Index="#x2200" Sub="#x03">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 004" Index="#x2200" Sub="#x04">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 005" Index="#x2200" Sub="#x05">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 006" Index="#x2200" Sub="#x06">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 007" Index="#x2200" Sub="#x07">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 008" Index="#x2200" Sub="#x08">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 001" Index="#x2400" Sub="#x01">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 002" Index="#x2400" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 003" Index="#x2400" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 004" Index="#x2400" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 005" Index="#x2400" Sub="#x05">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 006" Index="#x2400" Sub="#x06">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 007" Index="#x2400" Sub="#x07">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 008" Index="#x2400" Sub="#x08">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 009" Index="#x2400" Sub="#x09">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 010" Index="#x2400" Sub="#x0a">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 011" Index="#x2400" Sub="#x0b">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 012" Index="#x2400" Sub="#x0c">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 013" Index="#x2400" Sub="#x0d">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 014" Index="#x2400" Sub="#x0e">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 015" Index="#x2400" Sub="#x0f">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 016" Index="#x2400" Sub="#x10">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 017" Index="#x2400" Sub="#x11">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 018" Index="#x2400" Sub="#x12">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 019" Index="#x2400" Sub="#x13">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 020" Index="#x2400" Sub="#x14">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 021" Index="#x2400" Sub="#x15">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 022" Index="#x2400" Sub="#x16">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 023" Index="#x2400" Sub="#x17">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 024" Index="#x2400" Sub="#x18">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 025" Index="#x2400" Sub="#x19">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 026" Index="#x2400" Sub="#x1a">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 027" Index="#x2400" Sub="#x1b">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 028" Index="#x2400" Sub="#x1c">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 029" Index="#x2400" Sub="#x1d">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 030" Index="#x2400" Sub="#x1e">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 031" Index="#x2400" Sub="#x1f">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 032" Index="#x2400" Sub="#x20">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="Receive PDO Mapping" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="2">
+				<Entry Name="SubIndex 001" Index="#x2100" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 002" Index="#x2100" Sub="#x02">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 003" Index="#x2100" Sub="#x03">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 004" Index="#x2100" Sub="#x04">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 005" Index="#x2100" Sub="#x05">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 006" Index="#x2100" Sub="#x06">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 007" Index="#x2100" Sub="#x07">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 008" Index="#x2100" Sub="#x08">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 001" Index="#x2300" Sub="#x01">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 002" Index="#x2300" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 003" Index="#x2300" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 004" Index="#x2300" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 005" Index="#x2300" Sub="#x05">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 006" Index="#x2300" Sub="#x06">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 007" Index="#x2300" Sub="#x07">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 008" Index="#x2300" Sub="#x08">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 009" Index="#x2300" Sub="#x09">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 010" Index="#x2300" Sub="#x0a">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 011" Index="#x2300" Sub="#x0b">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 012" Index="#x2300" Sub="#x0c">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 013" Index="#x2300" Sub="#x0d">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 014" Index="#x2300" Sub="#x0e">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 015" Index="#x2300" Sub="#x0f">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 016" Index="#x2300" Sub="#x10">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 017" Index="#x2300" Sub="#x11">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 018" Index="#x2300" Sub="#x12">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 019" Index="#x2300" Sub="#x13">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 020" Index="#x2300" Sub="#x14">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 021" Index="#x2300" Sub="#x15">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 022" Index="#x2300" Sub="#x16">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 023" Index="#x2300" Sub="#x17">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 024" Index="#x2300" Sub="#x18">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 025" Index="#x2300" Sub="#x19">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 026" Index="#x2300" Sub="#x1a">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 027" Index="#x2300" Sub="#x1b">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 028" Index="#x2300" Sub="#x1c">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 029" Index="#x2300" Sub="#x1d">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 030" Index="#x2300" Sub="#x1e">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 031" Index="#x2300" Sub="#x1f">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="SubIndex 032" Index="#x2300" Sub="#x20">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

@@ -1,0 +1,57 @@
+{
+  "function": {
+    "name": "CustomWriteFunction",
+    "namespace": "TcHmi.Functions.External",
+    "displayName": "CustomWriteFunction",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "Other",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "controlID",
+        "displayName": "controlID",
+        "type": "tchmi:framework#/definitions/Id",
+        "description": "",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "symbol",
+        "displayName": "symbol",
+        "type": "tchmi:general#/definitions/Object",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "./../Packages/Beckhoff.TwinCAT.HMI.Framework.14.2.110/runtimes/native1.12-tchmi/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "CustomWriteFunction.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ]
+}

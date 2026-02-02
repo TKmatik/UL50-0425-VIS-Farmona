@@ -1,0 +1,506 @@
+<div id="DialogBox_74" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1510" data-tchmi-height="826" data-tchmi-zindex="5" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+<script data-tchmi-target-attribute="data-tchmi-box-shadow" type="application/json">[]</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 5.0,
+  "topRight": 5.0,
+  "bottomLeft": 5.0,
+  "bottomRight": 5.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+<div id="TcHmiTextblock_3136" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="35" data-tchmi-height-unit="px" data-tchmi-left="28" data-tchmi-left-unit="px" data-tchmi-text="%l%Text52%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="865" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="18" data-tchmi-text-horizontal-alignment="Left" data-tchmi-zindex="1" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "operate",
+    "group": "Niezalogowany",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "operate",
+    "group": "Operator",
+    "permission": "Deny"
+  }
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(238, 238, 238, 1)"
+}
+</script>
+</div>
+<div id="TcHmiTextbox_38" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="45" data-tchmi-height-unit="px" data-tchmi-left="28" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.sRecipeNameShow%/s%" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="865" data-tchmi-width-unit="px" data-tchmi-text-font-size="18" data-tchmi-word-wrap="false" data-tchmi-multiline="false" data-tchmi-zindex="1" data-tchmi-is-enabled="false">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+<div id="TcHmiTextbox_39" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.sRecipeIndexShow|BindingMode=TwoWay%/s%" data-tchmi-top="853" data-tchmi-top-unit="px" data-tchmi-width="672" data-tchmi-width-unit="px" data-tchmi-text-font-size="25" data-tchmi-word-wrap="true" data-tchmi-multiline="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+<div id="TcHmiImage_56" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="262" data-tchmi-height-unit="px" data-tchmi-top="100" data-tchmi-top-unit="px" data-tchmi-width="259" data-tchmi-width-unit="px" data-tchmi-src="%f%'/Photo/'+%s%PLC1.VIS.sRecipeNameShow%/s%+'.jpg'%/f%" data-tchmi-zindex="11" data-tchmi-left="28">
+</div>
+<div id="TcHmiTextbox_40" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="45" data-tchmi-height-unit="px" data-tchmi-left="903" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.VIS.nRecipeIndexShow%/s%" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="585" data-tchmi-width-unit="px" data-tchmi-text-font-size="25" data-tchmi-word-wrap="false" data-tchmi-multiline="false" data-tchmi-zindex="1" data-tchmi-auto-focus-out="True" data-tchmi-reset-to-last-valid-value="True">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        ucNumPad.usercontrol.close();",
+          "        NumPad.content.close();",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextblock_3137" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="35" data-tchmi-height-unit="px" data-tchmi-left="903" data-tchmi-left-unit="px" data-tchmi-text="%l%Text463%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="585" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="18" data-tchmi-text-horizontal-alignment="Left" data-tchmi-zindex="1" data-tchmi-background-image-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "operate",
+    "group": "Niezalogowany",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "operate",
+    "group": "Operator",
+    "permission": "Deny"
+  }
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(238, 238, 238, 1)"
+}
+</script>
+</div>
+<div id="TcHmiTextblock_3138" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="35" data-tchmi-height-unit="px" data-tchmi-left="296" data-tchmi-left-unit="px" data-tchmi-text="%l%Text99%/l%" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-width="1190" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="18" data-tchmi-text-horizontal-alignment="Left" data-tchmi-zindex="1" data-tchmi-background-image-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold">
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "operate",
+    "group": "Niezalogowany",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "operate",
+    "group": "Operator",
+    "permission": "Deny"
+  }
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "left": 10,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(238, 238, 238, 1)"
+}
+</script>
+</div>
+<div id="ManualButton_2713" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="42" data-tchmi-height-unit="px" data-tchmi-left="1340" data-tchmi-left-unit="px" data-tchmi-scaption="%l%Text451%/l%" data-tchmi-target-user-control="ManualMode/CommonControls/NewManualButtonNormal.usercontrol" data-tchmi-top="880" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-simage="Images\Icons\PrzeciagnijPrzod.png" data-tchmi-visibility="Hidden">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "// Funkcja do odczytania pliku .txt i załadowania tekstu do kontrolki TcHmiTextbox_17",
+          "function importTextFromFile() {",
+          "    // Utwórz element HTML do wyboru pliku",
+          "    var input = document.createElement('input');",
+          "    input.type = 'file';",
+          "    input.accept = '.txt';",
+          "",
+          "    // Gdy użytkownik wybierze plik, wykonaj poniższą funkcję",
+          "    input.onchange = function(event) {",
+          "        var file = event.target.files[0];",
+          "        ",
+          "        if (file) {",
+          "            var reader = new FileReader();",
+          "            ",
+          "            // Funkcja odczytująca zawartość pliku",
+          "            reader.onload = function(e) {",
+          "                var fileContent = e.target.result; // Zawartość pliku .txt",
+          "                ",
+          "                // Ustawienie zawartości pliku w polu TcHmiTextbox_17",
+          "                TcHmi.Controls.get('TcHmiTextbox_17').setText(fileContent);",
+          "            };",
+          "            ",
+          "            // Odczyt pliku jako tekstu",
+          "            reader.readAsText(file);",
+          "        } else {",
+          "            console.log(\"Brak pliku do odczytu\");",
+          "        }",
+          "    };",
+          "",
+          "    // Symulacja kliknięcia na element, aby otworzyć okno dialogowe wyboru pliku",
+          "    input.click();",
+          "}",
+          "",
+          "// Wywołanie funkcji po kliknięciu przycisku",
+          "importTextFromFile();"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_41" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="296" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeDispencerDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1190" data-tchmi-width-unit="px" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-text-font-size="25">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_42" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="124" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeCapsDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="379" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1458" data-tchmi-width-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-word-wrap="True" data-tchmi-multiline="True" data-tchmi-text-font-size="25" data-tchmi-left="28">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_43" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="296" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeFormersDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="217" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1190" data-tchmi-width-unit="px" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-text-font-size="25">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_44" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="62" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="296" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeRobotDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1190" data-tchmi-width-unit="px" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-text-font-size="25">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_45" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="124" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeBottleSorterDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="513" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1458" data-tchmi-width-unit="px" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-word-wrap="True" data-tchmi-multiline="True" data-tchmi-text-font-size="25" data-tchmi-left="28">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextbox_46" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="124" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-reset-to-last-valid-value="True" data-tchmi-text="%s%ADS.PLC1.VIS.sRecipeCapSorterDescriptionShow|BindingMode=TwoWay%/s%" data-tchmi-top="647" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="1458" data-tchmi-width-unit="px" data-tchmi-max-text-length="250" data-tchmi-auto-focus-out="True" data-tchmi-word-wrap="True" data-tchmi-multiline="True" data-tchmi-text-font-size="25" data-tchmi-left="28">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "let destroyEvent = TcHmi.EventProvider.register('tchmi-system-keyboard.onKeyPressFinished', (e, data) => {",
+          "    TcHmi.Log.debugEx('Event'+data[0].key.code);",
+          "    if (data[0].key.code.includes('Enter')) {",
+          "        //if (data[0].key.code === 'Enter') {",
+          "        TcHmi.Keyboard.close();",
+          "        ",
+          "    }})"
+        ],
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>

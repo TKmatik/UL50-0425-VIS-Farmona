@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CNvPubSubDef" SubType="9052">
+	<Box Id="6" BoxType="9052">
+		<Name>__FILENAME__</Name>
+		<ImageId>100</ImageId>
+		<Vars VarGrpType="1">
+			<Name>Inputs</Name>
+			<Var BoxStateVariable="true">
+				<Name>FrameState</Name>
+				<Type>UINT</Type>
+				<BitOffs>32</BitOffs>
+			</Var>
+		</Vars>
+		<Vars VarGrpType="2">
+			<Name>Outputs</Name>
+			<Var BoxStateVariable="true">
+				<Name>FrameCtrl</Name>
+				<Type>UINT</Type>
+				<BitOffs>40</BitOffs>
+			</Var>
+		</Vars>
+		<Eap Mac="010105040000"/>
+	</Box>
+</TcSmItem>
