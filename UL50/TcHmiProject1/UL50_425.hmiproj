@@ -19,7 +19,7 @@
     <TargetFrameworkMoniker>native,Version=v1.12.0,Profile=tchmi</TargetFrameworkMoniker>
     <TargetFramework>native1.12-tchmi</TargetFramework>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
-    <Name>UL50_225</Name>
+    <Name>UL50_425</Name>
     <HmiCommunicationRouterPort>10205</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13014</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.760.54</HmiInitial>
@@ -286,6 +286,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_SO_main.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UVFF_Recipe_Menu.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UVFF_main.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Dialogs\Dialogs_Recipes_CSorter\CSorter_UCF_1_MACHINE.content">
@@ -1491,6 +1497,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_1_UCF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_1_UVFF.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_2_UVFF.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ManualMode\Screens - Docelowe\CSorter\CSorter_Manual_3_UCF.content">

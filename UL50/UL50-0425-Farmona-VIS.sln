@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		UL50.txt = UL50.txt
 	EndProjectSection
 EndProject
-Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "UL50_225", "TcHmiProject1\UL50_225.hmiproj", "{96FBA322-C1D1-4331-B88A-CCC11AA8C6A4}"
+Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "UL50_425", "TcHmiProject1\UL50_425.hmiproj", "{96FBA322-C1D1-4331-B88A-CCC11AA8C6A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 <div id="Special_Func_Manual_Main_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1545" data-tchmi-height="999">
 
-<div id="TcHmiTextblock_2949" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%l%Text763%/l%" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_2949" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%l%Text763%/l%" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(162, 30, 77, 1)"
@@ -52,7 +52,7 @@
 
 
 </div>
-<div id="TcHmiRectangle_1781" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4">
+<div id="TcHmiRectangle_1781" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,
@@ -243,7 +243,7 @@
 }
 </script>
 </div>
-<div id="TcHmiRegion_83" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="949" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="51" data-tchmi-top-unit="px" data-tchmi-width="1545" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-zindex="5">
+<div id="TcHmiRegion_83" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="949" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="51" data-tchmi-top-unit="px" data-tchmi-width="1545" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-zindex="5" data-tchmi-target-content="ManualMode/Screens - Docelowe/Platins/Platinum_Manual_main.content">
 </div>
 <div id="TcHmiTextblock_2950" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="650" data-tchmi-left-unit="px" data-tchmi-text="%l%Text894%/l%" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
@@ -286,7 +286,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "ManualMode/Screens - Docelowe/Wicks/Wicks_Manual_main.content"
+          "value": "ManualMode/Screens - Docelowe/Platins/Platinum_Manual_main.content"
         },
         "asyncWait": true
       }
@@ -439,7 +439,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock_2951" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1250" data-tchmi-left-unit="px" data-tchmi-text="Airless" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="true">
+<div id="TcHmiTextblock_2951" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1250" data-tchmi-left-unit="px" data-tchmi-text="Airless" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(162, 30, 77, 1)"
@@ -491,7 +491,7 @@
 
 
 </div>
-<div id="TcHmiRectangle_1783" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="1250" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4" data-tchmi-is-enabled="true">
+<div id="TcHmiRectangle_1783" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="1250" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,
@@ -627,7 +627,8 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
   {
     "event": "%i%Man_Spec_Func%/i%",
     "actions": [
@@ -809,7 +810,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -889,7 +890,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -1044,5 +1045,6 @@
       }
     ]
   }
-]</script>
+]
+</script>
 </div>

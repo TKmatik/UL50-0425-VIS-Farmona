@@ -753,6 +753,20 @@
       "preloadBindings": false
     },
     {
+      "url": "Dialogs/Dialogs_Recipes_CSorter/CSorter_UVFF_main.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Dialogs/Dialogs_Recipes_CSorter/CSorter_UVFF_Recipe_Menu.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Dialogs/Dialogs_Recipes_Doses/Dosing_faza_dozowniki_3-4_small.content",
       "preload": true,
       "keepAlive": true,
@@ -1488,7 +1502,21 @@
       "preloadBindings": true
     },
     {
+      "url": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_1_UVFF.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_2_UCF.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_2_UVFF.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

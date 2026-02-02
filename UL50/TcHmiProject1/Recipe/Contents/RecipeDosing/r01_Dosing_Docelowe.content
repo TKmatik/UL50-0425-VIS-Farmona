@@ -1584,7 +1584,7 @@
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/ContentPath",
-          "value": "Dialogs/Dialogs_Recipes_Doses/Dosing_knoty.content"
+          "value": "Dialogs/Dialogs_Recipes_Doses/Dosing_platynki.content"
         },
         "asyncWait": true
       }

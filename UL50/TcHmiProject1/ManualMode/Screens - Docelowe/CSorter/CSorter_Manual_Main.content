@@ -208,7 +208,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock_2127" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="%l%Text709%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+<div id="TcHmiTextblock_2127" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="%l%Text709%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="3" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(162, 30, 77, 1)"
@@ -260,7 +260,7 @@
 
 
 </div>
-<div id="TcHmiRectangle_1493" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+<div id="TcHmiRectangle_1493" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="4" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,
@@ -389,7 +389,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock_2128" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-text="%l%Text809%/l%" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+<div id="TcHmiTextblock_2128" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-text="%l%Text809%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(162, 30, 77, 1)"
@@ -441,7 +441,7 @@
 
 
 </div>
-<div id="TcHmiRectangle_1494" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+<div id="TcHmiRectangle_1494" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,
@@ -573,7 +573,8 @@
 <div id="TcHmiRegion_56" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="949" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="1545" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-zindex="5">
 </div>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
   {
     "event": "%i%Man_CS%/i%",
     "actions": [
@@ -812,7 +813,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -892,7 +893,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -1052,7 +1053,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -1215,7 +1216,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": "200"
+                    "value": 200.0
                   }
                 ],
                 "asyncWait": true
@@ -1227,7 +1228,7 @@
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/ContentPath",
-                  "value": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_1_UCF.content"
+                  "value": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_1_UVFF.content"
                 },
                 "asyncWait": true
               }
@@ -1237,7 +1238,7 @@
             "else": [
               {
                 "objectType": "Condition",
-                "active": true,
+                "active": false,
                 "parts": [
                   {
                     "if": [
@@ -1400,8 +1401,9 @@
       }
     ]
   }
-]</script>
-<div id="TcHmiTextblock_2922" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1285" data-tchmi-left-unit="px" data-tchmi-text="%l%Text811%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+]
+</script>
+<div id="TcHmiTextblock_2922" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="1285" data-tchmi-left-unit="px" data-tchmi-text="%l%Text811%/l%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="17" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(162, 30, 77, 1)"
@@ -1453,7 +1455,7 @@
 
 
 </div>
-<div id="TcHmiRectangle_1741" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="1285" data-tchmi-left-unit="px" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true">
+<div id="TcHmiRectangle_1741" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="5" data-tchmi-height-unit="px" data-tchmi-left="1285" data-tchmi-left-unit="px" data-tchmi-top="45" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-visibility="Visible" data-tchmi-is-enabled="False">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,

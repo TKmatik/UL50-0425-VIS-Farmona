@@ -4095,7 +4095,8 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
   {
     "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
     "actions": [
@@ -4184,7 +4185,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": "200"
+                    "value": 200.0
                   }
                 ],
                 "asyncWait": true
@@ -4196,7 +4197,7 @@
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/ContentPath",
-                  "value": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_1_UCF.content"
+                  "value": "ManualMode/Screens - Docelowe/CSorter/CSorter_Manual_1_UVFF.content"
                 },
                 "asyncWait": true
               }
@@ -4347,7 +4348,8 @@
       }
     ]
   }
-]</script>
+]
+</script>
 
 <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
 {
@@ -4570,7 +4572,8 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
   {
     "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseDown",
     "actions": [
@@ -4637,7 +4640,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": 500
+                    "value": 500.0
                   }
                 ],
                 "asyncWait": true
@@ -4663,7 +4666,7 @@
       },
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -4724,7 +4727,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": 500
+                    "value": 500.0
                   }
                 ],
                 "asyncWait": true
@@ -4750,7 +4753,7 @@
       },
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -4822,7 +4825,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": 500
+                    "value": 500.0
                   }
                 ],
                 "asyncWait": true
@@ -4846,7 +4849,7 @@
                   {
                     "objectType": "StaticValue",
                     "valueType": "tchmi:general#/definitions/Number",
-                    "value": 500
+                    "value": 500.0
                   }
                 ],
                 "asyncWait": true
@@ -4872,7 +4875,8 @@
       }
     ]
   }
-]</script>
+]
+</script>
 
 <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
 {
@@ -5432,7 +5436,7 @@
                         "value": {
                           "objectType": "StaticValue",
                           "valueType": "tchmi:framework#/definitions/ContentPath",
-                          "value": "ManualMode/Screens - Docelowe/Wicks/Wicks_Manual_main.content"
+                          "value": "ManualMode/Screens - Docelowe/Platins/Platinum_Manual_main.content"
                         },
                         "asyncWait": true
                       },
@@ -5456,7 +5460,7 @@
                         "value": {
                           "objectType": "StaticValue",
                           "valueType": "tchmi:framework#/definitions/ContentPath",
-                          "value": "ManualMode/Screens - Docelowe/Wicks/Wicks_Manual_1.content"
+                          "value": "ManualMode/Screens - Docelowe/Platins/Platinum_Manual_1.content"
                         },
                         "asyncWait": true
                       }
@@ -5466,7 +5470,7 @@
                     "else": [
                       {
                         "objectType": "Condition",
-                        "active": true,
+                        "active": false,
                         "parts": [
                           {
                             "if": [

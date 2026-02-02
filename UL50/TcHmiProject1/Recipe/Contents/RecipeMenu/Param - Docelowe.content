@@ -1677,7 +1677,7 @@
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/ContentPath",
-                  "value": "Dialogs/Dialogs_Recipes_CSorter/CSorter_UCF_main_1.content"
+                  "value": "Dialogs/Dialogs_Recipes_CSorter/CSorter_UVFF_main.content"
                 },
                 "asyncWait": true
               },
@@ -1733,7 +1733,7 @@
             "else": [
               {
                 "objectType": "Condition",
-                "active": true,
+                "active": false,
                 "parts": [
                   {
                     "if": [
