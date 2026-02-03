@@ -2509,8 +2509,8 @@
     ],
     "DISCOVERY": 2,
     "ENDPOINTS": [
-        "http://127.0.0.1:13014",
-        "http://127.0.0.1:3016"
+        "http://127.0.0.1:13015",
+        "http://127.0.0.1:3017"
     ],
     "ETAGENABLED": true,
     "EXTENSIONS": {

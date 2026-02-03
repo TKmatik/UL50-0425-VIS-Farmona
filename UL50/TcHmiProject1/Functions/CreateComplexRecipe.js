@@ -37,9 +37,9 @@
                         }
 
                 generalTypeDef = {
-                    ubl: newRecipeName + "__ubl",
-                    up: newRecipeName + "__up",
-                    uf: newRecipeName + "__uf"
+                    ubl: newRecipeName + "__ubl"
+                    //up: newRecipeName + "__up",
+                   // uf: newRecipeName + "__uf"
                 };
                 TcHmi.Server.RecipeManagement.getRecipeType(
                     generalTypeOfRecipe,

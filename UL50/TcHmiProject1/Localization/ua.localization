@@ -1470,6 +1470,7 @@
     "Text933": "Time to empty sleeve alarm [s] (10-300 s)",
     "Text935": "TEST MODE",
     "Text936": "TEACHING MODE",
-    "Text937": "COPY The CURRENT POSITION as a THREAD SEARCH POSITION to the RECIPE"
+    "Text937": "COPY The CURRENT POSITION as a THREAD SEARCH POSITION to the RECIPE",
+    "Text938": "2-Head feeder"
   }
 }

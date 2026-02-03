@@ -597,7 +597,7 @@
     "Text593": "Wagi | Przeciąganie formatek",
     "Text594": "Stół | Transportery",
     "Text595": "Robot | Wizja | Podajnik",
-    "Text596": "Załapywarka",
+    "Text596": "Załapywarka | Podajnik zamknięć",
     "Text597": "SYSTEM WIZYJNY",
     "Text598": "PODAJNIK ZAMKNIĘĆ",
     "Text599": "Zrób zdjęcie",
@@ -682,7 +682,7 @@
     "Text678": "Wyjazd produktu",
     "Text679": "Podawanie butelek",
     "Text680": "Dozowanie & spec. funk.",
-    "Text681": "Podawanie zamknięć",
+    "Text681": "PODAWANIE ZAMKNIĘĆ",
     "Text682": "Zakręcanie",
     "Text683": "Data",
     "Text684": "Witaj,",
@@ -1565,6 +1565,7 @@
     "Text934": "ZAKRĘCARKA ROLKOWA",
     "Text935": "TRYB TESTOWY",
     "Text936": "TRYB NAUCZANIA",
-    "Text937": "Kopiuj aktualną pozycję jako pozycję szuk. gwintu do receptury"
+    "Text937": "Kopiuj aktualną pozycję jako pozycję szuk. gwintu do receptury",
+    "Text938": "Podajnik 2-głowicowy"
   }
 }

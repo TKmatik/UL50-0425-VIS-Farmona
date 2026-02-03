@@ -44,7 +44,7 @@
 }
 </script>
 </div>
-<div id="TcHmiRectangle_2186" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="105" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="1470" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+<div id="TcHmiRectangle_2186" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="94" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="1490" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "None"
@@ -63,7 +63,7 @@
 }
 </script>
 </div>
-<div id="TcHmiRectangle_2187" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="1470" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+<div id="TcHmiRectangle_2187" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="1490" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "None"
@@ -82,7 +82,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock_3096" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="%l%Text452%/l%" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_3096" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="%l%Text808%/l%" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "left": 10,
@@ -680,13 +680,13 @@
   }
 ]</script>
 </div>
-<div id="LrParam_2134" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="21" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-caption="%l%Text123%/l%" data-tchmi-value="%s%ADS.PLC1.VIS_CP.bCapPusherEnableShow%/s%" data-tchmi-var="PLC1.VIS_CP.bCapPusherEnableShow" data-tchmi-boprcanchange="True">
+<div id="LrParam_2134" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-caption="%l%Text123%/l%" data-tchmi-value="%s%ADS.PLC1.VIS_CP.bCapPusherEnableShow%/s%" data-tchmi-var="PLC1.VIS_CP.bCapPusherEnableShow" data-tchmi-boprcanchange="True">
 </div>
-<div id="LrParam_2132" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="570" data-tchmi-left-unit="px" data-tchmi-max="10000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeDelayOnShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text720%/l%">
+<div id="LrParam_2132" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="560" data-tchmi-left-unit="px" data-tchmi-max="10000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeDelayOnShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text720%/l%">
 </div>
-<div id="LrParam_2131" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="844" data-tchmi-left-unit="px" data-tchmi-max="10000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeDelayOffShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text721%/l%">
+<div id="LrParam_2131" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="831" data-tchmi-left-unit="px" data-tchmi-max="10000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeDelayOffShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text721%/l%">
 </div>
-<div id="LrParam_2130" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1118" data-tchmi-left-unit="px" data-tchmi-max="120" data-tchmi-min="10" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeToEmptySleeveErrorShow%/s%" data-tchmi-unit="s" data-tchmi-caption="%l%Text722%/l%">
+<div id="LrParam_2130" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1101" data-tchmi-left-unit="px" data-tchmi-max="120" data-tchmi-min="10" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherFeederTimeToEmptySleeveErrorShow%/s%" data-tchmi-unit="s" data-tchmi-caption="%l%Text722%/l%">
 </div>
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
@@ -749,47 +749,9 @@
     ]
   }
 ]</script>
-<div id="LrParam_2157" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="296" data-tchmi-left-unit="px" data-tchmi-max="5000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="161" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherTimeShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text888%/l%">
+<div id="LrParam_2157" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-max="5000" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="49" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="3" data-tchmi-value="%s%ADS.PLC1.VIS_CP.iCapPusherTimeShow%/s%" data-tchmi-unit="ms" data-tchmi-caption="%l%Text888%/l%">
 </div>
-<div id="TcHmiRectangle_2206" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="263" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-top="231" data-tchmi-top-unit="px" data-tchmi-width="660" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-is-enabled="true">
-<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
-{
-  "color": "None"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
-{
-  "color": "rgba(245, 248, 250, 1)"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "rgba(245, 248, 250, 1)"
-}
-</script>
-</div>
-<div id="TcHmiRectangle_2207" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-top="231" data-tchmi-top-unit="px" data-tchmi-width="660" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-is-enabled="true">
-<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
-{
-  "color": "None"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
-{
-  "color": "rgba(238, 238, 238, 1)"
-}
-</script>
-
-<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
-{
-  "color": "rgba(238, 238, 238, 1)"
-}
-</script>
-</div>
-<div id="TcHmiTextblock_3394" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="850" data-tchmi-left-unit="px" data-tchmi-text="%l%Text456%/l%" data-tchmi-top="231" data-tchmi-top-unit="px" data-tchmi-width="660" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold" data-tchmi-is-enabled="true">
+<div id="TcHmiTextblock_3394" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="%l%Text938%/l%" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="660" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold" data-tchmi-is-enabled="true">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "left": 10,
@@ -803,25 +765,19 @@
 }
 </script>
 </div>
-<div id="LrParam_2663" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="860" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text128%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow">
+<div id="LrParam_2663" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text128%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow">
 </div>
-<div id="LrParam_2664" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1130" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text129%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker1EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker1EnableShow">
+<div id="LrParam_2664" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="830" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text129%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker1EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker1EnableShow">
 </div>
-<div id="LrParam_2665" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1130" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text130%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker2EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker2EnableShow">
+<div id="LrParam_2665" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1100" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text130%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker2EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker2EnableShow">
 </div>
-<div id="LrParam_2666" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1130" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="381" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text131%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker3EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker3EnableShow">
+<div id="LrParam_2668" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerPickerSpeedShow|BindingMode=TwoWay%/s%" data-tchmi-caption="%l%Text158%/l%" data-tchmi-unit="%" data-tchmi-min="0" data-tchmi-max="100" data-tchmi-is-enabled="True">
 </div>
-<div id="LrParam_2667" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1130" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="437" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text132%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker4EnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPicker4EnableShow">
+<div id="LrParam_2669" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text145%/l%" data-tchmi-unit="°" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewFindingShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
 </div>
-<div id="LrParam_2668" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="860" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="325" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerPickerSpeedShow|BindingMode=TwoWay%/s%" data-tchmi-caption="%l%Text158%/l%" data-tchmi-unit="%" data-tchmi-min="0" data-tchmi-max="100" data-tchmi-is-enabled="true">
+<div id="LrParam_2670" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text144%/l%" data-tchmi-unit="°" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewDistanceShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1400" data-tchmi-is-enabled="True">
 </div>
-<div id="LrParam_2669" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="860" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="436" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text145%/l%" data-tchmi-unit="°" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewFindingShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="true">
-</div>
-<div id="LrParam_2670" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="860" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="380" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text144%/l%" data-tchmi-unit="°" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewDistanceShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1400" data-tchmi-is-enabled="true">
-</div>
-<div id="LrParam_2671" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="580" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="69" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text128%/l%" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerEnableShow" data-tchmi-boprcanchange="True">
-</div>
-<div id="TcHmiRectangle_2208" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="94" data-tchmi-height-unit="px" data-tchmi-left="30" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-visibility="Visible" data-tchmi-width="820">
+<div id="TcHmiRectangle_2208" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="94" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-visibility="Visible" data-tchmi-width="1490">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "None"
@@ -840,7 +796,7 @@
 }
 </script>
 </div>
-<div id="TcHmiRectangle_2209" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="30" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-visibility="Visible" data-tchmi-width="820">
+<div id="TcHmiRectangle_2209" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-visibility="Visible" data-tchmi-width="1490">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "None"
@@ -859,7 +815,49 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock_3395" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="30" data-tchmi-left-unit="px" data-tchmi-text="%l%Text452%/l%" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-visibility="Visible" data-tchmi-width="820">
+<div id="LrParam_2672" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="560" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text203%/l%" data-tchmi-zindex="30" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPoundedInCap|BindingMode=TwoWay%/s%" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPoundedInCap">
+</div>
+<div id="LrParam_2673" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text206%/l%" data-tchmi-zindex="2" data-tchmi-value="%s%PLC1.VIS.bCapSorterOnlyWeightOKEnableShow|BindingMode=TwoWay%/s%" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-var="PLC1.VIS.bCapSorterOnlyWeightOKEnableShow">
+</div>
+<div id="TcHmiRectangle_2210" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="207" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="219" data-tchmi-top-unit="px" data-tchmi-width="1490" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(245, 248, 250, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(245, 248, 250, 1)"
+}
+</script>
+</div>
+<div id="TcHmiRectangle_2211" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="219" data-tchmi-top-unit="px" data-tchmi-width="1490" data-tchmi-width-unit="px" data-tchmi-zindex="2" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(238, 238, 238, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(238, 238, 238, 1)"
+}
+</script>
+</div>
+<div id="TcHmiTextblock_3396" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="%l%Text134%/l%" data-tchmi-top="219" data-tchmi-top-unit="px" data-tchmi-width="415" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="3" data-tchmi-text-font-weight="Bold" data-tchmi-is-enabled="true">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "left": 10,
@@ -873,8 +871,24 @@
 }
 </script>
 </div>
-<div id="LrParam_2672" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="40" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="69" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text203%/l%" data-tchmi-zindex="30" data-tchmi-value="%s%CapSorter.GVL_Recipe.bCapSorterPreScrewerPoundedInCap|BindingMode=TwoWay%/s%" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-var="CapSorter.GVL_Recipe.bCapSorterPreScrewerPoundedInCap">
+<div id="LrParam_2676" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text143%/l%" data-tchmi-unit="%" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewSpeedShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="100" data-tchmi-is-enabled="True">
 </div>
-<div id="LrParam_2673" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="310" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/bParam.usercontrol" data-tchmi-top="69" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-caption="%l%Text206%/l%" data-tchmi-zindex="2" data-tchmi-value="%s%PLC1.VIS.bCapSorterOnlyWeightOKEnableShow|BindingMode=TwoWay%/s%" data-tchmi-visibility="Visible" data-tchmi-is-enabled="true" data-tchmi-var="PLC1.VIS.bCapSorterOnlyWeightOKEnableShow">
+<div id="LrParam_2677" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="290" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="369" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text146%/l%" data-tchmi-unit="mm" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerScrewerStartZPositionShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2678" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="560" data-tchmi-left-unit="px" data-tchmi-max="100" data-tchmi-min="0.1" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="5" data-tchmi-value="%s%ADS.CapSorter.GVL_Recipe.lrCapSorterPreScrewerThreadPitchShow%/s%" data-tchmi-caption="%l%Text362%/l%" data-tchmi-unit="mm" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2679" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="561" data-tchmi-left-unit="px" data-tchmi-max="100" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="5" data-tchmi-value="%s%ADS.CapSorter.GVL_Recipe.lrCapSorterPreScrewerMultipleStartThreadShow%/s%" data-tchmi-caption="%l%Text363%/l%" data-tchmi-unit="x" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2680" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="561" data-tchmi-left-unit="px" data-tchmi-max="100" data-tchmi-min="0" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="369" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="5" data-tchmi-value="%s%ADS.CapSorter.GVL_Recipe.lrCapSorterPreScrewerNumberOfThreadTurnsShow%/s%" data-tchmi-caption="%l%Text361%/l%" data-tchmi-unit="x" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2681" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1100" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerCapCatcherZPositionShow|BindingMode=TwoWay%/s%" data-tchmi-caption="%l%Text155%/l%" data-tchmi-unit="mm" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2682" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="830" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-caption="%l%Text154%/l%" data-tchmi-unit="mm" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerPickZPositionShow|BindingMode=TwoWay%/s%" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2683" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1100" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerTopZPositionShow|BindingMode=TwoWay%/s%" data-tchmi-caption="%l%Text156%/l%" data-tchmi-unit="mm" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2684" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="830" data-tchmi-left-unit="px" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="7" data-tchmi-value="%s%CapSorter.GVL_Recipe.lrCapSorterPreScrewerCartesianCatchZPositionShow|BindingMode=TwoWay%/s%" data-tchmi-caption="%l%Text157%/l%" data-tchmi-unit="mm" data-tchmi-min="0" data-tchmi-max="1000" data-tchmi-is-enabled="True">
+</div>
+<div id="LrParam_2685" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-digit="0" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-max="1000" data-tchmi-min="-1000" data-tchmi-target-user-control="Recipe/CommonControls/lrParam.usercontrol" data-tchmi-top="369" data-tchmi-top-unit="px" data-tchmi-width="260" data-tchmi-width-unit="px" data-tchmi-zindex="9" data-tchmi-caption="%l%Text264%/l%" data-tchmi-kybtop="340" data-tchmi-kybleft="340" data-tchmi-unit="mm" data-tchmi-value="%s%CapSorter.GVL_VIS.lrCapSorterPreScrewerCatchStationHeightSVShow|BindingMode=TwoWay%/s%" data-tchmi-is-enabled="True">
 </div>
 </div>

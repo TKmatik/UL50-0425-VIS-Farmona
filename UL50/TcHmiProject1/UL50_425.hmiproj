@@ -12,7 +12,7 @@
     <HmiTitle>UBL50-0125</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3016</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3017</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiDefaultLanguage>pl-PL</HmiDefaultLanguage>
@@ -21,7 +21,7 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>UL50_425</Name>
     <HmiCommunicationRouterPort>10205</HmiCommunicationRouterPort>
-    <HmiCommunicationServerAuthPort>13014</HmiCommunicationServerAuthPort>
+    <HmiCommunicationServerAuthPort>13015</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.760.54</HmiInitial>
     <HmiRecent>14.3.436.1</HmiRecent>
     <HmiServerNodeAdvancedView>True</HmiServerNodeAdvancedView>
@@ -1692,6 +1692,7 @@
     <Content Include="Server\ADS\ADS.Config.default.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json" />
     <Content Include="Server\ADS\ADS.Config.default.json" />
     <Content Include="Server\ADS\ADS.Config.default.json" />
     <Content Include="Server\ADS\ADS.Config.default.json" />

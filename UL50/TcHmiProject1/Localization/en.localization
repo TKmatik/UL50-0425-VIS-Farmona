@@ -597,7 +597,7 @@
     "Text593": "Scales | Dragging Pucks",
     "Text594": "Table | Conveyours",
     "Text595": "Robot | Vision | Feeder",
-    "Text596": "Pre-capping Unit",
+    "Text596": "Pre-capping Unit | Closure Feeder",
     "Text597": "VISION SYSTEM",
     "Text598": "CLOSURES FEEDER",
     "Text599": "Take a Picture",
@@ -682,7 +682,7 @@
     "Text678": "Product transfer",
     "Text679": "Bottle Feeding",
     "Text680": "Dosing & special func.",
-    "Text681": "Closure Feeding",
+    "Text681": "CLOSURE FEEDING",
     "Text682": "Capping",
     "Text683": "Date",
     "Text684": "Hello,",
@@ -1534,6 +1534,7 @@
     "Text933": "Time to empty sleeve alarm [s] (10-300 s)",
     "Text935": "TEST MODE",
     "Text936": "TEACHING MODE",
-    "Text937": "COPY The CURRENT POSITION as a THREAD SEARCH POSITION to the RECIPE"
+    "Text937": "COPY The CURRENT POSITION as a THREAD SEARCH POSITION to the RECIPE",
+    "Text938": "2-Head feeder"
   }
 }
